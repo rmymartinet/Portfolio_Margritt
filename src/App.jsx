@@ -4,7 +4,7 @@ import { AnimatePresence } from "framer-motion";
 import { Route, Routes, useLocation } from "react-router-dom";
 import "./styles/locomotive.css";
 
-import { useEffect, useLayoutEffect } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import NavBar from "./components/Nav/NavBar.jsx";
 import About from "./pages/About/About.jsx";
 import Contact from "./pages/Contact/Contact.jsx";
@@ -27,12 +27,22 @@ function App() {
     window.scrollTo(0, 0);
   }, [location]);
 
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+      document.body.style.cursor = "default";
+      window.scrollTo(0, 0);
+    }, 5000);
+  }, [isLoading]);
+
   return (
     <>
       <AnimatePresence initial={false} mode="wait">
-        <NavBar />
+        {isLoading === false && <NavBar />}
         <Routes location={location} key={location.pathname}>
-          <Route path="/" index element={<Home />} />
+          <Route path="/" index element={<Home isLoading={isLoading} />} />
           <Route path="/galleries" element={<Gallery />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/about" element={<About />} />

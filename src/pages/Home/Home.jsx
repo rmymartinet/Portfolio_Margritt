@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import gsap from "gsap";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import SplitType from "split-type";
 import { HomePageTransition } from "../../components/Animations/PageTransition.jsx";
@@ -9,18 +9,8 @@ import Landing from "../../components/Loading/Landing.jsx";
 
 import "./Home.scss";
 
-const Home = () => {
+const Home = ({ isLoading }) => {
   const { t } = useTranslation();
-
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-      document.body.style.cursor = "default";
-      window.scrollTo(0, 0);
-    }, 5000);
-  }, [isLoading]);
 
   const SplitLines = (textClassName) => {
     const element = document.querySelector(`.${textClassName}`);
