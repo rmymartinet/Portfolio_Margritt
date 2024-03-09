@@ -1,0 +1,55 @@
+@import "../sass/variables.scss";
+
+@mixin parent-styles {
+  background-color: $primary-color;
+  z-index: 100;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin display-center-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+@mixin grid-center {
+  display: grid;
+  place-content: center;
+}
+
+@mixin grid($columns, $rows) {
+  display: grid;
+  grid-template-columns: $columns;
+  grid-template-rows: $rows;
+}
+
+@mixin divider($width, $height, $color) {
+  width: $width;
+  height: $height;
+  background-color: $color;
+}
+
+@mixin mailPseudoElements {
+  content: "";
+  width: 30%;
+  border-bottom: 4px solid $secondary-color;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  opacity: 1;
+  transform: scale(1, 1);
+  transform-origin: right center 0;
+  transition: left 0.2s ease-in-out, width 0.2s ease-in-out;
+}
+
+@mixin glassmorphismNav() {
+  background: rgba(255, 255, 255, 0.406);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.374);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(10px);
+}

@@ -1,0 +1,200 @@
+@import "../../sass/mixins.scss";
+@import "../../sass/variables.scss";
+
+.tirage-details-container {
+  display: grid;
+  place-content: flex-end;
+  align-items: center;
+  grid-template-rows: repeat(4, minmax(0, 1fr));
+
+  .details-image {
+    position: relative;
+    top: 0;
+    right: 0;
+    width: calc(40vw + 10px);
+    height: calc(40vh + 10px);
+
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .img2 {
+      z-index: -1;
+    }
+    .img3 {
+      z-index: -2;
+    }
+
+    .img4 {
+      z-index: -3;
+    }
+
+    .img2,
+    .img3,
+    .img4 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .details-image-copy {
+    position: fixed;
+    width: calc(30vw + 10px);
+    height: 80px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    bottom: 5%;
+    left: 5%;
+    gap: 0.5em;
+
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .details-content-left {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    position: fixed;
+    top: 2vh;
+    left: 0;
+    width: 55vw;
+    padding: calc(5vw + 10px);
+    display: grid;
+    height: max-content;
+
+    .title {
+      grid-column: 1 / span 3;
+      font-size: $fs-xl;
+      margin-bottom: 0.5em;
+    }
+    .description {
+      grid-column: 1 / span 3;
+      margin-bottom: 2em;
+
+      .piece {
+        font-size: $fs-lg;
+        margin-bottom: 5px;
+      }
+
+      .serie-date-content {
+        display: flex;
+        .serie {
+          font-size: $fs-md;
+          font-style: italic;
+        }
+
+        .date {
+          font-size: $fs-md;
+          margin-left: 0.5em;
+        }
+      }
+    }
+
+    .subtitle {
+      font-size: $fs-base;
+      grid-column: 1 / span 3;
+      margin-bottom: 4em;
+
+      p:first-child {
+        margin-bottom: 1em;
+      }
+    }
+
+    .note {
+      grid-column: 1 / span 3;
+      font-size: $fs-sm;
+      justify-self: flex-end;
+      margin-top: calc(3vh + 10px);
+    }
+  }
+  .details-content-right {
+    grid-column: 1 / span 3;
+
+    .tirage-infos {
+      grid-column: 1 / span 3;
+    }
+
+    .tirage,
+    .format,
+    .papier {
+      display: grid;
+      grid-template-columns: 1fr 58%;
+      padding: 5px 0;
+      font-size: $fs-base;
+    }
+
+    .tirage {
+      border-top: solid 1px $secondary-color;
+    }
+
+    .format {
+      border-top: solid 1px $secondary-color;
+      border-bottom: solid 1px $secondary-color;
+    }
+
+    .papier {
+      border-bottom: solid 1px $secondary-color;
+    }
+
+    .livraison {
+      grid-column: 1 / span 3;
+
+      .livraison-title {
+        font-size: $fs-base;
+        padding: 5px;
+        background-color: $secondary-color;
+        color: $primary-color;
+        border-bottom: solid 1px $secondary-color;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .tirage-details-container {
+    display: flex;
+    flex-direction: column;
+
+    .details-image {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      height: 100%;
+      width: 90%;
+      gap: 2em;
+
+      img {
+        position: static;
+      }
+
+      .img2,
+      .img3,
+      .img4 {
+        position: static;
+      }
+    }
+
+    .details-image-copy {
+      display: none;
+    }
+
+    .details-content-left {
+      position: static;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      width: 100%;
+      margin-bottom: 0;
+    }
+  }
+}
