@@ -5,7 +5,6 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import "./styles/locomotive.css";
 
 import { useEffect, useLayoutEffect, useState } from "react";
-import { LoadingContext } from "./LoadingContext.js";
 import NavBar from "./components/Nav/NavBar.jsx";
 import About from "./pages/About/About.jsx";
 import Contact from "./pages/Contact/Contact.jsx";
@@ -31,28 +30,26 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-      document.body.style.cursor = "default";
-      window.scrollTo(0, 0);
-    }, 5000);
-  }, [isLoading]);
+    if (isLoading) {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 5000);
+    }
+  });
 
   return (
     <>
       <AnimatePresence initial={false} mode="wait">
-        <LoadingContext.Provider value={isLoading}>
-          {!isLoading && <NavBar />}
-          <Routes location={location} key={location.pathname}>
-            <Route path="/" index element={<Home />} />
-            <Route path="/galleries" element={<Gallery />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/tirages/:index" element={<TirageDetails />} />
-            <Route path="/originaux/:index" element={<OriginauxDetails />} />
-          </Routes>
-        </LoadingContext.Provider>
+        {!isLoading && <NavBar />}
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" index element={<Home isLoading={isLoading} />} />
+          <Route path="/galleries" element={<Gallery />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/tirages/:index" element={<TirageDetails />} />
+          <Route path="/originaux/:index" element={<OriginauxDetails />} />
+        </Routes>
       </AnimatePresence>
     </>
   );
