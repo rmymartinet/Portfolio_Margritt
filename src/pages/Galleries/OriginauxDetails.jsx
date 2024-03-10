@@ -154,7 +154,7 @@ const OriginauxDetails = () => {
             {/* <div className="details-content-right">
               <div className="tirage-infos">
                 <InfoItem
-                  label={t("originauxDetails.paper")}
+                  // label={t("originauxDetails.paper")}
                   value={selectedImage.papier}
                   className="papier"
                 />

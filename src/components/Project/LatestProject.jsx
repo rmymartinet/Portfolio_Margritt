@@ -1,7 +1,9 @@
 import { gsap } from "gsap";
 import React, { useEffect, useRef, useState } from "react";
-import p1 from "../../assets/images/LoadingImages/p1.jpeg";
-import p2 from "../../assets/images/LoadingImages/p2.jpeg";
+import p1 from "../../assets/images/project/p1.jpeg";
+import p2 from "../../assets/images/project/p2.jpeg";
+import p3 from "../../assets/images/project/p3.jpeg";
+
 import Modal from "./Modal";
 import { ProjectLatest } from "./ProjectComponents";
 
@@ -10,19 +12,19 @@ const LatestProject = () => {
 
   const projects = [
     {
-      title: "Futurama 2",
-      src: p2,
-      color: "#8C8C8C",
+      title: "Futurama",
+      URL: "https://www.instagram.com/maargriitt/",
+      src: p1,
     },
     {
       title: "Bibulle 6",
-      src: p1,
-      color: "#000000",
+      URL: "https://www.instagram.com/maargriitt/",
+      src: p2,
     },
     {
       title: "Bibulle 7",
-      src: p2,
-      color: "#EFE8D3",
+      URL: "https://www.instagram.com/maargriitt/",
+      src: p3,
     },
   ];
 
@@ -61,6 +63,7 @@ const LatestProject = () => {
               title={project.title}
               setModal={setModal}
               key={index}
+              href={project.URL}
             />
           );
         })}

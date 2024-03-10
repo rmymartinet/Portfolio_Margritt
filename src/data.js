@@ -2,14 +2,14 @@ import bibulle from "./assets/images/Gallery/Originaux_120/dimension_1500/bibull
 import bibulle1 from "./assets/images/Gallery/Originaux_120/dimension_1500/bibulle1.jpg";
 import bibulle3bis from "./assets/images/Gallery/Originaux_120/dimension_1500/bibulle3bis.jpg";
 import futurama1 from "./assets/images/Gallery/Originaux_120/dimension_1500/futurama1.jpg";
-import bibulle3Moyen from "./assets/images/Gallery/Tirage_50/dimension_1500/bibulle3.jpg";
-import bibulle5Moyen from "./assets/images/Gallery/Tirage_50/dimension_1500/bibulle5.jpg";
-import futurama2Moyen from "./assets/images/Gallery/Tirage_50/dimension_1500/futurama2.jpg";
-import futurama3Moyen from "./assets/images/Gallery/Tirage_50/dimension_1500/futurama3.jpg";
 import bibulle3_1 from "./assets/images/Gallery/Tirage_50/bibulle3_details/bibulle3-1.webp";
 import bibulle3_2 from "./assets/images/Gallery/Tirage_50/bibulle3_details/bibulle3-2.webp";
 import bibulle3_3 from "./assets/images/Gallery/Tirage_50/bibulle3_details/bibulle3-3.webp";
 import bibulle3_4 from "./assets/images/Gallery/Tirage_50/bibulle3_details/bibulle3-4.webp";
+import bibulle3Moyen from "./assets/images/Gallery/Tirage_50/dimension_1500/bibulle3.jpg";
+import bibulle5Moyen from "./assets/images/Gallery/Tirage_50/dimension_1500/bibulle5.jpg";
+import futurama2Moyen from "./assets/images/Gallery/Tirage_50/dimension_1500/futurama2.jpg";
+import futurama3Moyen from "./assets/images/Gallery/Tirage_50/dimension_1500/futurama3.jpeg";
 
 import futurama2_1 from "./assets/images/Gallery/Tirage_50/futurama2_details/futurama2-1.webp";
 import futurama2_2 from "./assets/images/Gallery/Tirage_50/futurama2_details/futurama2-2.webp";

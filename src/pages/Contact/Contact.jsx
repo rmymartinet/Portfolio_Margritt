@@ -48,7 +48,9 @@ const Contact = () => {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          <p>margrittmartinet@gmail.com</p>
+          <a href="mailto:margrittmartinet@gmail.com">
+            margrittmartinet@gmail.com
+          </a>
         </div>
       </div>
 

@@ -103,22 +103,25 @@ export const Activity = forwardRef((_, ref) => {
 
 Activity.displayName = "Activity";
 
-export const ProjectLatest = forwardRef(({ index, title, setModal }, ref) => {
-  return (
-    <div
-      ref={ref}
-      onMouseEnter={() => {
-        setModal({ active: true, index });
-      }}
-      onMouseLeave={() => {
-        setModal({ active: false, index });
-      }}
-      className="project"
-    >
-      <h2>{title}</h2>
-      <p>Full process on my Instagram</p>
-    </div>
-  );
-});
+export const ProjectLatest = forwardRef(
+  ({ index, title, setModal, href }, ref) => {
+    return (
+      <a
+        href={href}
+        ref={ref}
+        onMouseEnter={() => {
+          setModal({ active: true, index });
+        }}
+        onMouseLeave={() => {
+          setModal({ active: false, index });
+        }}
+        className="project"
+      >
+        <h2>{title}</h2>
+        <p>Full process on my Instagram</p>
+      </a>
+    );
+  }
+);
 
 ProjectLatest.displayName = "ProjectLatest";

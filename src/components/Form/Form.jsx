@@ -48,7 +48,9 @@ const Form = () => {
           <p>Let's discuss</p>
         </div>
         <div className="mail">
-          <p>margrittmartinet@gmail.com</p>
+          <a href="mailto:margrittmartinet@gmail.com">
+            margrittmartinet@gmail.com
+          </a>
         </div>
       </div>
       {dividerInView && <Divider className="divider" />}

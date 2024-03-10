@@ -261,38 +261,38 @@
         object-fit: contain;
         aspect-ratio: 16/9;
       }
-    }
 
-    @for $i from 0 through 7 {
-      .grid-img#{$i} {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        .image-content {
-          width: 75%;
-          font-size: 1em;
-          padding: 40px 0;
+      @for $i from 0 through 7 {
+        .grid-img#{$i} {
           display: flex;
+          flex-direction: column;
+          align-items: center;
 
-          .content-left {
-            flex: 2;
-            font-size: $fs-base;
-          }
-
-          .content-right {
-            flex: 1.5;
+          .image-content {
+            width: 75%;
+            font-size: 1em;
+            padding: 40px 0;
             display: flex;
-            align-items: flex-end;
-            flex-direction: column;
 
-            .image-date {
-              padding-bottom: 1em;
+            .content-left {
+              flex: 2;
               font-size: $fs-base;
             }
-            .image-format {
-              opacity: 0.5;
-              font-size: $fs-sm;
+
+            .content-right {
+              flex: 1.5;
+              display: flex;
+              align-items: flex-end;
+              flex-direction: column;
+
+              .image-date {
+                padding-bottom: 1em;
+                font-size: $fs-base;
+              }
+              .image-format {
+                opacity: 0.5;
+                font-size: $fs-sm;
+              }
             }
           }
         }
