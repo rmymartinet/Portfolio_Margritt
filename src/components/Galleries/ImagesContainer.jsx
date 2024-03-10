@@ -5,10 +5,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(Flip);
 
 const ImagesContainer = ({
-  //eslint-disable-next-line
-  refContainer,
   //eslint-disable-next-line
   onIsClickedChange,
   //eslint-disable-next-line
@@ -34,7 +33,7 @@ const ImagesContainer = ({
   const imgContainerRef = useRef(null);
   const originauxCategory = item.filter((cat) => cat.category === "originaux");
 
-  /* Nivagation lors du click sur images
+  /* Navagation lors du click sur images
   * La fonction handleNavigate permet de naviguer vers la page de l'image cliquée
   
   */
@@ -69,7 +68,6 @@ const ImagesContainer = ({
    */
 
   const flipAnimation = useCallback(() => {
-    gsap.registerPlugin(Flip);
     const flipContainer = document.querySelector(".flip-container");
     const images = gsap.utils.toArray(".images-container img");
 
@@ -104,8 +102,6 @@ const ImagesContainer = ({
   }, [item, originauxCategory]);
 
   const lowFlipAnimation = useCallback(() => {
-    gsap.registerPlugin(Flip);
-
     const flipContainer = document.querySelector(".flip-container-width");
     const images = gsap.utils.toArray(".images-container img");
 
@@ -163,69 +159,20 @@ const ImagesContainer = ({
    */
 
   useEffect(() => {
-    if (isGridClick === true && isGrid === true) {
-      gsap.from("img", {
-        clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)",
-        // y: 300,
-        // scale: 1.5,
-        opacity: 1,
-        duration: 2,
-        ease: "power2.out",
-      });
-      gsap.to("img", {
-        clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)",
-        // scale: 1,
-        // y: 0,
-        opacity: 1,
-        duration: 2,
-        ease: "power2.out",
-      });
+    const gridButton = document.querySelector(
+      ".grid-images-content .img-gallery-container"
+    );
 
-      gsap.from(".image-content", {
-        opacity: 0,
-        duration: 2,
-        delay: 1,
-        ease: "power2.out",
-      });
-      gsap.to(" .image-content", {
-        opacity: 1,
-        duration: 2,
-        delay: 1,
-        ease: "power2.out",
-      });
-    } else {
-      gsap.from("img", {
-        clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)",
-        y: 300,
-        // scale: 1.5,
-        opacity: 1,
-        duration: 2,
-        ease: "power2.out",
-      });
-      gsap.to("img", {
-        clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)",
-        // scale: 1,
-        y: 0,
-        opacity: 1,
-        duration: 2,
-        ease: "power2.out",
-      });
-      gsap.from(" .image-content", {
-        opacity: 0,
-        duration: 2,
-        delay: 1,
+    const items = gsap.utils.toArray("img");
+    const state = Flip.getState(items);
+    gridButton.classList.toggle("insert");
 
-        ease: "power2.out",
-      });
-      gsap.to(" .image-content", {
-        opacity: 1,
-        duration: 2,
-        delay: 1,
-        ease: "power2.out",
-      });
-    }
-  }, [isGrid, isGridClick]);
-
+    Flip.from(state, {
+      duration: 1,
+      stagger: 0.04,
+      ease: "power3.inOut",
+    });
+  }, [isGridClick]);
   /* Animation pour le click sur les images
   *  Lors du click sur ButtonFilter on fait apparitre les images avec une animations
   
@@ -285,11 +232,11 @@ const ImagesContainer = ({
     }
   }, [isCategoryIsClicked]);
 
-  const containerClass = isGrid ? " grid" : "grid-images-content";
+  // const containerClass = isGrid ? "grid" : "grid-images-content";
 
   return (
     <motion.div
-      className={containerClass}
+      className="grid-images-content"
       exit={[0, 1, 2, 3, 4, 5, 6, 7].includes(isClicked) ? "" : exit}
     >
       <div className="flip-container"></div>

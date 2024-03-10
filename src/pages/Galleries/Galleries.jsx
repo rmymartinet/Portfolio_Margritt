@@ -20,30 +20,9 @@ const Gallery = () => {
   const [isClicked, setIsClicked] = useState(false);
   const [originaux, tirages] = galleriesData;
   const [item, setItem] = useState([...originaux, ...tirages]);
-  const [isGrid, setIsGrid] = useState(false);
   const [isGridClick, setIsGridClick] = useState(false);
   const [isButtonFilterIsClicked, setIsButtonFilterIsClicked] = useState("All");
   const [isCategoryIsClicked, setIsCategoryIsClicked] = useState("originaux");
-
-  const filterItem = (size) => {
-    const originauxNewItem = [
-      ...new Set(originaux.filter((item) => item.categorieFormat === size)),
-    ];
-    const tiragesNewItem = [
-      ...new Set(tirages.filter((item) => item.categorieFormat === size)),
-    ];
-    setItem([...originauxNewItem, ...tiragesNewItem]);
-  };
-
-  const filterItemCat = (categroy) => {
-    const originauxNewItem = [
-      ...new Set(originaux.filter((item) => item.category === categroy)),
-    ];
-    const tiragesNewItem = [
-      ...new Set(tirages.filter((item) => item.category === categroy)),
-    ];
-    setItem([...originauxNewItem, ...tiragesNewItem]);
-  };
 
   const exitOpacityAnimation = useCallback((selector, duration) => {
     gsap.to(selector, {
@@ -112,22 +91,10 @@ const Gallery = () => {
 
         <div className="button-container">
           <div className="button-selected-work">
-            <div
-              onClick={() => {
-                filterItemCat("originaux");
-                setIsCategoryIsClicked("originaux");
-              }}
-            >
-              Originaux
-            </div>
-            <div
-              onClick={() => {
-                filterItemCat("tirages"), setIsCategoryIsClicked("tirages");
-              }}
-            >
-              Tirages
-            </div>
-            <GridButton setIsGrid={setIsGrid} setIsGridClick={setIsGridClick} />
+            <GridButton
+              isGridClick={isGridClick}
+              setIsGridClick={setIsGridClick}
+            />
           </div>
           <div className="filter-container">
             <div className="filter-title">
@@ -136,7 +103,6 @@ const Gallery = () => {
             <div className="filter-button">
               <FilterButton
                 setIsClicked={setIsClicked}
-                filterItem={filterItem}
                 setItem={setItem}
                 setIsButtonFilterIsClicked={setIsButtonFilterIsClicked}
                 isButtonFilterIsClicked={isButtonFilterIsClicked}
@@ -150,7 +116,6 @@ const Gallery = () => {
             item={item}
             onIsClickedChange={handleIsClickedOnChange}
             refContainer={refContainer}
-            isGrid={isGrid}
             isButtonFilterIsClicked={isButtonFilterIsClicked}
             isCategoryIsClicked={isCategoryIsClicked}
           />

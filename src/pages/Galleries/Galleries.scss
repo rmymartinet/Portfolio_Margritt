@@ -139,6 +139,44 @@
   .grid-button {
     font-size: $fs-base;
     cursor: pointer;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    place-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    border: solid rgba(128, 128, 128, 0.486) 0.5px;
+
+    .first,
+    .second,
+    .third,
+    .fourth {
+      width: 5px;
+      height: 5px;
+      background-color: $secondary-color;
+    }
+  }
+
+  .grid-button:hover {
+    border: solid rgba(128, 128, 128, 0.813) 0.5px;
+  }
+
+  .text-view {
+    font-size: $fs-sm;
+    font-weight: 500;
+    display: grid;
+    place-content: center;
+    overflow: hidden;
+  }
+
+  .grid-button.insert {
+    display: grid;
+    grid-template-columns: repeat(2, 15px);
+    grid-template-rows: repeat(2, 15px);
+    place-content: center;
+    align-items: center;
+    justify-items: center;
   }
 
   .filter-button {
@@ -158,7 +196,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 5vh;
 
       .grid-img7 {
         .images-container {
@@ -212,8 +249,9 @@
       }
     }
   }
-  .grid {
-    .img-gallery-container {
+
+  .grid-images-content {
+    .img-gallery-container.insert {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
 
