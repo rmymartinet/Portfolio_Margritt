@@ -59,7 +59,7 @@ const Nav = () => {
 
   const handleNavigate = async (path) => {
     try {
-      await navigate(path);
+      await navigate(`${path}`);
     } catch (error) {
       console.error(`Failed to navigate to ${path}:`, error);
     }
@@ -88,7 +88,6 @@ const Nav = () => {
           <div className="links-container">
             {navItems.map((item, index) => {
               const path = item === "Home" ? "/" : `/${item.toLowerCase()}`;
-
               return (
                 <motion.div
                   key={index}

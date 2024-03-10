@@ -6,6 +6,7 @@
 }
 
 .home-container {
+  background-color: red;
   width: 100vw;
   height: 100vh;
   display: grid;
@@ -77,6 +78,7 @@
 
       span {
         font-weight: 700;
+        -webkit-mix-blend-mode: difference;
         mix-blend-mode: difference;
         color: white;
       }

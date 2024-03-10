@@ -1,15 +1,17 @@
 import { motion } from "framer-motion";
 import gsap from "gsap";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import SplitType from "split-type";
+import { LoadingContext } from "../../LoadingContext.js";
 import { HomePageTransition } from "../../components/Animations/PageTransition.jsx";
 import HomeFloatingGallery from "../../components/Home/HomeFloatingGallery.jsx";
 import Landing from "../../components/Loading/Landing.jsx";
 
 import "./Home.scss";
 
-const Home = ({ isLoading }) => {
+const Home = () => {
+  const isLoading = useContext(LoadingContext);
   const { t } = useTranslation();
 
   const SplitLines = (textClassName) => {
