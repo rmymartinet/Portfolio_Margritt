@@ -1,7 +1,7 @@
 import { gsap } from "gsap";
 import { forwardRef, useEffect, useState } from "react";
 import { IoHeart } from "react-icons/io5";
-import instagramProfile from "../../assets/video/instagram_profile.mp4";
+import instagramProfile from "../../assets/video/instagram_profile.webm";
 
 import GalleryItem from "./GalleryItem";
 

@@ -45,7 +45,17 @@ const Nav = () => {
     };
   }, []);
 
-  const links = ["Tiktok", "Instagram", "LinkedIn"];
+  const links = [
+    { name: "Tiktok", url: "https://www.tiktok.com/@margrittus?lang=fr" },
+    {
+      name: "Instagram",
+      url: "https://www.instagram.com/maargriitt/",
+    },
+    {
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/in/margritt-martinet-95b885222/",
+    },
+  ];
 
   const handleNavigate = async (path) => {
     try {
@@ -105,12 +115,15 @@ const Nav = () => {
           {links.map((link, index) => (
             <motion.a
               key={index}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
               variants={slideText}
               initial="initial"
               animate="enter"
               exit="exit"
             >
-              {link}
+              {link.name}
             </motion.a>
           ))}
         </motion.div>

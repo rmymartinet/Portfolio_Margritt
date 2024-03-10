@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { PageTransition } from "../../components/Animations/PageTransition.jsx";
 import Divider from "../../components/Common/Divider.jsx";
@@ -11,6 +11,24 @@ const Contact = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   const { t } = useTranslation();
+
+  const [time, setTime] = useState(
+    new Date().toLocaleTimeString("fr-FR", {
+      timeZone: "Europe/Paris",
+    })
+  );
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTime(
+        new Date().toLocaleTimeString("fr-FR", { timeZone: "Europe/Paris" })
+      );
+    }, 1000);
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
 
   return (
     <motion.section
@@ -36,11 +54,19 @@ const Contact = () => {
 
       <Divider className="divider" />
       <div className="infos-content">
-        <InfoItem label="Local Time" value="10:35" className="local-time" />
+        <InfoItem label="Local Time" value={time} className="local-time" />
         <InfoItem label="Number" value="07.83.40.51.05" className="number" />
         <InfoItem
           label="Instagram"
-          value="07 83 40 51 05"
+          value={
+            <a
+              href="https://www.instagram.com/maargriitt/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @maargriitt
+            </a>
+          }
           className="instagram"
         />
         <InfoItem label="Made by" value="Martinet Rémy" className="made-by" />
