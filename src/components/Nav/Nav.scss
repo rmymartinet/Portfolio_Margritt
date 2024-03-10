@@ -128,8 +128,7 @@
 
 @media (max-width: 498px) {
   .menu {
-    backdrop-filter: blur(200px);
-    -webkit-backdrop-filter: blur(200px);
+    background-color: rgba(255, 255, 255, 0.93);
     width: 100%;
     .nav-container {
       padding: 50px;
