@@ -68,7 +68,7 @@ export const originauxData = [
   {
     id: 2,
     category: "originaux",
-    title: "Bibulle !",
+    title: "Bibulle 2",
     serie: "Bibulle",
     piece: "5°",
     date: "2020",
