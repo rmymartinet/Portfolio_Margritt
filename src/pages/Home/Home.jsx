@@ -12,7 +12,7 @@ import "./Home.scss";
 const Home = ({ isLoading }) => {
   const { t } = useTranslation();
 
-  const SplitLines = (textClassName) => {
+  const SplitLines = (textClassName, delay) => {
     const element = document.querySelector(`.${textClassName}`);
     const split = new SplitType(element);
 
@@ -23,14 +23,15 @@ const Home = ({ isLoading }) => {
       duration: 2,
       stagger: 0.1,
       ease: "power3.inOut",
-      delay: 1,
+      delay: delay,
     });
   };
 
   useEffect(() => {
-    SplitLines("text-1 p");
-    SplitLines("based p");
-    SplitLines("made-by p");
+    SplitLines("title", 0);
+    SplitLines("text-1 p", 2);
+    SplitLines("based p", 2);
+    SplitLines("made-by p", 2);
   }, [isLoading]);
 
   return (
@@ -48,6 +49,9 @@ const Home = ({ isLoading }) => {
       ) : (
         <>
           <HomeFloatingGallery />
+          <div className="title">
+            <p>there is no limit</p>
+          </div>
           <div className="content-right">
             <div className="text-1">
               <p>{t("home.text1")}</p>

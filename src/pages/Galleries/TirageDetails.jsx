@@ -190,10 +190,6 @@ const TirageDetails = () => {
     }
   }, [lowOriginalSliderAnimation]);
 
-  if (!selectedImage) {
-    return <h1>Error 404</h1>;
-  }
-
   return (
     <motion.div className="tirage-details-container">
       <motion.div
@@ -314,13 +310,13 @@ const TirageDetails = () => {
           <img loading="lazy" src={selectedImage.img} alt={""} />
         </div>
         <div className="img2-copy">
-          <img loading="lazy" src={selectedImage.img1} alt={""} />
+          <img src={selectedImage.img1} alt={""} />
         </div>
         <div className="img3-copy">
-          <img loading="lazy" src={selectedImage.img2} alt={""} />
+          <img src={selectedImage.img2} alt={""} />
         </div>
         <div className="img4-copy">
-          <img loading="lazy" src={selectedImage.img3} alt={""} />
+          <img src={selectedImage.img3} alt={""} />
         </div>
       </motion.div>
     </motion.div>

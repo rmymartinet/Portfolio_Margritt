@@ -21,7 +21,7 @@ const Gallery = () => {
   const [originaux, tirages] = galleriesData;
   const [item, setItem] = useState([...originaux, ...tirages]);
   const [isGridClick, setIsGridClick] = useState(false);
-  const [isButtonFilterIsClicked, setIsButtonFilterIsClicked] = useState("All");
+  const [isButtonFilterIsClicked, setIsButtonFilterIsClicked] = useState("all");
   const [isCategoryIsClicked, setIsCategoryIsClicked] = useState("originaux");
 
   const exitOpacityAnimation = useCallback((selector, duration) => {
@@ -52,6 +52,23 @@ const Gallery = () => {
     },
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      window.addEventListener("scroll", () => {
+        const scrollTop = window.scrollY;
+        const transformValue = `rotateX(${scrollTop * 0.02}deg)`;
+        document.querySelector(".img").style.transform = transformValue;
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // N'oubliez pas de supprimer l'écouteur d'événement lorsque le composant est démonté
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const { t } = useTranslation();
 
   return (
@@ -71,7 +88,7 @@ const Gallery = () => {
         <TitleTransition textClassName="hero-title h1" />
         <div className="hero">
           <div className="hero-title">
-            <h1>galleries</h1>
+            <h1>gallerie</h1>
           </div>
           <div className="hero-subtitle">
             <span>Limited editions ©</span>
@@ -81,16 +98,19 @@ const Gallery = () => {
         <div className="description-grid">
           <div className="text-originaux">
             <h2>Originaux</h2>
-            <p>{t("galleries.textOriginals")}</p>
+            <p>{t("galleries.textOriginals1")}</p>
+            <p className="text-2">{t("galleries.textOriginals2")}</p>
+            <p>{t("galleries.textOriginals3")}</p>
           </div>
           <div className="text-tirages">
             <h2>Tirages</h2>
-            <p>{t("galleries.textPrints")}</p>
+            <p>{t("galleries.textPrints1")}</p>
+            <p className="text-2">{t("galleries.textPrints2")}</p>
+            <p>{t("galleries.textPrints3")}</p>
           </div>
         </div>
-
         <div className="button-container">
-          <div className="button-selected-work">
+          <div className="grid-button-container">
             <GridButton
               isGridClick={isGridClick}
               setIsGridClick={setIsGridClick}

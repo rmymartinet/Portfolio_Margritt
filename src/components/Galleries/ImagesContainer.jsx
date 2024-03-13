@@ -32,19 +32,20 @@ const ImagesContainer = ({
   const [isClicked, setIsClicked] = useState(false);
   const imgContainerRef = useRef(null);
   const originauxCategory = item.filter((cat) => cat.category === "originaux");
+  const tiragesCategory = item.filter((cat) => cat.subCategory === "tirages");
 
   /* Navagation lors du click sur images
   * La fonction handleNavigate permet de naviguer vers la page de l'image cliquée
   
   */
-  const handleNavigate = (id, category) => {
+  const handleNavigate = (id, category, subCategory) => {
     setIsClicked(id);
     if (category === "originaux") {
       setTimeout(() => {
         navigate(`/originaux/${id}`);
       }, 2000);
     }
-    if (category === "tirages") {
+    if (subCategory === "tirages") {
       setTimeout(() => {
         navigate(`/tirages/${id}`);
       }, 2000);
@@ -76,6 +77,7 @@ const ImagesContainer = ({
       img.addEventListener("click", () => {
         if (
           !originauxCategory.includes(clickedItem) &&
+          tiragesCategory.includes(clickedItem) &&
           window.innerWidth > MOBILE_SCREEN_WIDTH
         ) {
           let state = Flip.getState(img);
@@ -99,7 +101,12 @@ const ImagesContainer = ({
         }
       });
     });
-  }, [item, originauxCategory]);
+  }, [item, originauxCategory, tiragesCategory]);
+
+  /* Animation pour le flip des images en oringaux et width < 768px
+  
+  
+  */
 
   const lowFlipAnimation = useCallback(() => {
     const flipContainer = document.querySelector(".flip-container-width");
@@ -263,7 +270,11 @@ const ImagesContainer = ({
             >
               <div
                 onClick={() => {
-                  handleNavigate(imgData.id, imgData.category);
+                  handleNavigate(
+                    imgData.id,
+                    imgData.category,
+                    imgData.subCategory
+                  );
                 }}
                 className="images-container"
               >

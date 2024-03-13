@@ -1,19 +1,19 @@
 {
   "home": {
-    "text1": "You will find here the entirety of my collection, each piece being a unique expression — If something catches your attention, let me know",
+    "text1": "You will find here the entirety of my collection, each piece being a unique expression, If something catches your attention, let me know",
     "madeBy": "Rémy.co ©2024",
     "based": "Based in France"
   },
   "galleries": {
     "titleOriginals": "Originals",
-    "textOriginals": "Explore my collection of original artworks, unique creations. Each of these pieces is hand-signed by the artist on the front at the bottom right and is also accompanied by a certificate of authenticity.",
+    "textOriginals": "Discover my collection of original artworks, unique creations. Each of these pieces is available for sale in two different sizes (Large and Medium). Some are also available as prints.",
     "titlePrints": "Prints",
-    "textPrints": "Prints are high-quality digital reproductions of some of my original artworks - They allow a wider audience to appreciate and own a faithful version of these works."
+    "textPrints": "The prints are high-quality digital reproductions of some of my original artworks - They are available in a single size, medium. They enable a wider audience to appreciate and own a faithful version of these works."
   },
   "tiragesDetails": {
     "piece": "Piece",
-    "subtitle": "Each limited edition print is numbered, signed by the artist, and accompanied by a certificate of authenticity.",
-    "courtsTirages": "Limited edition prints produced by Short Prints.",
+    "subtitle": "Each limited edition print is numbered, signed by the artist, and accompanied by a certificate of authenticity",
+    "courtsTirages": "Limited edition prints produced by Short Prints",
     "print": "100 copies numbered and signed by the artist",
     "size": "Size",
     "paper": "Paper",
@@ -27,8 +27,8 @@
 
   "originauxDetails": {
     "piece": "Piece",
-    "subtitle": "All originals are available in print version. If an original artwork is currently not offered in print, we can reproduce it through our partners specialized in high-quality printing, 'Les Courts Tirages' - Feel free to contact me for more information.",
-    "textOeuvre": "All original artworks are also available for sale - Please contact me to discuss purchasing options and obtain further details.",
+    "subtitle": "Some originals are available as limited edition prints - Each piece is hand-signed by the artist in the bottom right corner on the front and also comes with a certificate of authenticity",
+    "textOeuvre": "All original artworks are also available for sale - Please contact me to discuss purchasing options and obtain further details",
     "print": "100 copies numbered and signed by the artist",
     "size": "Size",
     "paper": "Paper",
@@ -42,18 +42,18 @@
 
   "project": {
     "textTitle": "in process",
-    "text1": "This project is currently in process, and will be available soon.",
+    "textDescription": "This project is currently in process, and will be available soon",
     "textProcessInstagram": "Full process on my Instagram",
-    "ProjectTitle1": "Expositions",
-    "ProjectTitle2": "Artistic activity"
+    "projectExpositionTitle": "Expositions",
+    "projectActivityTitle": "Artistic activity"
   },
   "about": {
-    "subtitle": "is a visual artist from Charente, dedicated to her creations, providing a space for her creativity to flourish.",
-    "text1": "Trained in cabinetry at the Boulle School, she obtained a Bachelor's degree in Plastic Arts from the European Higher School of Art in Brittany and a diploma in art therapy from the Faculty of Medicine in Poitiers.",
-    "text2": "Passionate about visual arts, drawing, and painting, her artistic universe, inspired by her travels and her maritime family culture, is characterized by an imaginary world in perpetual recomposition, emphasizing movement and visual effects.",
+    "subtitle": "is a visual artist from Charente, dedicated to her creations, providing a space for her creativity to flourish",
+    "text1": "Trained in cabinetry at the Boulle School, she obtained a Bachelor's degree in Plastic Arts from the European Higher School of Art in Brittany and a diploma in art therapy from the Faculty of Medicine in Poitiers",
+    "text2": "Passionate about visual arts, drawing, and painting, her artistic universe, inspired by her travels and her maritime family culture, is characterized by an imaginary world in perpetual recomposition, emphasizing movement and visual effects",
     "text3": "Her artistic work transforms reality through the manipulation of materials, blending instinct, creative impulse, and constant exploration.",
     "quoteTitle": "I find my inspiration",
-    "quoteText": "Margritte crafts works paying tribute to her travea familial culture deeply rooted in the maritime world, immersing viewers in an ever-evolving imaginary realm — Her creations explore instinct, creative impulse, and constant artistic inquiry, transforming reality through material work and challenging our visual perspective."
+    "quoteText": "Margritt crafts works paying tribute to her travea familial culture deeply rooted in the maritime world, immersing viewers in an ever-evolving imaginary realm — Her creations explore instinct, creative impulse, and constant artistic inquiry, transforming reality through material work and challenging our visual perspective"
   },
   "contact": {
     "title": "let's talk art",

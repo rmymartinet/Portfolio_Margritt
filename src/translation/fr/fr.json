@@ -1,33 +1,37 @@
 {
   "home": {
-    "text1": "Vous trouverez ici l'intégralité de ma collection, chaque pièce étant une expression unique - Si quelque chose retient votre attention, faites-le moi savoir",
+    "text1": "Vous trouverez ici l'intégralité de ma collection, chaque pièce étant unique, Si l'une d'elles retient votre attention, faites-le moi savoir",
     "madeBy": "Rémy.co ©2024",
     "based": "Basé en France"
   },
   "galleries": {
     "titleOriginals": "Originaux",
-    "textOriginals": "Explorez ma collection d'œuvres originales, des créations uniques. Chacune de ces pièces est signée à la main par l'artiste en bas à droite à l'avant et est également accompagnée d'un certificat d'authenticité.",
-    "titlePrints": "Estampes",
-    "textPrints": "Les estampes sont des reproductions numériques de haute qualité de certaines de mes œuvres originales - Elles permettent à un public plus large d'apprécier et de posséder une version fidèle de ces œuvres."
+    "textOriginals1": "Découvrez ma collection d'œuvres originales, des créations uniques.",
+    "textOriginals2": "Chacune de ces pièces est disponible à la vente en deux tailles différentes (Large et Medium).",
+    "textOriginals3": "Certaines sont également disponibles en version tirage.",
+    "titlePrints": "Tirages",
+    "textPrints1": "Les tirages sont des reproductions numériques de haute qualité de certaines de mes œuvres originales.",
+    "textPrints2": "Elles sont disponibles en une seule taille, medium.",
+    "textPrints3": "Elles permettent à un public plus large d'apprécier et de posséder une version fidèle de ces œuvres."
   },
-  "tirageDetails": {
+  "tiragesDetails": {
     "piece": "Pièce",
-    "subtitle": "Chaque estampe en édition limitée est numérotée, signée par l'artiste et accompagnée d'un certificat d'authenticité.",
-    "courtsTirages": "Tirages en édition limitée et réalisés par les courts tirages",
+    "subtitle": "Chaque tirages en édition limitée est numérotée, signée par l'artiste et accompagnée d'un certificat d'authenticité",
+    "courtsTirages": "Tirages en édition limitée et réalisés par ' Les Courts Tirages '",
     "print": "100 exemplaires numérotés et signés par l'artiste",
-    "Size": "Taille",
-    "Paper": "Papier",
-    "Delivery": "Livraison",
-    "France": "5 à 10 jours",
-    "Europe": "2 à 3 semaines",
-    "International": "3 à 4 semaines",
-    "Frame": " ❋ Cadre non inclus",
-    "Contact": "Contactez-moi pour acheter"
+    "size": "Taille",
+    "paper": "Papier",
+    "delivery": "Livraison",
+    "france": "5 à 10 jours",
+    "europe": "2 à 3 semaines",
+    "international": "3 à 4 semaines",
+    "frame": "❋ Cadre non inclus",
+    "contact": "❋ Contactez-moi pour acheter"
   },
   "originauxDetails": {
     "piece": "Pièce",
-    "subtitle": "Tous les originaux sont disponibles en version tirage. Si une œuvre originale n'est actuellement pas proposée en tirage, nous pouvons la reproduire grâce à nos partenaires spécialisés dans les impressions de haute qualité,  'les courts tirages'.",
-    "textOeuvre": "Toutes les œuvres originales sont également disponibles à la vente. Veuillez me contacter pour discuter des options d'achat et obtenir plus de détails.",
+    "subtitle": "Certains originaux sont disponibles en version tirage de manière limitée - Chaque pièce est signée à la main par l'artiste en bas à droite à l'avant et est également accompagnée d'un certificat d'authenticité",
+    "textOeuvre": "Toutes les œuvres originales sont également disponibles à la vente - Veuillez me contacter pour discuter des options d'achat et obtenir plus de détails",
     "Size": "Taille",
     "Paper": "Papier",
     "Delivery": "Livraison",
@@ -35,25 +39,25 @@
     "Europe": "2 à 3 semaines",
     "International": "3 à 4 semaines",
     "Frame": " ❋ Cadre non inclus",
-    "Contact": "Contactez-moi pour acheter"
+    "Contact": "❋ Contactez-moi pour acheter"
   },
   "project": {
     "textTitle": "en cours",
-    "text1": "Ce projet est actuellement en cours et sera bientôt disponible.",
+    "textDescription": "Ces projets sont actuellement en cours et seront bientôt disponibles - Vous pouvez retrouver tout le processus de création sur mon Instagram",
     "textProcessInstagram": "Processus complet sur mon Instagram",
-    "ProjectTitle1": "Expositions",
-    "ProjectTitle2": "Activité artistique"
+    "projectExpositionTitle": "Expositions",
+    "projectActivityTitle": "Activités artistiques"
   },
   "about": {
-    "subtitle": "Margritt Martinet est une artiste visuelle originaire de Charente, dédiée à ses créations, offrant un espace à sa créativité pour s'épanouir.",
-    "text1": "Formée en ébénisterie à l'École Boulle, elle a obtenu une licence en Arts plastiques à l'École Supérieure Européenne d'Art en Bretagne et un diplôme en art-thérapie de la Faculté de Médecine de Poitiers. ",
-    "text2": "Passionnée par les arts plastiques, le dessin, et la peinture, son univers artistique, inspiré par ses voyages et sa culture familiale maritime, se caractérise par un monde imaginaire en perpétuelle recomposition, mettant en avant le mouvement et les effets visuels.",
-    "text3": "Son travail artistique transforme la réalité à travers la manipulation des matériaux, mêlant instinct, élan créatif et exploration constante.",
-    "quoteTitle": "Je trouve mon inspiration",
-    "quoteText": "Margritte crée des œuvres rendant hommage à sa culture familiale profondément ancrée dans le monde maritime, plongeant les spectateurs dans un royaume imaginaire en constante évolution - Ses créations explorent l'instinct, l'élan créatif et l'interrogation artistique constante, transformant la réalité à travers le travail matériel et défiant notre perspective visuelle."
+    "subtitle": "Margritt Martinet est une artiste visuelle originaire de Charente, dédiée à ses créations, offrant un espace à sa créativité pour s'épanouir",
+    "text1": "Formée en ébénisterie à l'École Boulle, elle a obtenu une licence en Arts plastiques à l'École Supérieure Européenne d'Art en Bretagne et un diplôme en art-thérapie de la Faculté de Médecine de Poitiers",
+    "text2": "Passionnée par les arts plastiques, le dessin, et la peinture, son univers artistique, inspiré par ses voyages et sa culture familiale maritime, se caractérise par un monde imaginaire en perpétuelle recomposition, mettant en avant le mouvement et les effets visuels",
+    "text3": "Son travail artistique transforme la réalité à travers la manipulation des matériaux, mêlant instinct, élan créatif et exploration constante",
+    "quoteTitle": "inspiration",
+    "quoteText": "Margritt crée des œuvres rendant hommage à sa culture familiale profondément ancrée dans le monde maritime, plongeant les spectateurs dans un royaume imaginaire en constante évolution - Ses créations explorent l'instinct, l'élan créatif et l'interrogation artistique constante, transformant la réalité à travers le travail matériel et défiant notre perspective visuelle"
   },
   "contact": {
-    "title": "Parlons d'art",
+    "title": "Parlons art",
     "text1": "Intéressé par une pièce de mes galeries ? Faites-le moi savoir !"
   }
 }

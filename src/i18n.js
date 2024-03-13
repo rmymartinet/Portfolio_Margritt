@@ -8,8 +8,11 @@ const detectUserLanguage = () => {
   // Par défaut, utilisez la langue par défaut définie si la langue du navigateur n'est pas disponible
   let defaultLanguage = "en";
 
-  // Récupérez la langue du navigateur de l'utilisateur
-  const userLanguage = navigator.language || navigator.userLanguage;
+  // substring(0, 2) pour obtenir les deux premiers caractères de la langue du navigateur
+  const userLanguage = (navigator.language || navigator.userLanguage).substring(
+    0,
+    2
+  );
 
   // Vous pouvez ajouter d'autres logiques de détection de langue ici si nécessaire
 

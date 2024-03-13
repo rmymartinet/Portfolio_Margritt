@@ -29,7 +29,7 @@ const TextBlock = ({ text }) => {
 };
 
 const Nav = () => {
-  const navItems = ["Home", "Galleries", "Projects", "About", "Contact"];
+  const navItems = ["Home", "Gallerie", "Projects", "About", "Contact"];
   const navigate = useNavigate();
   const [smallScreen, setSmallScreen] = useState(window.innerWidth < 768);
 

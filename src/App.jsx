@@ -33,7 +33,7 @@ function App() {
     if (isLoading) {
       setTimeout(() => {
         setIsLoading(false);
-      }, 5000);
+      }, 8000);
     }
   });
 
@@ -43,7 +43,7 @@ function App() {
         {!isLoading && <NavBar />}
         <Routes location={location} key={location.pathname}>
           <Route path="/" index element={<Home isLoading={isLoading} />} />
-          <Route path="/galleries" element={<Gallery />} />
+          <Route path="/gallerie" element={<Gallery />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />

@@ -59,10 +59,6 @@ const HomeFloatingGallery = () => {
     ];
     gallery.innerHTML = "";
 
-    const subtitle = document.createElement("div");
-    subtitle.classList.add("subtitle");
-    subtitle.innerHTML = `<span>All</span> here is mind maybe <span>yours</span>`;
-
     items.forEach((itemData) => {
       const item = document.createElement("div");
       item.classList.add("item");
@@ -71,7 +67,6 @@ const HomeFloatingGallery = () => {
       img.src = itemData.img;
       item.appendChild(img);
       gallery.appendChild(item);
-      gallery.appendChild(subtitle);
     });
 
     document.addEventListener("mousemove", (e) => {

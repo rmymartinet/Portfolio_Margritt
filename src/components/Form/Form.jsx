@@ -56,7 +56,7 @@ const Form = () => {
       {dividerInView && <Divider className="divider" />}
       <div className="infos">
         <InfoItem label="Local Time" value={time} className="local-time" />
-        <InfoItem label="Number" value="07 83 40 51 05" className="number" />
+        <InfoItem label="Number" value="+33.83.40.51.05" className="number" />
         <InfoItem
           label="Instagram"
           value={

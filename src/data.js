@@ -1,13 +1,18 @@
 import bibulle from "./assets/images/Gallery/Originaux_120/dimension_1500/bibulle!.jpg";
 import bibulle1 from "./assets/images/Gallery/Originaux_120/dimension_1500/bibulle1.jpg";
-import bibulle3bis from "./assets/images/Gallery/Originaux_120/dimension_1500/bibulle3bis.jpg";
+import bibulle2 from "./assets/images/Gallery/Originaux_120/dimension_1500/bibulle3bis.jpg";
 import futurama1 from "./assets/images/Gallery/Originaux_120/dimension_1500/futurama1.jpg";
 import bibulle3_1 from "./assets/images/Gallery/Tirage_50/bibulle3_details/bibulle3-1.webp";
 import bibulle3_2 from "./assets/images/Gallery/Tirage_50/bibulle3_details/bibulle3-2.webp";
 import bibulle3_3 from "./assets/images/Gallery/Tirage_50/bibulle3_details/bibulle3-3.webp";
 import bibulle3_4 from "./assets/images/Gallery/Tirage_50/bibulle3_details/bibulle3-4.webp";
+import bibulle5_1 from "./assets/images/Gallery/Tirage_50/bibulle5_details/bibulle5-1.jpg";
+import bibulle5_2 from "./assets/images/Gallery/Tirage_50/bibulle5_details/bibulle5-2.jpg";
+import bibulle5_3 from "./assets/images/Gallery/Tirage_50/bibulle5_details/bibulle5-3.jpg";
+import bibulle5_4 from "./assets/images/Gallery/Tirage_50/bibulle5_details/bibulle5-4.jpg";
 import bibulle3Moyen from "./assets/images/Gallery/Tirage_50/dimension_1500/bibulle3.jpg";
 import bibulle5Moyen from "./assets/images/Gallery/Tirage_50/dimension_1500/bibulle5.jpg";
+
 import futurama2Moyen from "./assets/images/Gallery/Tirage_50/dimension_1500/futurama2.jpg";
 import futurama3Moyen from "./assets/images/Gallery/Tirage_50/dimension_1500/futurama3.jpeg";
 
@@ -21,14 +26,15 @@ import futurama3_2 from "./assets/images/Gallery/Tirage_50/futurama3_details/fut
 import futurama3_3 from "./assets/images/Gallery/Tirage_50/futurama3_details/futurama3-3.webp";
 import futurama3_4 from "./assets/images/Gallery/Tirage_50/futurama3_details/futurama3-4.webp";
 
+//Oeuvres orignal sans tirage 'la perosnne achete l'oeuvre original'
 export const originauxData = [
   {
     id: 0,
     category: "originaux",
     title: "Bibulle 1",
     serie: "Bibulle",
-    piece: "1",
-    date: "2021",
+    piece: "1re",
+    date: "2019 - 2020",
     format: "120 x 80 cm",
     tirage: "10 exemplaires numérotés / signés par l'artiste",
     papier: "Lavis Vinci - 300 g",
@@ -39,16 +45,88 @@ export const originauxData = [
       EU: "2 à 3 semaines",
       international: "3 à 4 semaines",
     },
-    categorieFormat: "large",
+    formatOriginaux: "large",
     img: bibulle1,
   },
 
   {
     id: 1,
     category: "originaux",
+    title: "Bibulle 2",
+    serie: "Bibulle",
+    piece: "2ᵉ ",
+    date: "2023 - 2024",
+    format: "120 x 80 cm",
+    tirage: "10 exemplaires numérotés / signés par l'artiste",
+    papier: "Lavis Vinci - 300 g",
+    subtitle:
+      "Tous les originaux sont disponibles en version tirage. Si une œuvre originale n'est actuellement pas proposée en tirage, nous pouvons la reproduire grâce à nos partenaires spécialisés dans les impressions de haute qualité,  'les courts tirages'.  N'hésitez pas à me contacter pour plus d'informations.",
+    livraison: {
+      france: "5 à 10 jours",
+      EU: "2 à 3 semaines",
+      international: "3 à 4 semaines",
+    },
+    note: "Cadre non inclus Me contacter avant achat",
+    formatOriginaux: "large",
+    img: bibulle2,
+  },
+  {
+    id: 2,
+    category: "originaux",
+    title: "Bibulle 3",
+    subtitle:
+      "Chaque tirage en édition limitée est numéroté, signé par l'artiste, et accompagné d'un certificat d'authenticité.",
+    serie: "Bibulle",
+    piece: "3ᵉ",
+    date: "2023",
+    format: "50 x 70 cm",
+    tirage: "100 exemplaires numérotés et signés par l'artiste",
+    papier: "Fine art cotton smooth bright - 300 g",
+    livraison: {
+      france: "5 à 10 jours",
+      EU: "2 à 3 semaines",
+      international: "3 à 4 semaines",
+    },
+    note: "Cadre non inclus Me contacter avant achat",
+    formatOriginaux: "large",
+    img: bibulle3Moyen,
+    img1: bibulle3_1,
+    img2: bibulle3_2,
+    img3: bibulle3_3,
+    img4: bibulle3_4,
+  },
+  {
+    id: 3,
+    category: "originaux",
+    title: "Bibulle 5",
+    subtitle:
+      "Chaque tirage en édition limitée est numéroté, signé par l'artiste, et accompagné d'un certificat d'authenticité.",
+    serie: "Bibulle",
+    piece: "4ᵉ",
+    date: "2024",
+    format: "50 x 70 cm",
+    tirage: "100 exemplaires numérotés et signés par l'artiste",
+    papier: "Fine art cotton smooth bright - 300 g",
+    livraison: {
+      france: "5 à 10 jours",
+      EU: "2 à 3 semaines",
+      international: "3 à 4 semaines",
+    },
+    note: "Cadre non inclus Me contacter avant achat",
+    formatOriginaux: "large",
+    img: bibulle5Moyen,
+    img1: bibulle5_1,
+    img2: bibulle5_2,
+    img3: bibulle5_3,
+    img4: bibulle5_4,
+  },
+
+  {
+    id: 4,
+    category: "originaux",
     title: "Bibulle !",
     serie: "Bibulle",
-    piece: "!",
+    piece: "5ᵉ",
     date: "2020",
     format: "120 x 80 cm",
     tirage: "10 exemplaires numérotés / signés par l'artiste",
@@ -61,38 +139,16 @@ export const originauxData = [
       international: "3 à 4 semaines",
     },
     note: "Cadre non inclus Me contacter avant achat",
-    categorieFormat: "large",
+    formatOriginaux: "large",
     img: bibulle,
   },
-
   {
-    id: 2,
-    category: "originaux",
-    title: "Bibulle 2",
-    serie: "Bibulle",
-    piece: "2",
-    date: "2022",
-    format: "120 x 80 cm",
-    tirage: "10 exemplaires numérotés / signés par l'artiste",
-    papier: "Lavis Vinci - 300 g",
-    subtitle:
-      "Tous les originaux sont disponibles en version tirage. Si une œuvre originale n'est actuellement pas proposée en tirage, nous pouvons la reproduire grâce à nos partenaires spécialisés dans les impressions de haute qualité,  'les courts tirages'.  N'hésitez pas à me contacter pour plus d'informations.",
-    livraison: {
-      france: "5 à 10 jours",
-      EU: "2 à 3 semaines",
-      international: "3 à 4 semaines",
-    },
-    note: "Cadre non inclus Me contacter avant achat",
-    categorieFormat: "large",
-    img: bibulle3bis,
-  },
-  {
-    id: 3,
+    id: 5,
     category: "originaux",
     title: "Futurama 1",
     serie: "Futurama",
-    piece: "1",
-    date: "2022",
+    piece: "1re",
+    date: "2019 - 2020",
     format: "120 x 80 cm",
     tirage: "10 exemplaires numérotés / signés par l'artiste",
     papier: "Lavis Vinci - 300 g",
@@ -104,20 +160,71 @@ export const originauxData = [
       international: "3 à 4 semaines",
     },
     note: "Cadre non inclus Me contacter avant achat",
-    categorieFormat: "large",
+    formatOriginaux: "large",
     img: futurama1,
+  },
+  {
+    id: 6,
+    category: "originaux",
+    title: "Futurama 2",
+    subtitle:
+      "Chaque tirage en édition limitée est numéroté, signé par l'artiste, et accompagné d'un certificat d'authenticité.",
+    serie: "Futurama",
+    piece: "2ᵉ",
+    date: "2023",
+    format: "50 x 70 cm",
+    tirage: "10 exemplaires numérotés / signés par l'artiste",
+    papier: "Fine art cotton smooth bright - 300 g",
+    livraison: {
+      france: "5 à 10 jours",
+      EU: "2 à 3 semaines",
+      international: "3 à 4 semaines",
+    },
+    note: "Cadre non inclus Me contacter avant achat",
+    formatOriginaux: "medium",
+    img: futurama2Moyen,
+    img1: futurama2_1,
+    img2: futurama2_2,
+    img3: futurama2_3,
+    img4: futurama2_4,
+  },
+  {
+    id: 7,
+    category: "originaux",
+    title: "Futurama 3",
+    subtitle:
+      "Chaque tirage en édition limitée est numéroté, signé par l'artiste, et accompagné d'un certificat d'authenticité.",
+    serie: "Futurama",
+    piece: "3ᵉ",
+    date: "2023",
+    format: "50 x 70 cm",
+    tirage: "10 exemplaires numérotés / signés par l'artiste",
+    papier: "Fine art cotton smooth bright - 300 g",
+    livraison: {
+      france: "5 à 10 jours",
+      EU: "2 à 3 semaines",
+      international: "3 à 4 semaines",
+    },
+    note: "Cadre non inclus Me contacter avant achat",
+    formatOriginaux: "medium",
+    img: futurama3Moyen,
+    img1: futurama3_1,
+    img2: futurama3_2,
+    img3: futurama3_3,
+    img4: futurama3_4,
   },
 ];
 
+//Ceux disponible actuellement en tirages 'la personne achete le tirage de l'oeuvre original'
 export const tirageData = [
   {
     id: 0,
-    category: "tirages",
+    subCategory: "tirages",
     title: "Bibulle 3",
     subtitle:
       "Chaque tirage en édition limitée est numéroté, signé par l'artiste, et accompagné d'un certificat d'authenticité.",
     serie: "Bibulle",
-    piece: "3",
+    piece: "3ᵉ",
     date: "2023",
     format: "50 x 70 cm",
     tirage: "100 exemplaires numérotés et signés par l'artiste",
@@ -137,13 +244,13 @@ export const tirageData = [
   },
   {
     id: 1,
-    category: "tirages",
+    subCategory: "tirages",
     title: "Bibulle 5",
     subtitle:
       "Chaque tirage en édition limitée est numéroté, signé par l'artiste, et accompagné d'un certificat d'authenticité.",
     serie: "Bibulle",
-    piece: "5",
-    date: "2023",
+    piece: "5ᵉ",
+    date: "2024",
     format: "50 x 70 cm",
     tirage: "100 exemplaires numérotés et signés par l'artiste",
     papier: "Fine art cotton smooth bright - 300 g",
@@ -155,15 +262,19 @@ export const tirageData = [
     note: "Cadre non inclus Me contacter avant achat",
     categorieFormat: "medium",
     img: bibulle5Moyen,
+    img1: bibulle5_1,
+    img2: bibulle5_2,
+    img3: bibulle5_3,
+    img4: bibulle5_4,
   },
   {
     id: 2,
-    category: "tirages",
+    subCategory: "tirages",
     title: "Futurama 2",
     subtitle:
       "Chaque tirage en édition limitée est numéroté, signé par l'artiste, et accompagné d'un certificat d'authenticité.",
     serie: "Futurama",
-    piece: "2",
+    piece: "2ᵉ",
     date: "2023",
     format: "50 x 70 cm",
     tirage: "10 exemplaires numérotés / signés par l'artiste",
@@ -183,12 +294,12 @@ export const tirageData = [
   },
   {
     id: 3,
-    category: "tirages",
+    subCategory: "tirages",
     title: "Futurama 3",
     subtitle:
       "Chaque tirage en édition limitée est numéroté, signé par l'artiste, et accompagné d'un certificat d'authenticité.",
     serie: "Futurama",
-    piece: "3",
+    piece: "3ᵉ",
     date: "2023",
     format: "50 x 70 cm",
     tirage: "10 exemplaires numérotés / signés par l'artiste",

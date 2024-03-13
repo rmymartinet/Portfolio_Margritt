@@ -4,11 +4,13 @@ import p1 from "../../assets/images/project/p1.jpeg";
 import p2 from "../../assets/images/project/p2.jpeg";
 import p3 from "../../assets/images/project/p3.jpeg";
 
+import { useTranslation } from "react-i18next";
 import Modal from "./Modal";
 import { ProjectLatest } from "./ProjectComponents";
 
 const LatestProject = () => {
   const [modal, setModal] = useState({ active: false, index: 0 });
+  const { t } = useTranslation();
 
   const projects = [
     {
@@ -47,12 +49,8 @@ const LatestProject = () => {
   return (
     <div className="latest-project">
       <div className="hero-title">
-        <h2>In process</h2>
-        <p>
-          Follow all the steps on my social media to dive into the process
-          behind my creative journey. You'll find maxi project and my newest
-          series
-        </p>
+        <h2>{t("project.textTitle")}</h2>
+        <p>{t("project.textDescription")}</p>
       </div>
       <div>
         {projects.map((project, index) => {

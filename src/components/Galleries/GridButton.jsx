@@ -3,7 +3,7 @@ import { Flip } from "gsap/Flip";
 import { useEffect, useState } from "react";
 gsap.registerPlugin(Flip);
 
-const GridButton = ({ setIsGridClick, isGridClick }) => {
+const GridButton = ({ setIsGridClick }) => {
   const [isHover, setIsHover] = useState(false);
 
   const handleEnterHover = () => {

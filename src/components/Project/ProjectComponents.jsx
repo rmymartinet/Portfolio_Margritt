@@ -1,9 +1,11 @@
 import gsap from "gsap";
 import React, { forwardRef, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { activityData, expositionData } from "../../data.js";
 
 export const Exposition = forwardRef((_, ref) => {
   const expositionDataRef = useRef(activityData.map(() => React.createRef()));
+  const { t } = useTranslation();
 
   useEffect(() => {
     gsap.fromTo(
@@ -28,7 +30,7 @@ export const Exposition = forwardRef((_, ref) => {
       <div className="infos-container">
         <div className="infos-grid">
           <div className="infos-title">
-            <h2>Expositions</h2>
+            <h2>{t("project.projectExpositionTitle")}</h2>
           </div>
           {expositionData.map((expo, index) => {
             return (
@@ -53,6 +55,7 @@ Exposition.displayName = "Exposition";
 
 export const Activity = forwardRef((_, ref) => {
   const activityDataRef = useRef(activityData.map(() => React.createRef()));
+  const { t } = useTranslation();
 
   useEffect(() => {
     gsap.fromTo(
@@ -78,7 +81,7 @@ export const Activity = forwardRef((_, ref) => {
       <div className="infos-container">
         <div className="infos-grid">
           <div className="infos-title">
-            <h2>Artistic Activity</h2>
+            <h2>{t("project.projectActivityTitle")}</h2>
           </div>
           {activityData.map((expo, index) => {
             return (
@@ -105,6 +108,8 @@ Activity.displayName = "Activity";
 
 export const ProjectLatest = forwardRef(
   ({ index, title, setModal, href }, ref) => {
+    const { t } = useTranslation();
+
     return (
       <a
         href={href}
@@ -118,7 +123,7 @@ export const ProjectLatest = forwardRef(
         className="project"
       >
         <h2>{title}</h2>
-        <p>Full process on my Instagram</p>
+        <p>{t("project.textProcessInstagram")}</p>
       </a>
     );
   }

@@ -24,11 +24,11 @@
 
   .flip-container-width {
     position: fixed;
-    top: 0%;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    width: calc(40vw + 10px);
-    height: calc(40vh + 10px);
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 10vw;
+    height: 10vw;
     justify-self: center;
     z-index: -1;
 
@@ -76,13 +76,7 @@
     column-gap: calc(10vw + 1rem);
     align-items: flex-start;
     margin-bottom: calc(20vh + 2rem);
-
-    .text-tirages {
-      padding-left: clamp(3vw, calc(10vw + 2rem), 10vw);
-    }
-    .text-originaux {
-      padding-right: clamp(3vw, calc(10vw + 2rem), 10vw);
-    }
+    width: 100%;
 
     .text-originaux,
     .text-tirages {
@@ -103,12 +97,11 @@
     flex-direction: row-reverse;
     margin-bottom: 20vh;
     padding: 0 calc(5vw + 1rem);
-
     align-self: flex-start;
     width: 100%;
     justify-content: space-between;
 
-    .button-selected-work {
+    .grid-button-container {
       align-self: flex-start;
       display: flex;
       justify-items: center;
@@ -116,6 +109,49 @@
       font-size: $fs-base;
       cursor: pointer;
       text-transform: uppercase;
+
+      .grid-button {
+        font-size: $fs-base;
+        cursor: pointer;
+        display: grid;
+        grid-template-rows: repeat(4, 1fr);
+        place-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        padding: 10px;
+        border: solid rgba(128, 128, 128, 0.486) 0.5px;
+
+        .first,
+        .second,
+        .third,
+        .fourth {
+          width: 5px;
+          height: 5px;
+          background-color: $secondary-color;
+        }
+      }
+
+      .grid-button:hover {
+        border: solid rgba(128, 128, 128, 0.813) 0.5px;
+      }
+
+      .text-view {
+        font-size: $fs-sm;
+        font-weight: 500;
+        display: grid;
+        place-content: center;
+        overflow: hidden;
+      }
+
+      .grid-button.insert {
+        display: grid;
+        grid-template-columns: repeat(2, 15px);
+        grid-template-rows: repeat(2, 15px);
+        place-content: center;
+        align-items: center;
+        justify-items: center;
+      }
     }
 
     .filter-container {
@@ -132,58 +168,10 @@
       .filter-button {
         display: flex;
         gap: 2em;
+        cursor: pointer;
+        font-size: $fs-sm;
       }
     }
-  }
-
-  .grid-button {
-    font-size: $fs-base;
-    cursor: pointer;
-    display: grid;
-    grid-template-rows: repeat(4, 1fr);
-    place-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    padding: 10px;
-    border: solid rgba(128, 128, 128, 0.486) 0.5px;
-
-    .first,
-    .second,
-    .third,
-    .fourth {
-      width: 5px;
-      height: 5px;
-      background-color: $secondary-color;
-    }
-  }
-
-  .grid-button:hover {
-    border: solid rgba(128, 128, 128, 0.813) 0.5px;
-  }
-
-  .text-view {
-    font-size: $fs-sm;
-    font-weight: 500;
-    display: grid;
-    place-content: center;
-    overflow: hidden;
-  }
-
-  .grid-button.insert {
-    display: grid;
-    grid-template-columns: repeat(2, 15px);
-    grid-template-rows: repeat(2, 15px);
-    place-content: center;
-    align-items: center;
-    justify-items: center;
-  }
-
-  .filter-button {
-    display: flex;
-    gap: 2em;
-    cursor: pointer;
-    font-size: $fs-sm;
   }
 
   .grid-images-content {
@@ -208,7 +196,7 @@
         }
       }
 
-      @for $i from 0 through 7 {
+      @for $i from 0 through 11 {
         .grid-img#{$i} {
           display: flex;
           flex-direction: column;
@@ -262,7 +250,7 @@
         aspect-ratio: 16/9;
       }
 
-      @for $i from 0 through 7 {
+      @for $i from 0 through 11 {
         .grid-img#{$i} {
           display: flex;
           flex-direction: column;
@@ -351,14 +339,12 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
       gap: 2em;
-    }
 
-    .grid {
-      .img-gallery-container {
+      .img-gallery-container.insert {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(0fr, 1fr));
 
-        @for $i from 0 through 7 {
+        @for $i from 0 through 11 {
           .grid-img#{$i} {
             padding: 0;
 
@@ -396,6 +382,15 @@
     .button-container {
       padding: 0 calc(1vw + 0.5rem);
 
+      .grid-button-container {
+        .grid-button {
+          display: grid;
+          grid-template-rows: repeat(4, 7px);
+          width: 40px;
+          height: 40px;
+        }
+      }
+
       .filter-container {
         .filter-button {
           display: flex;
@@ -405,28 +400,28 @@
       }
     }
 
-    .grid {
-      .img-gallery-container {
-        @for $i from 0 through 7 {
+    .grid-images-content {
+      .img-gallery-container.insert {
+        @for $i from 0 through 11 {
           .grid-img#{$i} {
             .image-content {
               width: 95%;
               padding: 10px 15px;
-            }
 
-            .content-left {
-              flex: 1;
-              font-size: $fs-base;
-            }
-
-            .content-right {
-              flex: 1;
-
-              .image-date {
+              .content-left {
+                flex: 1;
                 font-size: $fs-base;
               }
-              .image-format {
-                font-size: $fs-sm;
+
+              .content-right {
+                flex: 1;
+
+                .image-date {
+                  font-size: $fs-base;
+                }
+                .image-format {
+                  font-size: $fs-sm;
+                }
               }
             }
           }
@@ -436,7 +431,7 @@
   }
 }
 
-@media (max-width: 350px) {
+@media (max-width: 380px) {
   .tirage-container {
     .hero {
       .hero-title {
@@ -447,27 +442,48 @@
         display: none;
       }
     }
-    .grid {
-      .img-gallery-container {
-        @for $i from 0 through 7 {
+
+    .button-container {
+      .grid-button-container {
+        .grid-button {
+          display: grid;
+          grid-template-rows: repeat(4, 8px);
+          width: 35px;
+          height: 35px;
+        }
+      }
+    }
+
+    .grid-images-content {
+      .img-gallery-container.insert {
+        gap: 1em 0;
+        @for $i from 0 through 11 {
           .grid-img#{$i} {
             .content-left {
               font-size: $fs-very-base--mobile;
             }
 
             .image-content {
+              padding: 10px;
+              justify-content: center;
+              align-items: flex-start;
               display: flex;
+              gap: 1em;
               flex-direction: column;
-            }
-            .content-right {
-              align-self: flex-end;
-              justify-self: flex-end;
-              .image-date {
-                padding: 0;
-                font-size: $fs-very-base--mobile;
-              }
-              .image-format {
-                font-size: $fs-very-sm--mobile;
+
+              .content-right {
+                width: 100%;
+
+                .image-date {
+                  align-self: flex-start;
+                  padding: 0;
+                  font-size: $fs-very-base--mobile;
+                }
+                .image-format {
+                  align-self: flex-start;
+
+                  font-size: $fs-very-sm--mobile;
+                }
               }
             }
           }

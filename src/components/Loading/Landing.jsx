@@ -49,10 +49,22 @@ const Landing = () => {
 
   useEffect(() => {
     gsap.registerPlugin(Flip);
-
     const gridContainer = document.querySelector(".landing-flip");
-
     const images = gsap.utils.toArray(".landing-galleries img");
+    const tl = gsap.timeline();
+
+    tl.fromTo(
+      ".landing-subtitle",
+      {
+        scale: 3,
+      },
+      {
+        scale: 1,
+        ease: "power3.inOut",
+        duration: 2,
+      },
+      0.5
+    );
 
     gsap.set(".img", {
       top: "50%",
@@ -67,7 +79,7 @@ const Landing = () => {
         stagger: 0.15,
         duration: 0.75,
         ease: "power2.out",
-        delay: 1,
+        delay: 2,
       })
       .then(() => {
         gsap.set(".img", {
@@ -94,20 +106,46 @@ const Landing = () => {
         });
       });
 
-    gsap.from(".landing-subtitle", {
-      scale: 2,
-    });
-    gsap.to(".landing-subtitle", {
-      scale: 1,
-      ease: "power3.inOut",
-      duration: 2,
-    });
+    tl.fromTo(
+      ".line",
+      {
+        width: 0,
+      },
+      {
+        width: "100%",
+        transformOrigin: "left",
+        duration: 1,
+        ease: "power3.inOut",
+        onComplete: () => {
+          gsap.to(".line", {
+            opacity: 0,
+            duration: 1,
+            ease: "power3.inOut",
+          });
+        },
+      },
+      6
+    );
+
+    tl.to(
+      "p",
+
+      {
+        opacity: 0,
+        duration: 1,
+        ease: "power3.inOut",
+      },
+      7
+    );
   }, []);
 
   return (
     <div className="landing-container">
       <div className="landing-subtitle">
-        <span>All</span> here is mind maybe <span>yours</span>
+        <div className="landing-content">
+          <div className="line"></div>
+          <p>The sky is the limit</p>
+        </div>
       </div>
       <div className="landing-flip"></div>
       <div className="landing-galleries">

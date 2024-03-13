@@ -6,38 +6,64 @@ const FilterButton = ({
   isButtonFilterIsClicked,
 }) => {
   const [originaux, tirages] = galleriesData;
+  const totalWorks = originaux.length;
+
+  const largeFormat = originaux.filter(
+    (item) => item.formatOriginaux === "large"
+  );
+  const mediumFormat = originaux.filter(
+    (item) => item.formatOriginaux === "medium"
+  );
+
   return (
     <>
       <div className="filter-button">
         <div
           className=""
-          style={{ opacity: isButtonFilterIsClicked === "All" ? 1 : 0.4 }}
+          style={{ opacity: isButtonFilterIsClicked === "all" ? 1 : 0.4 }}
           onClick={() => {
-            setIsButtonFilterIsClicked("All");
-            setItem([...originaux, ...tirages]);
+            setIsButtonFilterIsClicked("all");
+            setItem([...originaux]);
           }}
         >
-          (10) All
+          ({totalWorks}) All
         </div>
         <div
           className=""
-          style={{ opacity: isButtonFilterIsClicked === "originaux" ? 1 : 0.4 }}
+          style={{
+            opacity: isButtonFilterIsClicked === "originaux large" ? 1 : 0.4,
+          }}
           onClick={() => {
-            setIsButtonFilterIsClicked("originaux");
-            setItem(originaux);
+            setIsButtonFilterIsClicked("originaux large");
+            setItem(largeFormat);
           }}
         >
-          (4) Originaux
+          ({largeFormat.length}) Originaux Large
         </div>
         <div
           className=""
-          style={{ opacity: isButtonFilterIsClicked === "tirages" ? 1 : 0.4 }}
+          style={{
+            opacity: isButtonFilterIsClicked === "originaux medium" ? 1 : 0.4,
+          }}
           onClick={() => {
-            setIsButtonFilterIsClicked("tirages");
+            setIsButtonFilterIsClicked("originaux medium");
+            setItem(mediumFormat);
+          }}
+        >
+          ({mediumFormat.length}) Originaux Medium
+        </div>
+        <div
+          className=""
+          style={{
+            opacity:
+              isButtonFilterIsClicked === "tirages disponibles" ? 1 : 0.4,
+          }}
+          onClick={() => {
+            setIsButtonFilterIsClicked("tirages disponibles");
             setItem(tirages);
           }}
         >
-          (4) Tirages
+          ({tirages.length}) Tirages disponibles
         </div>
       </div>
     </>
