@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import gsap from "gsap";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import SplitType from "split-type";
-import { HomePageTransition } from "../../components/Animations/PageTransition.jsx";
+import TransitionHome from "../../components/Animations/PageTransition/TransitionHome.jsx";
 import HomeFloatingGallery from "../../components/Home/HomeFloatingGallery.jsx";
 import Landing from "../../components/Loading/Landing.jsx";
 
@@ -28,29 +28,30 @@ const Home = ({ isLoading }) => {
   };
 
   useEffect(() => {
-    SplitLines("title", 0);
-    SplitLines("text-1 p", 2);
-    SplitLines("based p", 2);
-    SplitLines("made-by p", 2);
+    SplitLines("text-1 p", 1);
+    SplitLines("based p", 1);
+    SplitLines("made-by p", 1);
   }, [isLoading]);
 
+  const [isFirstRender, setIsFirstRender] = useState(true);
+
+  useEffect(() => {
+    if (isFirstRender && !isLoading) {
+      setIsFirstRender(false);
+    }
+  }, [isLoading, isFirstRender]);
+
   return (
-    <motion.section
-      variants={HomePageTransition}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      className="home-container"
-    >
+    <motion.section className="home-container">
       {isLoading ? (
         <div>
           <Landing />
         </div>
       ) : (
-        <>
+        <TransitionHome isFirstRender={isFirstRender}>
           <HomeFloatingGallery />
           <div className="title">
-            <p>there is no limit</p>
+            <p>Margritt</p>
           </div>
           <div className="content-right">
             <div className="text-1">
@@ -63,7 +64,7 @@ const Home = ({ isLoading }) => {
           <div className="based">
             <p> {t("home.based")}</p>
           </div>
-        </>
+        </TransitionHome>
       )}
     </motion.section>
   );

@@ -1,4 +1,3 @@
-import { AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import Nav from "./Nav";
 import "./Navbar.scss";
@@ -21,9 +20,7 @@ const NavBar = () => {
         >
           {isActive ? <p>Close</p> : <p>Menu</p>}
         </div>
-        <AnimatePresence mode="wait">
-          {isActive && <Nav isActive={isActive} />}
-        </AnimatePresence>
+        {isActive && <Nav isActive={isActive} />}
       </div>
     </div>
   );

@@ -6,7 +6,6 @@
   color: $primary-color;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-
   height: 100vh;
   position: relative;
 
@@ -99,7 +98,7 @@
     }
   }
 
-  .divider {
+  .form-divider {
     grid-column: 2 / span 10;
     width: 0;
     margin: calc(5vh + 2rem) 0;
@@ -177,7 +176,7 @@
 
 @media (max-width: 498px) {
   .form-container {
-    .divider {
+    .form-divider {
       margin: 0;
     }
 

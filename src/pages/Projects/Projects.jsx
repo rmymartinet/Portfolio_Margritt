@@ -1,14 +1,11 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
-import {
-  PageTransition,
-  TitleTransition,
-} from "../../components/Animations/PageTransition.jsx";
 import Circle from "../../components/Common/Circle.jsx";
-import Divider from "../../components/Common/Divider.jsx";
 import Form from "../../components/Form/Form.jsx";
 
 import gsap from "gsap";
+import Transition from "../../components/Animations/PageTransition/Transition.jsx";
+import Hero from "../../components/Common/Hero.jsx";
 import LatestProject from "../../components/Project/LatestProject.jsx";
 import {
   Activity,
@@ -55,23 +52,9 @@ const Projects = () => {
   }, [expositionRef, ActivityRef]);
 
   return (
-    <>
-      <motion.section
-        className="project-container"
-        ref={containerRef}
-        variants={PageTransition}
-        initial="initial"
-        animate="animate"
-        exit="exit"
-      >
-        <div className="hero">
-          <TitleTransition textClassName="hero-title h1" />
-          <div className="hero-title">
-            <h1>projects</h1>
-          </div>
-          <Divider className="divider" />
-        </div>
-
+    <Transition>
+      <motion.section className="project-container" ref={containerRef}>
+        <Hero title="projects" />
         <LatestProject />
         <Exposition ref={expositionRef} />
         <Activity ref={ActivityRef} />
@@ -80,7 +63,7 @@ const Projects = () => {
         <Circle target={"project-container"} />
         <Form />
       </footer>
-    </>
+    </Transition>
   );
 };
 

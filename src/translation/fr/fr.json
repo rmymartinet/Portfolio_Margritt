@@ -1,8 +1,8 @@
 {
   "home": {
     "text1": "Vous trouverez ici l'intégralité de ma collection, chaque pièce étant unique, Si l'une d'elles retient votre attention, faites-le moi savoir",
-    "madeBy": "Rémy.co ©2024",
-    "based": "Basé en France"
+    "madeBy": "V - ©2024",
+    "based": "Basée en France"
   },
   "galleries": {
     "titleOriginals": "Originaux",
@@ -15,6 +15,8 @@
     "textPrints3": "Elles permettent à un public plus large d'apprécier et de posséder une version fidèle de ces œuvres."
   },
   "tiragesDetails": {
+    "notAvailable": "Non disponible à la vente",
+    "vailable": "Disponible à la vente",
     "piece": "Pièce",
     "subtitle": "Chaque tirages en édition limitée est numérotée, signée par l'artiste et accompagnée d'un certificat d'authenticité",
     "courtsTirages": "Tirages en édition limitée et réalisés par ' Les Courts Tirages '",
@@ -29,6 +31,7 @@
     "contact": "❋ Contactez-moi pour acheter"
   },
   "originauxDetails": {
+    "sale": "Disponible à la vente",
     "piece": "Pièce",
     "subtitle": "Certains originaux sont disponibles en version tirage de manière limitée - Chaque pièce est signée à la main par l'artiste en bas à droite à l'avant et est également accompagnée d'un certificat d'authenticité",
     "textOeuvre": "Toutes les œuvres originales sont également disponibles à la vente - Veuillez me contacter pour discuter des options d'achat et obtenir plus de détails",

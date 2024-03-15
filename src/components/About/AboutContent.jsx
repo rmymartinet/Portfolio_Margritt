@@ -110,6 +110,7 @@ const AboutContent = forwardRef((_, ref) => {
 
   return (
     <div className="about-content" ref={ref}>
+      {/* <TextTransition textClassName="about-title" /> */}
       <p className="about-title">
         <span>Margritt Martinet</span> {t("about.subtitle")}
       </p>

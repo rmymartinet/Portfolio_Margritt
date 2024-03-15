@@ -17,9 +17,10 @@
     text-transform: uppercase;
     font-weight: 500;
     margin-bottom: calc(30vh + 2rem);
+    overflow: hidden;
   }
 
-  .subtitle {
+  .contact-subtitle {
     width: 95vw;
     display: flex;
     flex-direction: row-reverse;
@@ -88,7 +89,7 @@
       font-size: $fs-lg;
     }
   }
-  .divider {
+  .contact-divider {
     margin: calc(10vh + 2rem) 0;
     grid-column: 1 / span 12;
     height: 1px;
@@ -152,7 +153,7 @@
       }
     }
 
-    .subtitle {
+    .contact-subtitle {
       .mail {
         font-size: $fs-xl;
       }
@@ -169,7 +170,7 @@
 
 @media (max-width: 768px) {
   .contact-container {
-    .subtitle {
+    .contact-subtitle {
       .mail {
         font-size: $fs-lg;
       }
@@ -186,7 +187,7 @@
     .title {
       justify-self: center;
     }
-    .subtitle {
+    .contact-subtitle {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -210,7 +211,7 @@
     .title {
       margin-bottom: 15vh;
     }
-    .subtitle {
+    .contact-subtitle {
       gap: 5em 0;
       justify-content: center;
       .text {

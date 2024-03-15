@@ -2,13 +2,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Nav.scss";
-import {
-  menuSlide,
-  slide,
-  slideNav,
-  slideText,
-  smallScreenSlide,
-} from "./NavAnimation";
+import { menuSlide, slide, slideNav, slideText } from "./NavAnimation";
 
 const TextBlock = ({ text }) => {
   const [letters, setLetters] = useState([]);
@@ -31,19 +25,6 @@ const TextBlock = ({ text }) => {
 const Nav = () => {
   const navItems = ["Home", "Gallerie", "Projects", "About", "Contact"];
   const navigate = useNavigate();
-  const [smallScreen, setSmallScreen] = useState(window.innerWidth < 768);
-
-  useEffect(() => {
-    const handleRezise = () => {
-      setSmallScreen(window.innerWidth < 768);
-    };
-
-    window.addEventListener("resize", handleRezise);
-
-    return () => {
-      window.removeEventListener("resize", handleRezise);
-    };
-  }, []);
 
   const links = [
     { name: "Tiktok", url: "https://www.tiktok.com/@margrittus?lang=fr" },
@@ -91,7 +72,7 @@ const Nav = () => {
               return (
                 <motion.div
                   key={index}
-                  variants={smallScreen ? smallScreenSlide : slide}
+                  variants={slide}
                   initial="initial"
                   animate="enter"
                   exit="exit"

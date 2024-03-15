@@ -2,18 +2,14 @@ import { motion } from "framer-motion";
 import gsap from "gsap";
 import { Flip } from "gsap/Flip";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(Flip);
 
 const ImagesContainer = ({
   //eslint-disable-next-line
-  onIsClickedChange,
-  //eslint-disable-next-line
   item,
-  //eslint-disable-next-line
-  isGrid,
   //eslint-disable-next-line
   isGridClick,
   //eslint-disable-next-line
@@ -21,18 +17,10 @@ const ImagesContainer = ({
   //eslint-disable-next-line
   isCategoryIsClicked,
 }) => {
-  const MOBILE_SCREEN_WIDTH = 768;
-  const exit = {
-    opacity: 0,
-    transition: {
-      duration: 0.5,
-    },
-  };
   let navigate = useNavigate();
   const [isClicked, setIsClicked] = useState(false);
+
   const imgContainerRef = useRef(null);
-  const originauxCategory = item.filter((cat) => cat.category === "originaux");
-  const tiragesCategory = item.filter((cat) => cat.subCategory === "tirages");
 
   /* Navagation lors du click sur images
   * La fonction handleNavigate permet de naviguer vers la page de l'image cliquée
@@ -40,129 +28,17 @@ const ImagesContainer = ({
   */
   const handleNavigate = (id, category, subCategory) => {
     setIsClicked(id);
+
     if (category === "originaux") {
-      setTimeout(() => {
-        navigate(`/originaux/${id}`);
-      }, 2000);
+      navigate(`/originaux/${id}`);
     }
     if (subCategory === "tirages") {
-      setTimeout(() => {
-        navigate(`/tirages/${id}`);
-      }, 2000);
+      navigate(`/tirages/${id}`);
     }
   };
 
-  /* Pour transmettre la valeur de isClicked à la page parente pour animaer opacity des pages
-  *  useEffect pour transmettre la valeur de isClicked à la page parente
-
-  */
-  useEffect(() => {
-    onIsClickedChange(isClicked);
-  }, [isClicked, onIsClickedChange]);
-
-  /* Animation pour le flip des images
-   *  La fonction flipAnimation permet de faire un flip des images au click
-   *  Si la largeur de l'écran est supérieur à 768px, on utilise la fonction flipAnimation
-   *  Sinon, on utilise la fonction lowFlipAnimation
-   *
-   * TODO : A revoir pour les orignuax animaiton de début différente.
-   */
-
-  const flipAnimation = useCallback(() => {
-    const flipContainer = document.querySelector(".flip-container");
-    const images = gsap.utils.toArray(".images-container img");
-
-    images.forEach((img, id) => {
-      const clickedItem = item.find((item) => item.id === id);
-      img.addEventListener("click", () => {
-        if (
-          !originauxCategory.includes(clickedItem) &&
-          tiragesCategory.includes(clickedItem) &&
-          window.innerWidth > MOBILE_SCREEN_WIDTH
-        ) {
-          let state = Flip.getState(img);
-          flipContainer.appendChild(img);
-
-          Flip.from(state, {
-            absolute: true,
-            duration: 2,
-            ease: "power3.inOut",
-          });
-
-          images.forEach((otherImg) => {
-            if (otherImg !== img) {
-              gsap.to(otherImg, {
-                opacity: 0,
-                duration: 0,
-                ease: "power3.inOut",
-              });
-            }
-          });
-        }
-      });
-    });
-  }, [item, originauxCategory, tiragesCategory]);
-
-  /* Animation pour le flip des images en oringaux et width < 768px
-  
-  
-  */
-
-  const lowFlipAnimation = useCallback(() => {
-    const flipContainer = document.querySelector(".flip-container-width");
-    const images = gsap.utils.toArray(".images-container img");
-
-    images.forEach((img, id) => {
-      const clickedItem = item.find((item) => item.id === id);
-      img.addEventListener("click", () => {
-        if (
-          window.innerWidth < MOBILE_SCREEN_WIDTH ||
-          originauxCategory.includes(clickedItem)
-        ) {
-          let state = Flip.getState(img);
-          flipContainer.appendChild(img);
-
-          Flip.from(state, {
-            absolute: true,
-            duration: 2,
-            ease: "power3.inOut",
-          });
-
-          images.forEach((otherImg) => {
-            if (otherImg !== img) {
-              gsap.to(otherImg, {
-                opacity: 0,
-                duration: 0,
-                ease: "power3.inOut",
-              });
-            }
-          });
-        }
-      });
-    });
-  }, [originauxCategory, item]);
-
-  useEffect(() => {
-    flipAnimation();
-    lowFlipAnimation();
-  }, [flipAnimation, MOBILE_SCREEN_WIDTH, lowFlipAnimation, originauxCategory]);
-
-  /* Animation pour le click sur les images
-   *  useEffect pour faire disparaitre les informations des images pendant le FlipAnimation
-   */
-
-  useEffect(() => {
-    if ([0, 1, 2, 3, 4, 5, 6, 7].includes(isClicked)) {
-      gsap.to(".image-content", {
-        visibility: "hidden",
-        duration: 0,
-        ease: "power3.inOut",
-      });
-    }
-  }, [isClicked]);
-
-  /* Animation pour le click sur les images
-   *  Lors du click sur ButtonGrid on fait apparitre les images avec une animations
+  /* Animation lors du click sur le GridButton
+   *  Réorganisation des images
    */
 
   useEffect(() => {
@@ -180,6 +56,7 @@ const ImagesContainer = ({
       ease: "power3.inOut",
     });
   }, [isGridClick]);
+
   /* Animation pour le click sur les images
   *  Lors du click sur ButtonFilter on fait apparitre les images avec une animations
   
@@ -189,14 +66,12 @@ const ImagesContainer = ({
     if (isButtonFilterIsClicked) {
       gsap.from("img", {
         clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
-        // scale: 1.5,
-        duration: 2,
+        duration: 1,
         ease: "power3.inOut",
       });
       gsap.to("img", {
         clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-        // scale: 1,
-        duration: 2,
+        duration: 1,
         ease: "power3.inOut",
       });
     }
@@ -210,16 +85,12 @@ const ImagesContainer = ({
     if (isCategoryIsClicked === "tirages") {
       gsap.from("img", {
         clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)",
-        // y: 300,
-        // scale: 1.5,
         opacity: 1,
         duration: 2,
         ease: "power2.out",
       });
       gsap.to("img", {
         clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)",
-        // scale: 1,
-        // y: 0,
         opacity: 1,
         duration: 2,
         ease: "power2.out",
@@ -239,13 +110,8 @@ const ImagesContainer = ({
     }
   }, [isCategoryIsClicked]);
 
-  // const containerClass = isGrid ? "grid" : "grid-images-content";
-
   return (
-    <motion.div
-      className="grid-images-content"
-      exit={[0, 1, 2, 3, 4, 5, 6, 7].includes(isClicked) ? "" : exit}
-    >
+    <motion.div className="grid-images-content" exit="exit">
       <div className="flip-container"></div>
       <div className="flip-container-width"></div>
       <div ref={imgContainerRef} className="img-gallery-container">
@@ -262,11 +128,7 @@ const ImagesContainer = ({
                   duration: 1.5,
                 },
               }}
-              exit={
-                isClicked === false
-                  ? { opacity: 0, transition: { duration: 0.5 } }
-                  : {}
-              }
+              exit="exit"
             >
               <div
                 onClick={() => {

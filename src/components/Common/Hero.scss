@@ -1,0 +1,24 @@
+@import "../../sass/variables.scss";
+
+.divider {
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  background-color: $secondary-color;
+}
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: max-content;
+  margin-bottom: calc(30vh + 2rem);
+  width: 100%;
+
+  .hero-title {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    font-size: $fs-xxxl;
+    text-transform: uppercase;
+  }
+}

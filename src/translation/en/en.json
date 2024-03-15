@@ -1,7 +1,7 @@
 {
   "home": {
     "text1": "You will find here the entirety of my collection, each piece being a unique expression, If something catches your attention, let me know",
-    "madeBy": "Rémy.co ©2024",
+    "madeBy": "© 2024",
     "based": "Based in France"
   },
   "galleries": {
@@ -11,6 +11,8 @@
     "textPrints": "The prints are high-quality digital reproductions of some of my original artworks - They are available in a single size, medium. They enable a wider audience to appreciate and own a faithful version of these works."
   },
   "tiragesDetails": {
+    "notAvailable": "Not available for sale",
+    "vailable": "available for sale",
     "piece": "Piece",
     "subtitle": "Each limited edition print is numbered, signed by the artist, and accompanied by a certificate of authenticity",
     "courtsTirages": "Limited edition prints produced by Short Prints",

@@ -12,6 +12,8 @@ import Gallery from "./pages/Galleries/Galleries.jsx";
 import OriginauxDetails from "./pages/Galleries/OriginauxDetails.jsx";
 import TirageDetails from "./pages/Galleries/TirageDetails.jsx";
 import Home from "./pages/Home/Home.jsx";
+import ImagesOriginaux from "./pages/Images/ImagesOriginaux.jsx";
+import ImagesTirages from "./pages/Images/ImagesTirages.jsx";
 import Projects from "./pages/Projects/Projects.jsx";
 
 function App() {
@@ -24,7 +26,9 @@ function App() {
 
   const location = useLocation();
   useEffect(() => {
-    window.scrollTo(0, 0);
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 1000);
   }, [location]);
 
   const [isLoading, setIsLoading] = useState(true);
@@ -33,9 +37,13 @@ function App() {
     if (isLoading) {
       setTimeout(() => {
         setIsLoading(false);
-      }, 8000);
+      }, 6500);
     }
   });
+
+  useEffect(() => {
+    document.title = "Margritt.com";
+  }, []);
 
   return (
     <>
@@ -49,6 +57,11 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/tirages/:index" element={<TirageDetails />} />
           <Route path="/originaux/:index" element={<OriginauxDetails />} />
+          <Route
+            path="/originaux-images/:index"
+            element={<ImagesOriginaux />}
+          />
+          <Route path="/tirages-images/:index" element={<ImagesTirages />} />
         </Routes>
       </AnimatePresence>
     </>

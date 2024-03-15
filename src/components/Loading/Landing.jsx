@@ -105,38 +105,6 @@ const Landing = () => {
           },
         });
       });
-
-    tl.fromTo(
-      ".line",
-      {
-        width: 0,
-      },
-      {
-        width: "100%",
-        transformOrigin: "left",
-        duration: 1,
-        ease: "power3.inOut",
-        onComplete: () => {
-          gsap.to(".line", {
-            opacity: 0,
-            duration: 1,
-            ease: "power3.inOut",
-          });
-        },
-      },
-      6
-    );
-
-    tl.to(
-      "p",
-
-      {
-        opacity: 0,
-        duration: 1,
-        ease: "power3.inOut",
-      },
-      7
-    );
   }, []);
 
   return (
@@ -144,7 +112,7 @@ const Landing = () => {
       <div className="landing-subtitle">
         <div className="landing-content">
           <div className="line"></div>
-          <p>The sky is the limit</p>
+          <p>Margritt</p>
         </div>
       </div>
       <div className="landing-flip"></div>

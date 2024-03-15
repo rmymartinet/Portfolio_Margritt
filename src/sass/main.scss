@@ -5,11 +5,13 @@
 //robokitt
 @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Rokkitt:ital,wght@0,100..900;1,100..900&display=swap");
 
+//ARVO
+@import url("https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Lora:ital,wght@0,400..700;1,400..700&family=Rokkitt:ital,wght@0,100..900;1,100..900&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Robotto", sans-serif;
 }
 
 img {
@@ -19,8 +21,9 @@ img {
 }
 
 body {
+  font-family: "Lora", serif;
   background-color: $primary-color;
-  // color: $secondary-color;
+  color: $secondary-color;
 }
 
 a {

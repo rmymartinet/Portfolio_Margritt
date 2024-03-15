@@ -53,7 +53,7 @@ const Form = () => {
           </a>
         </div>
       </div>
-      {dividerInView && <Divider className="divider" />}
+      {dividerInView && <Divider className="form-divider" />}
       <div className="infos">
         <InfoItem label="Local Time" value={time} className="local-time" />
         <InfoItem label="Number" value="+33.83.40.51.05" className="number" />

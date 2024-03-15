@@ -1,325 +1,183 @@
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useCallback, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import Transition from "../../components/Animations/PageTransition/Transition.jsx";
+import { TitleTransition } from "../../components/Animations/TextAnimation.jsx";
+import Circle from "../../components/Common/Circle.jsx";
 import InfoItem from "../../components/Common/InfoItem.jsx";
+import Form from "../../components/Form/Form.jsx";
 import { tirageData } from "../../data.js";
-import "./Galleriesdetails.scss";
+import "./OriginauxDetails.scss";
 gsap.registerPlugin(ScrollTrigger);
 
 const TirageDetails = () => {
   const { index } = useParams();
-  const firstImgRef = useRef(null);
-  const image1Ref = useRef(null);
-  const image2Ref = useRef(null);
-  const image3Ref = useRef(null);
-  const detailsImageRef = useRef(null);
-  const detailsImageCopyRef = useRef(null);
-  const titleRef = useRef(null);
   const selectedImage = tirageData[index];
-  const [isAnimated, setIsAnimated] = useState(true);
+  const saleProduct = selectedImage.available;
+  const slideNumber = countImages(selectedImage);
+  const [isClicked, setIsClicked] = useState(false);
+
+  function countImages(data) {
+    return Object.keys(data).filter((key) => key.startsWith("img")).length;
+  }
+
   const { t } = useTranslation();
+  const { index: currentIndex } = useParams();
 
-  const textVariants = {
-    initial: {
-      opacity: 0,
-    },
-    animate: {
-      opacity: 1,
-      transition: {
-        delay: 1,
-        duration: 1,
-        ease: "easeInOut",
-      },
-    },
+  const navigate = useNavigate();
 
-    exit: {
-      opacity: 0,
-      transition: {
-        duration: 1,
-        ease: "easeInOut",
-      },
-    },
-  };
-  const imageVariants = {
-    exit: {
-      opacity: 0,
-      transition: {
-        duration: 1,
-        ease: "easeInOut",
-      },
-    },
+  const nextItem = tirageData.find(
+    (_, index) => index > parseInt(currentIndex)
+  );
+
+  const handleNavigateTirages = (index) => {
+    navigate(`/tirages/${index}`);
   };
 
-  const imgRefs = [firstImgRef, image1Ref, image2Ref, image3Ref];
-  const copyRefs = document.querySelectorAll(".details-image-copy img");
+  useEffect(() => {
+    const item = document.querySelector(".navigate-works-item p");
 
-  const scrollAnimation = useCallback(() => {
-    imgRefs.forEach((ref, index) => {
-      const copyRef = copyRefs[index];
-
-      if (index === 0 || index === 1) {
-        gsap.set(copyRef, {
-          opacity: 1,
-        });
-      } else {
-        gsap.set(copyRef, {
-          opacity: 0.5,
-        });
-      }
-
-      {
-        !isAnimated &&
-          gsap.to(copyRef, {
-            opacity: 1,
-            scrollTrigger: {
-              trigger: ref.current,
-              start: "top 80%",
-              end: "50% 80%",
-              scrub: 1,
-            },
-          });
-      }
-    });
-  }, [isAnimated, copyRefs, imgRefs]);
-
-  useLayoutEffect(() => {
-    scrollAnimation();
-  }, [isAnimated, scrollAnimation]);
-
-  const originalSliderAnimation = useCallback((clasName, topValue) => {
-    const tl = gsap.timeline();
-    const context = gsap.context(() => {
-      tl.to(clasName, {
-        top: topValue,
+    const image = document.querySelector(".navigate-works-item img");
+    item.addEventListener("mouseenter", (e) => {
+      gsap.to(image, {
         opacity: 1,
-        duration: 2,
         ease: "power3.inOut",
       });
-    }, detailsImageRef);
+    });
 
-    return context;
-  }, []);
-
-  useLayoutEffect(() => {
-    if (window.innerWidth > 768) {
-      gsap.to(".tirage-details-container ", {
-        padding: "5em",
-        delay: 1,
-        duration: 2,
-        ease: "power3.inOut",
-        onComplete: () => {
-          setIsAnimated(false);
-        },
+    item.addEventListener("mouseleave", (e) => {
+      gsap.to(image, {
+        opacity: 0,
       });
-      originalSliderAnimation(".img2", "120%");
-      originalSliderAnimation(".img3", "240%");
-      originalSliderAnimation(".img4", "360%");
-    }
-  }, [originalSliderAnimation]);
+    });
 
-  const copySliderAnimation = useCallback((clasName, time) => {
-    const tl = gsap.timeline();
-
-    const context = gsap.context(() => {
-      gsap.set(clasName, {
-        visibility: "hidden",
-        y: "200%",
-      });
-
-      tl.to(
-        clasName,
-        {
-          visibility: "visible",
-          y: "0%",
-          duration: 1,
-          ease: "power3.inOut",
-        },
-        time
-      );
-    }, detailsImageCopyRef);
-
-    return context;
+    item.addEventListener("mousemove", (e) => {
+      gsap.to(image, { x: e.offsetX - 250, y: e.offsetY - 0 });
+    });
   }, []);
 
-  useLayoutEffect(() => {
-    copySliderAnimation(".img1-copy", 0.3);
-    copySliderAnimation(".img2-copy", 0.4);
-    copySliderAnimation(".img3-copy", 0.5);
-    copySliderAnimation(".img4-copy", 0.6);
-  }, [copySliderAnimation]);
-
-  const lowOriginalSliderAnimation = useCallback((clasName) => {
-    const tl = gsap.timeline();
-    const context = gsap.context(() => {
-      tl.fromTo(
-        clasName,
-        {
-          opacity: 0,
-        },
-        {
-          opacity: 1,
-          delay: 2,
-          duration: 2,
-          ease: "power3.inOut",
-        }
-      );
-    }, detailsImageRef);
-
-    return context;
-  }, []);
-
-  useLayoutEffect(() => {
-    if (window.innerWidth < 768) {
-      gsap.fromTo(
-        ".details-image ",
-        {
-          y: "-350%",
-        },
-        {
-          y: 0,
-          duration: 2,
-          ease: "power3.inOut",
-        }
-      );
-      lowOriginalSliderAnimation(".img2");
-      lowOriginalSliderAnimation(".img3");
-      lowOriginalSliderAnimation(".img4");
-    }
-  }, [lowOriginalSliderAnimation]);
+  const handleClick = () => {
+    setIsClicked(true);
+    navigate(`/tirages-images/${index}`);
+  };
 
   return (
-    <motion.div className="tirage-details-container">
-      <motion.div
-        className="details-content-left"
-        variants={textVariants}
-        initial="initial"
-        animate="animate"
-        exit="exit"
-      >
-        <div className="title" ref={titleRef}>
-          <p>{selectedImage.title}</p>
-        </div>
-        <div className="description">
-          <p className="piece">
-            {selectedImage.piece} {t("tiragesDetails.piece")}
-          </p>
-          <div className="serie-date-content">
-            <p className="serie">{selectedImage.serie}</p>
-            <p className="date">{selectedImage.date}</p>
+    <Transition>
+      <motion.div className="originaux-details-container">
+        <motion.div className="infos-container">
+          <TitleTransition textClassName="title h1" />
+          <div className="title">
+            <h1>{selectedImage.title}</h1>
           </div>
-        </div>
-        <div className="subtitle">
-          <p>{t("tiragesDetails.subtitle")}</p>
-          <p>{t("tiragesDetails.courtsTirages")}</p>
-        </div>
-        <div className="details-content-right">
-          <div className="tirage-infos">
-            <InfoItem
-              label="Tirage"
-              className="tirage"
-              value={t("tiragesDetails.print")}
-            />
-            <InfoItem
-              label={t("tiragesDetails.size")}
-              value={selectedImage.format}
-              className="format"
-            />
-            <InfoItem
-              label={t("tiragesDetails.paper")}
-              value={selectedImage.papier}
-              className="papier"
-            />
-            <div className="divider2"></div>
-          </div>
-          <div className="livraison">
-            <div className="livraison-title">
-              <p>{t("tiragesDetails.delivery")}</p>
+          <div className="product-info">
+            <motion.div className="details-image">
+              <img loading="lazy" src={selectedImage.img} alt={""} />
+            </motion.div>
+            {countImages(selectedImage) > 1 && (
+              <div onClick={() => handleClick()} className="btn">
+                <p>+</p>
+              </div>
+            )}
+            <div className="sale">
+              <p>{saleProduct}</p>
             </div>
-            <InfoItem
-              label="France"
-              value={t("tiragesDetails.france")}
-              className="papier"
-            />
-            <InfoItem
-              label="Europe"
-              value={t("tiragesDetails.europe")}
-              className="papier"
-            />
-            <InfoItem
-              label="International"
-              value={t("tiragesDetails.international")}
-              className="papier"
-            />
+            <div className="total-slide">
+              <p>{`01 / 0${slideNumber}`}</p>
+            </div>
           </div>
-        </div>
-        <div className="note">
-          <p>{t("tiragesDetails.frame")}</p>
-          <p>{t("tiragesDetails.contact")}</p>
-        </div>
-      </motion.div>
 
-      <motion.div
-        className="details-image"
-        variants={imageVariants}
-        exit="exit"
-        ref={detailsImageRef}
-      >
-        <motion.div className="img1">
-          <img
-            loading="lazy"
-            ref={firstImgRef}
-            src={selectedImage.img}
-            alt={""}
-          />
-        </motion.div>
-        <motion.div className="img2" exit="exit">
-          <img
-            loading="lazy"
-            src={selectedImage.img1}
-            alt={""}
-            ref={image1Ref}
-          />
-        </motion.div>
-        <motion.div className="img3" exit="exit">
-          <img
-            loading="lazy"
-            src={selectedImage.img2}
-            alt={""}
-            ref={image2Ref}
-          />
-        </motion.div>
-        <motion.div className="img4" exit="exit">
-          <img
-            loading="lazy"
-            src={selectedImage.img3}
-            alt={""}
-            ref={image3Ref}
-          />
+          <div className="divider" />
+          <div className="wrapper">
+            <motion.div className="description">
+              <div className="title-description">
+                <p>Description</p>
+              </div>
+              <div className="buying-text">
+                <p>{t("originauxDetails.textOeuvre")}</p>
+              </div>
+              <div className="details-infos">
+                <InfoItem
+                  label="Serie"
+                  value={selectedImage.serie}
+                  className="serie"
+                />
+                <InfoItem
+                  label="Année"
+                  value={selectedImage.date}
+                  className="date"
+                />
+                <InfoItem
+                  label={t("originauxDetails.piece")}
+                  value={selectedImage.piece}
+                  className="piece"
+                />
+                <InfoItem
+                  label="Format"
+                  value={selectedImage.format}
+                  className="format"
+                />
+                <InfoItem
+                  label={t("originauxDetails.paper")}
+                  value={selectedImage.papier}
+                  className="paper"
+                />
+              </div>
+            </motion.div>
+            <div className="livraison">
+              <div className="background"></div>
+              <div className="livraison-title">
+                <p>{t("tiragesDetails.delivery")}</p>
+              </div>
+              <InfoItem
+                label="France"
+                value={t("tiragesDetails.france")}
+                className="france"
+              />
+              <InfoItem
+                label="Europe"
+                value={t("tiragesDetails.europe")}
+                className="europe"
+              />
+              <InfoItem
+                label="International"
+                value={t("tiragesDetails.international")}
+                className="international"
+              />
+            </div>
+            <div className="divider" />
+            <div className="navigate">
+              <div className="navigate-title">
+                <p>Next project:</p>
+              </div>
+              <div className="navigate-works-originaux">
+                {nextItem && (
+                  <div
+                    onClick={() => {
+                      handleNavigateTirages(nextItem.id);
+                    }}
+                    className="navigate-works-item"
+                  >
+                    <p>{nextItem.title}</p>
+                    <img
+                      loading="lazy"
+                      src={nextItem.img}
+                      alt={nextItem.title}
+                    />
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
         </motion.div>
       </motion.div>
-      <motion.div
-        className="details-image-copy"
-        variants={imageVariants}
-        exit="exit"
-        ref={detailsImageCopyRef}
-      >
-        <div className="img1-copy">
-          <img loading="lazy" src={selectedImage.img} alt={""} />
-        </div>
-        <div className="img2-copy">
-          <img src={selectedImage.img1} alt={""} />
-        </div>
-        <div className="img3-copy">
-          <img src={selectedImage.img2} alt={""} />
-        </div>
-        <div className="img4-copy">
-          <img src={selectedImage.img3} alt={""} />
-        </div>
-      </motion.div>
-    </motion.div>
+      <footer className="hello">
+        <Circle target={"originaux-details-container"} />
+        <Form />
+      </footer>
+    </Transition>
   );
 };
 

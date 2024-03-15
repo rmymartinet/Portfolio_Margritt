@@ -3,8 +3,8 @@
 
 .menu {
   z-index: 9999998;
-  @include glassmorphismNav;
   overflow: hidden;
+  background-color: white;
 
   .nav-container {
     box-sizing: border-box;

@@ -40,33 +40,11 @@
   }
 
   .hero {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: max-content;
-    margin-bottom: calc(30vh + 2rem);
-    width: 100%;
-
-    .hero-title {
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-      font-size: $fs-xxxl;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-
     .hero-subtitle {
       position: absolute;
       bottom: 0;
       right: 0;
       font-size: $fs-base;
-      font-style: italic;
-    }
-    .divider {
-      position: absolute;
-      bottom: 0;
-      height: 2px;
-      background-color: $secondary-color;
     }
   }
 
@@ -85,9 +63,11 @@
       text-transform: uppercase;
       font-size: $fs-md;
       font-weight: 500;
+      overflow: hidden;
 
       p {
         font-size: $fs-base;
+        font-weight: 100;
       }
     }
   }

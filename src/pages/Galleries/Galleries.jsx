@@ -1,13 +1,10 @@
 import { motion } from "framer-motion";
-import gsap from "gsap";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import {
-  PageTransition,
-  TitleTransition,
-} from "../../components/Animations/PageTransition.jsx";
+import Transition from "../../components/Animations/PageTransition/Transition.jsx";
+import { TextTransition } from "../../components/Animations/TextAnimation.jsx";
 import Circle from "../../components/Common/Circle.jsx";
-import Divider from "../../components/Common/Divider.jsx";
+import Hero from "../../components/Common/Hero.jsx";
 import Form from "../../components/Form/Form.jsx";
 import FilterButton from "../../components/Galleries/FilterButton.jsx";
 import GridButton from "../../components/Galleries/GridButton.jsx";
@@ -17,97 +14,56 @@ import "../Galleries/Galleries.scss";
 
 const Gallery = () => {
   const refContainer = useRef(null);
-  const [isClicked, setIsClicked] = useState(false);
   const [originaux, tirages] = galleriesData;
   const [item, setItem] = useState([...originaux, ...tirages]);
   const [isGridClick, setIsGridClick] = useState(false);
   const [isButtonFilterIsClicked, setIsButtonFilterIsClicked] = useState("all");
   const [isCategoryIsClicked, setIsCategoryIsClicked] = useState("originaux");
-
-  const exitOpacityAnimation = useCallback((selector, duration) => {
-    gsap.to(selector, {
-      opacity: 0,
-      duration: duration,
-    });
-  }, []);
-
-  useEffect(() => {
-    if ([0, 1, 2, 3, 4, 5, 6, 7].includes(isClicked)) {
-      exitOpacityAnimation(".hero", 1);
-      exitOpacityAnimation("footer", 0);
-      exitOpacityAnimation(".description-grid", 1);
-      exitOpacityAnimation(".hero-grid", 1);
-      exitOpacityAnimation(".button-container", 1);
-    }
-  }, [isClicked, exitOpacityAnimation]);
-
-  const handleIsClickedOnChange = (newIsClicked) => {
-    setIsClicked(newIsClicked);
-  };
-
-  const exitTirageDetails = {
-    exit: {
-      visibility: "hidden",
-      opacity: 0,
-    },
-  };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      window.addEventListener("scroll", () => {
-        const scrollTop = window.scrollY;
-        const transformValue = `rotateX(${scrollTop * 0.02}deg)`;
-        document.querySelector(".img").style.transform = transformValue;
-      });
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    // N'oubliez pas de supprimer l'écouteur d'événement lorsque le composant est démonté
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const TEXT_ORIGINALS_1 = "galleries.textOriginals1";
+  const TEXT_ORIGINALS_2 = "galleries.textOriginals2";
+  const TEXT_ORIGINALS_3 = "galleries.textOriginals3";
+  const TEXT_PRINTS_1 = "galleries.textPrints1";
+  const TEXT_PRINTS_2 = "galleries.textPrints2";
+  const TEXT_PRINTS_3 = "galleries.textPrints3";
 
   const { t } = useTranslation();
 
+  const Description = ({ className, title, text1, text2, text3 }) => {
+    return (
+      <div className={className}>
+        <h2>{title}</h2>
+        <p>{t(text1)}</p>
+        <p className="text-2">{t(text2)}</p>
+        <p>{t(text3)}</p>
+      </div>
+    );
+  };
+
   return (
-    <>
-      <motion.section
-        ref={refContainer}
-        className="tirage-container"
-        variants={PageTransition}
-        initial="initial"
-        animate="animate"
-        exit={
-          [0, 1, 2, 3, 4, 5, 6, 7].includes(isClicked)
-            ? exitTirageDetails
-            : "exit"
-        }
-      >
-        <TitleTransition textClassName="hero-title h1" />
-        <div className="hero">
-          <div className="hero-title">
-            <h1>gallerie</h1>
-          </div>
-          <div className="hero-subtitle">
-            <span>Limited editions ©</span>
-          </div>
-          <Divider className="divider" />
-        </div>
+    <Transition>
+      <motion.section ref={refContainer} className="tirage-container">
+        <Hero
+          title="Gallerie"
+          className="hero-subtitle"
+          subtitle="Limited editions ©"
+        />
         <div className="description-grid">
-          <div className="text-originaux">
-            <h2>Originaux</h2>
-            <p>{t("galleries.textOriginals1")}</p>
-            <p className="text-2">{t("galleries.textOriginals2")}</p>
-            <p>{t("galleries.textOriginals3")}</p>
-          </div>
-          <div className="text-tirages">
-            <h2>Tirages</h2>
-            <p>{t("galleries.textPrints1")}</p>
-            <p className="text-2">{t("galleries.textPrints2")}</p>
-            <p>{t("galleries.textPrints3")}</p>
-          </div>
+          <TextTransition textClassName="text-originaux" />
+          <Description
+            className="text-originaux"
+            title="Originaux"
+            text1={TEXT_ORIGINALS_1}
+            text2={TEXT_ORIGINALS_2}
+            text3={TEXT_ORIGINALS_3}
+          />
+          <TextTransition textClassName="text-tirages" />
+          <Description
+            className="text-tirages"
+            title="Tirages"
+            text1={TEXT_PRINTS_1}
+            text2={TEXT_PRINTS_2}
+            text3={TEXT_PRINTS_3}
+          />
         </div>
         <div className="button-container">
           <div className="grid-button-container">
@@ -122,7 +78,6 @@ const Gallery = () => {
             </div>
             <div className="filter-button">
               <FilterButton
-                setIsClicked={setIsClicked}
                 setItem={setItem}
                 setIsButtonFilterIsClicked={setIsButtonFilterIsClicked}
                 isButtonFilterIsClicked={isButtonFilterIsClicked}
@@ -134,7 +89,6 @@ const Gallery = () => {
           <ImagesContainer
             isGridClick={isGridClick}
             item={item}
-            onIsClickedChange={handleIsClickedOnChange}
             refContainer={refContainer}
             isButtonFilterIsClicked={isButtonFilterIsClicked}
             isCategoryIsClicked={isCategoryIsClicked}
@@ -145,7 +99,7 @@ const Gallery = () => {
         <Circle target={"tirage-container"} />
         <Form />
       </footer>
-    </>
+    </Transition>
   );
 };
 

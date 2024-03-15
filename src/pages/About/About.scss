@@ -6,31 +6,12 @@
   --img-height-size: calc(200px - 1.5vw);
 }
 .about-container {
-  margin-top: $navbar-margin;
   padding: 0 4vw;
+  padding-top: 20vh;
   background-color: $primary-color;
   z-index: 100;
   position: relative;
   box-sizing: border-box;
-
-  .hero {
-    margin-bottom: calc(30vh + 2rem);
-    position: relative;
-
-    .hero-title {
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-      font-size: $fs-xxxl;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-
-    .hero-divider {
-      position: absolute;
-      bottom: 0;
-      height: 2px;
-      background-color: $secondary-color;
-    }
-  }
 
   .about-content {
     display: grid;
@@ -39,10 +20,11 @@
     .about-title {
       grid-column: 1 / span 12;
       padding: 0 5vw;
-      text-indent: calc(33% + 0.5em);
       font-size: $fs-xl;
       margin-bottom: 20vh;
       position: relative;
+      display: grid;
+      place-content: center;
 
       span {
         font-style: italic;
@@ -64,6 +46,7 @@
     }
 
     .left-content {
+      font-weight: 100;
       grid-column: 2 / span 4;
       grid-row: 2;
 
@@ -224,7 +207,6 @@
       .about-title {
         padding: 0 3vw;
         grid-row: 1;
-        text-indent: calc(5% + 0.5em);
         margin-bottom: 5vh;
       }
 
@@ -272,7 +254,6 @@
       .about-title {
         padding: 0 3vw;
         grid-row: 1;
-        text-indent: calc(5% + 0.5em);
         margin-bottom: 5vh;
       }
 
@@ -319,7 +300,6 @@
     .about-content {
       .about-title {
         margin: 0;
-        text-indent: calc(2% + 0.5em);
         padding: 0;
       }
 
@@ -372,6 +352,11 @@
 
 @media (max-width: 300px) {
   .about-container {
+    .about-content {
+      .about-title {
+        font-size: $fs-lg;
+      }
+    }
     .quote-container {
       .quote-title {
         font-size: $fs-lg;

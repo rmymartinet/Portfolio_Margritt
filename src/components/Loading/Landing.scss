@@ -30,7 +30,7 @@
   .landing-subtitle {
     overflow: hidden;
     position: fixed;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     grid-column: 1/20;
@@ -40,25 +40,9 @@
     height: max-content;
     width: max-content;
     text-transform: uppercase;
-    font-weight: 700;
-
-    .landing-content {
-      position: relative;
-
-      .text-2 {
-        position: absolute;
-        top: "50%";
-        left: "50%";
-        transform: "translate(-50%, -50%)";
-      }
-    }
-
-    .line {
-      position: absolute;
-      top: 50%;
-      height: 5px;
-      background-color: red;
-    }
+    font-weight: 500;
+    font-size: $fs-xxxl;
+    letter-spacing: 7vw;
   }
 
   .landing-flip {
@@ -256,7 +240,10 @@
   }
 
   .landing-container {
-    .img {
+    .landing-subitle {
+      letter-spacing: 4vw;
+    }
+    .item .img {
       width: var(--img--width);
       height: var(--img--height);
     }
@@ -316,6 +303,9 @@
   }
 
   .landing-container {
+    .landing-subtitle {
+      letter-spacing: 3vw;
+    }
     .landing-flip {
       .img {
         width: var(--img--width);
