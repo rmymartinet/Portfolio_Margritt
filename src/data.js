@@ -2,6 +2,8 @@ import bibulle from "./assets/images/Gallery/Originaux_120/dimension_1500/bibull
 import bibulle1 from "./assets/images/Gallery/Originaux_120/dimension_1500/bibulle1.jpg";
 import bibulle2 from "./assets/images/Gallery/Originaux_120/dimension_1500/bibulle3bis.jpg";
 import futurama1 from "./assets/images/Gallery/Originaux_120/dimension_1500/futurama1.jpg";
+import MaxiBibulle from "./assets/images/Gallery/Originaux_120/dimension_1500/maxi-bibulle.jpeg";
+import mecaniqueDesReves from "./assets/images/Gallery/Originaux_120/dimension_1500/mecanique.jpeg";
 import bibulle3_1 from "./assets/images/Gallery/Tirage_50/bibulle3_details/bibulle3-1.webp";
 import bibulle3_2 from "./assets/images/Gallery/Tirage_50/bibulle3_details/bibulle3-2.webp";
 import bibulle3_3 from "./assets/images/Gallery/Tirage_50/bibulle3_details/bibulle3-3.webp";
@@ -12,10 +14,8 @@ import bibulle5_3 from "./assets/images/Gallery/Tirage_50/bibulle5_details/bibul
 import bibulle5_4 from "./assets/images/Gallery/Tirage_50/bibulle5_details/bibulle5-4.jpg";
 import bibulle3Moyen from "./assets/images/Gallery/Tirage_50/dimension_1500/bibulle3.jpg";
 import bibulle5Moyen from "./assets/images/Gallery/Tirage_50/dimension_1500/bibulle5.jpg";
-
 import futurama2Moyen from "./assets/images/Gallery/Tirage_50/dimension_1500/futurama2.jpg";
 import futurama3Moyen from "./assets/images/Gallery/Tirage_50/dimension_1500/futurama3.jpeg";
-
 import futurama2_1 from "./assets/images/Gallery/Tirage_50/futurama2_details/futurama2-1.webp";
 import futurama2_2 from "./assets/images/Gallery/Tirage_50/futurama2_details/futurama2-2.webp";
 import futurama2_3 from "./assets/images/Gallery/Tirage_50/futurama2_details/futurama2-3.webp";
@@ -154,6 +154,28 @@ export const originauxData = [
   {
     id: 5,
     category: "originaux",
+    title: "Maxi-Bibulle",
+    serie: "Bibulle",
+    piece: "Original",
+    date: "2019",
+    format: "2,60 x 3,8 m",
+    tirage: "10 exemplaires numérotés / signés par l'artiste",
+    papier: "Papier ClaireFontaine",
+    subtitle:
+      "Tous les originaux sont disponibles en version tirage. Si une œuvre originale n'est actuellement pas proposée en tirage, nous pouvons la reproduire grâce à nos partenaires spécialisés dans les impressions de haute qualité,  'les courts tirages'.  N'hésitez pas à me contacter pour plus d'informations.",
+    livraison: {
+      france: "5 à 10 jours",
+      EU: "2 à 3 semaines",
+      international: "3 à 4 semaines",
+    },
+    note: "Cadre non inclus Me contacter avant achat",
+    formatOriginaux: "large",
+    available: "Available for sale",
+    img: MaxiBibulle,
+  },
+  {
+    id: 6,
+    category: "originaux",
     title: "Futurama 1",
     serie: "Futurama",
     piece: "1re",
@@ -161,6 +183,7 @@ export const originauxData = [
     format: "120 x 80 cm",
     tirage: "10 exemplaires numérotés / signés par l'artiste",
     papier: "Lavis Vinci - 300 g",
+    feutre: "Feutre, alcool",
     subtitle:
       "Tous les originaux sont disponibles en version tirage. Si une œuvre originale n'est actuellement pas proposée en tirage, nous pouvons la reproduire grâce à nos partenaires spécialisés dans les impressions de haute qualité,  'les courts tirages'.  N'hésitez pas à me contacter pour plus d'informations.",
     livraison: {
@@ -175,7 +198,7 @@ export const originauxData = [
     img: futurama1,
   },
   {
-    id: 6,
+    id: 7,
     category: "originaux",
     title: "Futurama 2",
     subtitle:
@@ -202,7 +225,7 @@ export const originauxData = [
     img4: futurama2_4,
   },
   {
-    id: 7,
+    id: 8,
     category: "originaux",
     title: "Futurama 3",
     subtitle:
@@ -227,6 +250,29 @@ export const originauxData = [
     img2: futurama3_2,
     img3: futurama3_3,
     img4: futurama3_4,
+  },
+  {
+    id: 9,
+    category: "originaux",
+    title: "Mécanique des Rèves",
+    subtitle:
+      "Chaque tirage en édition limitée est numéroté, signé par l'artiste, et accompagné d'un certificat d'authenticité.",
+    serie: "Mécanique des Rèves",
+    piece: "1ᵉ",
+    date: "2016",
+    format: "2,60 x 1,57 m",
+    tirage: "10 exemplaires numérotés / signés par l'artiste",
+    papier: "Fine art cotton smooth bright - 300 g",
+    livraison: {
+      france: "5 à 10 jours",
+      EU: "2 à 3 semaines",
+      international: "3 à 4 semaines",
+    },
+    note: "Cadre non inclus Me contacter avant achat",
+    formatOriginaux: "large",
+    notAvailable: "Not available for sale",
+    available: "Available for sale",
+    img: mecaniqueDesReves,
   },
 ];
 
@@ -324,7 +370,6 @@ export const tirageData = [
     date: "2023",
     format: "50 x 70 cm",
     tirage: "10 exemplaires numérotés / signés par l'artiste",
-    papier: "Fine art cotton smooth bright - 300 g",
     livraison: {
       france: "5 à 10 jours",
       EU: "2 à 3 semaines",

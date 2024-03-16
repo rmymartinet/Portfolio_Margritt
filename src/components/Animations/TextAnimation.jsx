@@ -8,7 +8,7 @@ export const TitleTransition = ({ textClassName }) => {
     const split = new SplitType(element);
 
     gsap.from(split.chars, {
-      y: 200,
+      y: 400,
       skewX: 50,
       rotation: 20,
       duration: 1.2,

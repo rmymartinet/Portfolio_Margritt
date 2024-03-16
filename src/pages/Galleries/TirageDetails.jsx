@@ -29,9 +29,11 @@ const TirageDetails = () => {
 
   const navigate = useNavigate();
 
-  const nextItem = tirageData.find(
-    (_, index) => index > parseInt(currentIndex)
-  );
+  let nextIndex = parseInt(currentIndex) + 1;
+  if (nextIndex >= tirageData.length) {
+    nextIndex = 0;
+  }
+  const nextItem = tirageData[nextIndex];
 
   const handleNavigateTirages = (index) => {
     navigate(`/tirages/${index}`);

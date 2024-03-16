@@ -165,7 +165,7 @@
       flex-direction: column;
       align-items: center;
 
-      .grid-img7 {
+      .grid-img8 {
         .images-container {
           img {
             width: 100%;
@@ -176,7 +176,17 @@
         }
       }
 
-      @for $i from 0 through 11 {
+      .grid-img9 {
+        .images-container {
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+
+      @for $i from 0 through 13 {
         .grid-img#{$i} {
           display: flex;
           flex-direction: column;

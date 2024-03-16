@@ -142,6 +142,34 @@ const OriginauxDetails = () => {
                   value={selectedImage.papier}
                   className="paper"
                 />
+                {selectedImage.marqueur && (
+                  <InfoItem
+                    label={t("originauxDetails.marker")}
+                    value={selectedImage.marqueur}
+                    className="paper"
+                  />
+                )}
+                {selectedImage.stylo && (
+                  <InfoItem
+                    label={t("originauxDetails.pen")}
+                    value={selectedImage.stylo}
+                    className="paper"
+                  />
+                )}
+                {selectedImage.feutre && (
+                  <InfoItem
+                    label={t("originauxDetails.felt-tip pen")}
+                    value={selectedImage.feutre}
+                    className="paper"
+                  />
+                )}
+                {selectedImage.peinture && (
+                  <InfoItem
+                    label={t("originauxDetails.paint")}
+                    value={selectedImage.peinture}
+                    className="paper"
+                  />
+                )}
               </div>
             </motion.div>
             <div className="navigate">

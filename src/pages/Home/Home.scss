@@ -31,6 +31,7 @@
     font-weight: 500;
     font-size: $fs-xxxl;
     letter-spacing: 7vw;
+    z-index: -1;
   }
 
   .content-right {
@@ -57,6 +58,7 @@
     position: absolute;
     padding: 10px;
     font-size: $fs-base;
+    z-index: -1;
   }
 
   .made-by {

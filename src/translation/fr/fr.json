@@ -35,14 +35,9 @@
     "piece": "Pièce",
     "subtitle": "Certains originaux sont disponibles en version tirage de manière limitée - Chaque pièce est signée à la main par l'artiste en bas à droite à l'avant et est également accompagnée d'un certificat d'authenticité",
     "textOeuvre": "Toutes les œuvres originales sont également disponibles à la vente - Veuillez me contacter pour discuter des options d'achat et obtenir plus de détails",
-    "Size": "Taille",
-    "Paper": "Papier",
-    "Delivery": "Livraison",
-    "France": "5 à 10 jours",
-    "Europe": "2 à 3 semaines",
-    "International": "3 à 4 semaines",
-    "Frame": " ❋ Cadre non inclus",
-    "Contact": "❋ Contactez-moi pour acheter"
+    "size": "Taille",
+    "paper": "Papier",
+    "paint": "Peinture"
   },
   "project": {
     "textTitle": "en cours",
