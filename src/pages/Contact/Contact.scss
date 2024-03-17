@@ -10,6 +10,7 @@
   padding: 0 4vw;
 
   .title {
+    font-family: $font-title;
     align-self: center;
     grid-column: 1 / span 12;
     width: fit-content;
@@ -28,9 +29,9 @@
     gap: 20vw;
 
     .mail {
+      font-family: $font-subtitle;
       font-size: $fs-xxl;
       position: relative;
-      font-weight: 500;
       transform: scaleX(1);
       width: max-content;
     }
@@ -84,6 +85,7 @@
     }
 
     .text {
+      font-family: $font-subtitle;
       display: flex;
       flex: 1;
       font-size: $fs-lg;
@@ -104,11 +106,14 @@
     margin-bottom: calc(10vh + 2rem);
 
     span {
+      font-family: $font-subtitle;
       opacity: 0.47;
       font-size: $fs-md;
     }
 
     p {
+      font-family: $font-text;
+
       font-size: $fs-base;
       color: $secondary-color;
     }

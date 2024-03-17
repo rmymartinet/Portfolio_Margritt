@@ -4,7 +4,7 @@
 .menu {
   z-index: 9999998;
   overflow: hidden;
-  background-color: white;
+  background-color: $primary-color;
 
   .nav-container {
     box-sizing: border-box;
@@ -39,6 +39,7 @@
         place-content: center;
         height: 100%;
         .text {
+          font-family: $font-title;
           text-decoration: none;
           line-height: calc(1em * 1.1);
           color: $secondary-color;
@@ -114,6 +115,7 @@
       }
     }
     .footer {
+      font-family: $font-text;
       display: flex;
       position: absolute;
       padding-bottom: 20px;

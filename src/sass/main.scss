@@ -8,6 +8,11 @@
 //ARVO
 @import url("https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Lora:ital,wght@0,400..700;1,400..700&family=Rokkitt:ital,wght@0,100..900;1,100..900&display=swap");
 
+body {
+  background-color: $primary-color;
+  color: $secondary-color;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -18,12 +23,6 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-body {
-  font-family: "Lora", serif;
-  background-color: $primary-color;
-  color: $secondary-color;
 }
 
 a {

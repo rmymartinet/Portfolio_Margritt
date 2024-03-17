@@ -32,6 +32,7 @@
     font-size: $fs-xxxl;
     letter-spacing: 7vw;
     z-index: -1;
+    font-family: $font-title;
   }
 
   .content-right {
@@ -48,6 +49,7 @@
     font-size: $fs-base;
 
     .text-1 {
+      font-family: $font-text;
       display: flex;
       overflow: hidden;
     }
@@ -58,6 +60,7 @@
     position: absolute;
     padding: 10px;
     font-size: $fs-base;
+    font-family: $font-subtitle;
     z-index: -1;
   }
 
@@ -397,7 +400,6 @@
 
     .content-right {
       flex-direction: row;
-      gap: calc(1.5 * 20px);
       width: 100vw;
 
       .path {
