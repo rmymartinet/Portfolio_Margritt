@@ -51,20 +51,6 @@ const Landing = () => {
     gsap.registerPlugin(Flip);
     const gridContainer = document.querySelector(".landing-flip");
     const images = gsap.utils.toArray(".landing-galleries img");
-    const tl = gsap.timeline();
-
-    tl.fromTo(
-      ".landing-subtitle",
-      {
-        scale: 3,
-      },
-      {
-        scale: 1,
-        ease: "power3.inOut",
-        duration: 2,
-      },
-      0.5
-    );
 
     gsap.set(".img", {
       top: "50%",
@@ -79,7 +65,7 @@ const Landing = () => {
         stagger: 0.15,
         duration: 0.75,
         ease: "power2.out",
-        delay: 2,
+        delay: 0.5,
       })
       .then(() => {
         gsap.set(".img", {
@@ -109,12 +95,6 @@ const Landing = () => {
 
   return (
     <div className="landing-container">
-      <div className="landing-subtitle">
-        <div className="landing-content">
-          <div className="line"></div>
-          <p>Margritt</p>
-        </div>
-      </div>
       <div className="landing-flip"></div>
       <div className="landing-galleries">
         {items.map((item, index) => {
