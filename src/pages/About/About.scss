@@ -21,6 +21,7 @@
       grid-column: 1 / span 12;
       padding: 0 5vw;
       font-size: $fs-xl;
+      font-family: $font-subtitle;
       margin-bottom: 20vh;
       position: relative;
       display: grid;
@@ -51,6 +52,8 @@
       grid-row: 2;
 
       .left-text {
+        font-family: $font-text;
+        letter-spacing: -0.02em;
         font-size: $fs-md;
         line-height: 1.5em;
         margin-bottom: calc(15vh + 2rem);
@@ -92,11 +95,13 @@
 
     .quote-title {
       grid-column: 1 / span 2;
+      font-family: $font-subtitle;
+      font-weight: 700;
       font-size: $fs-xxl;
-      font-style: italic;
       margin-bottom: 10vh;
     }
     .quote-text {
+      font-family: $font-text;
       grid-column: 1 / span 2;
       text-align: justify;
     }
@@ -127,6 +132,7 @@
 
     .gallery-title {
       h1 {
+        font-family: $font-title;
         font-size: clamp(1.2rem, 15vw, 15rem);
       }
       .more-content {

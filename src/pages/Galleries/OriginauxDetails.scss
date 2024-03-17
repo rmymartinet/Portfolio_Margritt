@@ -15,6 +15,7 @@
     .title {
       text-align: center;
       font-size: $fs-xxxl;
+      font-family: $font-title;
       overflow: hidden;
       text-transform: uppercase;
       margin-bottom: 20vh;
@@ -34,6 +35,8 @@
         text-align: center;
         margin-top: 3em;
         font-size: $fs-base;
+        font-family: $font-text;
+        letter-spacing: -0.02em;
       }
 
       .details-image {
@@ -57,6 +60,7 @@
         align-self: flex-end;
         text-align: center;
         font-size: $fs-md;
+        font-family: $font-subtitle;
         margin-bottom: 5vh;
       }
 
@@ -101,8 +105,8 @@
         grid-column: 1/4;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        font-size: $fs-base;
         font-size: $fs-very-base--mobile;
+        font-family: $font-text;
         margin-bottom: 30vh;
 
         .title-description {
@@ -111,6 +115,7 @@
 
         .buying-text {
           font-size: $fs-md;
+          font-family: $font-subtitle;
           width: 70%;
         }
 
@@ -136,10 +141,10 @@
         display: grid;
         grid-template-columns: 1.5fr 1fr 1fr 1fr;
         justify-items: center;
-        font-size: $fs-base;
         font-size: $fs-very-base--mobile;
 
         .livraison-title {
+          font-family: $font-text;
           justify-self: center;
         }
 
@@ -157,8 +162,10 @@
         .europe,
         .international {
           font-size: $fs-base;
-
+          font-family: $font-subtitle;
           p {
+            font-family: $font-text;
+
             margin-top: 2em;
           }
         }
@@ -168,7 +175,8 @@
         grid-column: 1/4;
         display: grid;
         grid-template-columns: 1fr 2fr;
-        font-size: $fs-sm;
+        font-size: $fs-very-base--mobile;
+        font-family: $font-text;
         align-items: center;
 
         .navigate-title {
@@ -180,6 +188,7 @@
           position: relative;
           p {
             font-size: $fs-xxxl;
+            font-family: $font-title;
             width: max-content;
             cursor: pointer;
           }
@@ -252,6 +261,8 @@
           .france,
           .europe,
           .international {
+            font-family: $font-text;
+
             display: flex;
             flex-direction: column;
             align-items: center;

@@ -45,6 +45,7 @@
       bottom: 0;
       right: 0;
       font-size: $fs-base;
+      font-family: $font-text-italic;
     }
   }
 
@@ -64,15 +65,18 @@
       font-size: $fs-md;
       font-weight: 500;
       overflow: hidden;
+      font-family: $font-subtitle;
 
       p {
         font-size: $fs-base;
         font-weight: 100;
+        font-family: $font-text;
       }
     }
   }
 
   .button-container {
+    font-family: $font-subtitle;
     display: flex;
     flex-direction: row-reverse;
     margin-bottom: 20vh;
@@ -101,6 +105,7 @@
         height: 50px;
         padding: 10px;
         border: solid rgba(128, 128, 128, 0.486) 0.5px;
+        font-family: $font-subtitle;
 
         .first,
         .second,
@@ -150,6 +155,7 @@
         gap: 2em;
         cursor: pointer;
         font-size: $fs-sm;
+        font-family: $font-subtitle;
       }
     }
   }
@@ -198,6 +204,7 @@
           }
 
           .image-content {
+            font-family: $font-subtitle;
             width: 95%;
             padding: 60px 0px;
             display: flex;
@@ -220,6 +227,7 @@
               .image-format {
                 opacity: 0.5;
                 font-size: $fs-sm;
+                font-family: $font-text;
               }
             }
           }

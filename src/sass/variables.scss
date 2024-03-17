@@ -1,18 +1,38 @@
+@font-face {
+  font-family: "FKGroteskNeueTrial-Medium";
+  src: url("./assets/Police/FKGroteskNeueTrial-Medium.otf") format("opentype");
+  font-weight: normal; /* Poids de la police */
+  font-style: normal; /* Style de la police */
+}
+@font-face {
+  font-family: "FKGroteskNeueTrial-Regular";
+  src: url("./assets/Police/FKGroteskNeueTrial-Regular.otf") format("opentype");
+  font-weight: normal; /* Poids de la police */
+  font-style: normal; /* Style de la police */
+}
+
+@font-face {
+  font-family: "FKGroteskNeueTrial-Thin";
+  src: url("./assets/Police/FKGroteskNeueTrial-Thin.otf") format("opentype");
+  font-weight: normal; /* Poids de la police */
+  font-style: normal; /* Style de la police */
+}
+@font-face {
+  font-family: "FKGroteskNeueTrial-Thin";
+  src: url("./assets/Police/FKGroteskNeueTrial-ThinItalic.otf")
+    format("opentype");
+  font-weight: normal; /* Poids de la police */
+  font-style: normal; /* Style de la police */
+}
+
 //font-weight
 $main-title: "700";
 $text: "100";
 
 //color
 
-$primary-color: #f8f3ec;
-$primary-color-sub: #fafaf5;
-$primary-color-1: #faf5f8;
-$primary-color-2: #faf6f5;
-$primary-color-3: #f9f5fa;
-$secondary-color: #1e1a24;
-$secondary-color-1: #1c1c1c;
-$secondary-color-2: #1c1c1c;
-$secondary-color-3: #1c1c1c;
+$primary-color: #eaeef4;
+$secondary-color: #000000;
 
 //margin
 $navbar-margin: 20vh;
@@ -29,7 +49,8 @@ $fs-xxl: clamp(1.98rem, 3.21vw + 1.18rem, 3.75rem);
 $fs-xxxl: clamp(2.48rem, 4.58vw + 1.33rem, 5rem);
 $fs-bigger: clamp(2.29rem, 10.19vw + -0.26rem, 7.89rem);
 
-//font-family
-// $font-title: "Arvo", serif;
-// $font-subtitle: "Playfair Display", serif;
-// $font-text: "Courier New", Courier, monospace;
+// font-family
+$font-title: "FKGroteskNeueTrial-Medium", sans-serif;
+$font-subtitle: "FKGroteskNeueTrial-Regular", serif;
+$font-text: "FKGroteskNeueTrial-Thin", sans-serif;
+$font-text-italic: "FKGroteskNeueTrial-ThinItalic", sans-serif;

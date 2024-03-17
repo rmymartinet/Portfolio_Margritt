@@ -16,11 +16,13 @@
 
     .hero-title {
       font-size: $fs-md;
+      font-family: $font-subtitle;
       font-weight: 500;
       text-transform: uppercase;
       padding-right: 3em;
 
       p {
+        font-family: $font-text;
         font-size: $fs-base;
         font-weight: 100;
       }
@@ -37,7 +39,6 @@
         border-top: 1px solid rgb(201, 201, 201);
         cursor: pointer;
         transition: all 0.2s;
-        font-weight: 100;
       }
 
       .project:hover {
@@ -54,13 +55,16 @@
 
       .project h2 {
         font-size: $fs-md;
+        font-family: $font-subtitle;
         font-weight: 500;
         transition: all 0.4s;
       }
 
       .project p {
         transition: all 0.4s;
-        font-size: $fs-sm;
+        font-size: $fs-base;
+        font-family: $font-text;
+        letter-spacing: -0.05em;
         font-weight: 300;
       }
 
@@ -143,6 +147,7 @@
       .infos-title {
         grid-column: 1 / span 12;
         font-size: $fs-xl;
+        font-family: $font-subtitle;
         margin-bottom: 10vh;
         text-transform: uppercase;
       }
@@ -154,6 +159,7 @@
       @for $i from 0 through 10 {
         .project#{$i} {
           line-height: 1.4em;
+          font-family: $font-text;
           font-size: $fs-base;
           grid-column: 1 / span 12;
           display: grid;
@@ -169,6 +175,7 @@
 
         .project#{$i} span {
           font-weight: 700;
+          font-family: $font-subtitle;
         }
       }
     }

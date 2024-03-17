@@ -50,9 +50,7 @@ const Home = ({ isLoading }) => {
       ) : (
         <TransitionHome isFirstRender={isFirstRender}>
           <HomeFloatingGallery />
-          <div className="title">
-            <p>Margritt</p>
-          </div>
+          <div className="title">margritt</div>
           <div className="content-right">
             <div className="text-1">
               <p>{t("home.text1")}</p>

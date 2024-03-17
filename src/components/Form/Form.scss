@@ -19,20 +19,20 @@
     margin-bottom: 10vh;
 
     .title {
+      font-family: $font-title;
       grid-column: 2 / span 6;
       position: relative;
       width: fit-content;
-      font-weight: 500;
       font-size: clamp(1.5em, 5vw, 5em);
     }
 
     .mail {
+      font-family: $font-subtitle;
       grid-column: 8 / span 4;
       justify-self: flex-end;
       font-size: clamp(1.5em, 5vw, 5em);
       position: relative;
-      font-weight: 500;
-      letter-spacing: -2px;
+      letter-spacing: -0.08em;
 
       a {
         color: $primary-color;
@@ -113,15 +113,17 @@
     justify-items: flex-start;
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
 
-    p {
-      opacity: 0.45;
-      font-size: clamp(0.5rem, 4vw, 1.1rem);
-      margin-bottom: 1rem;
-    }
-
     span {
+      font-family: $font-subtitle;
       font-size: clamp(0.5rem, 4vw, 1.3rem);
       color: $primary-color;
+    }
+
+    p {
+      opacity: 0.47;
+      font-size: clamp(0.5rem, 4vw, 1.1rem);
+      font-family: $font-text;
+      margin-bottom: 1rem;
     }
 
     .local-time,
