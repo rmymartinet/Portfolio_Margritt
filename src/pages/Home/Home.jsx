@@ -7,6 +7,7 @@ import TransitionHome from "../../components/Animations/PageTransition/Transitio
 import HomeFloatingGallery from "../../components/Home/HomeFloatingGallery.jsx";
 import Landing from "../../components/Loading/Landing.jsx";
 
+import { TitleTransition } from "../../components/Animations/TextAnimation.jsx";
 import "./Home.scss";
 
 const Home = ({ isLoading }) => {
@@ -28,9 +29,9 @@ const Home = ({ isLoading }) => {
   };
 
   useEffect(() => {
-    SplitLines("text-1 p", 1);
-    SplitLines("based p", 1);
-    SplitLines("made-by p", 1);
+    SplitLines("text-1 p", 0);
+    SplitLines("based p", 0);
+    SplitLines("made-by p", 0);
   }, [isLoading]);
 
   const [isFirstRender, setIsFirstRender] = useState(true);
@@ -50,6 +51,7 @@ const Home = ({ isLoading }) => {
       ) : (
         <TransitionHome isFirstRender={isFirstRender}>
           <HomeFloatingGallery />
+          <TitleTransition textClassName="title" />
           <div className="title">margritt</div>
           <div className="content-right">
             <div className="text-1">
