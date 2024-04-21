@@ -5,6 +5,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import "./styles/locomotive.css";
 
 import { useEffect, useLayoutEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import NavBar from "./components/Nav/NavBar.jsx";
 import About from "./pages/About/About.jsx";
 import Contact from "./pages/Contact/Contact.jsx";
@@ -17,6 +18,8 @@ import ImagesTirages from "./pages/Images/ImagesTirages.jsx";
 import Projects from "./pages/Projects/Projects.jsx";
 
 function App() {
+  const { t } = useTranslation();
+
   useLayoutEffect(() => {
     (async () => {
       const LocomotiveScroll = (await import("locomotive-scroll")).default;
@@ -51,10 +54,10 @@ function App() {
         {!isLoading && <NavBar />}
         <Routes location={location} key={location.pathname}>
           <Route path="/" index element={<Home isLoading={isLoading} />} />
-          <Route path="/gallerie" element={<Gallery />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path={`/${t("nav.galleries")}`} element={<Gallery />} />
+          <Route path={`/${t("nav.projects")}`} element={<Projects />} />
+          <Route path={`/${t("nav.about")}`} element={<About />} />
+          <Route path={`/${t("nav.contact")}`} element={<Contact />} />
           <Route path="/tirages/:index" element={<TirageDetails />} />
           <Route path="/originaux/:index" element={<OriginauxDetails />} />
           <Route

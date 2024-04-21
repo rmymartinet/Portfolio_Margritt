@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import "./Nav.scss";
 import { menuSlide, slide, slideNav, slideText } from "./NavAnimation";
@@ -23,7 +24,15 @@ const TextBlock = ({ text }) => {
 };
 
 const Nav = () => {
-  const navItems = ["Home", "Gallerie", "Projects", "About", "Contact"];
+  const { t } = useTranslation();
+
+  const navItems = [
+    t("nav.home"),
+    t("nav.galleries"),
+    t("nav.projects"),
+    t("nav.about"),
+    t("nav.contact"),
+  ];
   const navigate = useNavigate();
 
   const links = [
@@ -68,7 +77,8 @@ const Nav = () => {
 
           <div className="links-container">
             {navItems.map((item, index) => {
-              const path = item === "Home" ? "/" : `/${item.toLowerCase()}`;
+              const path =
+                item === t("nav.home") ? "/" : `/${item.toLowerCase()}`;
               return (
                 <motion.div
                   key={index}

@@ -53,6 +53,7 @@ const Home = ({ isLoading }) => {
           <HomeFloatingGallery />
           <TitleTransition textClassName="title" />
           <div className="title">margritt</div>
+          <div className="nav-container"></div>
           <div className="content-right">
             <div className="text-1">
               <p>{t("home.text1")}</p>
