@@ -44,7 +44,8 @@ const OriginauxDetails = () => {
 
   const handleNavigateOriginaux = (id) => {
     let index = originauxData.findIndex((item) => item.id === id);
-    index = index + 1 < originauxData.length ? index + 1 : 0;
+    index = index < originauxData.length ? index : 0;
+
     navigate(`/originaux/${originauxData[index].id}`);
   };
 

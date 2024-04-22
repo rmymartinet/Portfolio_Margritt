@@ -97,7 +97,7 @@
         grid-column: 1/4;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        font-size: $fs-very-base--mobile;
+        font-size: $fs-sm;
         // font-family: $font-text;
         margin-bottom: 30vh;
 
@@ -133,7 +133,7 @@
         display: grid;
         grid-template-columns: 1.5fr 1fr 1fr 1fr;
         justify-items: center;
-        font-size: $fs-very-base--mobile;
+        font-size: $fs-sm;
 
         .livraison-title {
           // font-family: $font-text;
@@ -167,7 +167,7 @@
         grid-column: 1/4;
         display: grid;
         grid-template-columns: 1fr 2fr;
-        font-size: $fs-very-base--mobile;
+        font-size: $fs-sm;
         // font-family: $font-text;
         align-items: center;
 
@@ -259,7 +259,7 @@
             flex-direction: column;
             align-items: center;
             p {
-              font-size: $fs-very-sm--mobile;
+              font-size: $fs-sm;
               margin-top: 2em;
             }
           }
