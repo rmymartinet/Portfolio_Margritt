@@ -50,8 +50,8 @@ function App() {
 
   return (
     <>
+      {!isLoading && <NavBar />}
       <AnimatePresence initial={false} mode="wait">
-        {!isLoading && <NavBar />}
         <Routes location={location} key={location.pathname}>
           <Route path="/" index element={<Home isLoading={isLoading} />} />
           <Route path={`/${t("nav.galleries")}`} element={<Gallery />} />

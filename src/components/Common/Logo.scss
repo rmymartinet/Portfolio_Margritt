@@ -1,0 +1,13 @@
+@import "../../sass/variables.scss";
+@import "../../sass/mixins.scss";
+
+.logo {
+  font-size: $fs-lg;
+  z-index: 99999999999999999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  font-family: "Lobster", cursive;
+  cursor: pointer;
+}

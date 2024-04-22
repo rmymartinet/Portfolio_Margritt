@@ -1,52 +1,68 @@
 @import "../../sass/variables.scss";
 
 .header {
-  width: 100px;
-  height: 40px;
-  position: fixed;
-  top: 5%;
-  right: 5%;
+  width: 100%;
+  position: absolute;
   z-index: 9999999999999;
 
   .button {
-    border-radius: 20px;
-    background: $secondary-color;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.164);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: $secondary-color;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-    color: $primary-color;
-
-    p {
-      font-family: $font-subtitle;
-      text-transform: uppercase;
-      font-weight: 700;
-    }
-
-    .buttonNameActive {
-      animation: fadeIn 5s;
-      z-index: 99999999;
-      color: black;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
+    display: none;
   }
 
   .buttonActive {
-    background-color: $primary-color;
-    box-shadow: none;
+    display: none;
+  }
+}
+
+@media (max-width: 498px) {
+  .header {
+    width: 70px;
+    height: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 20px;
+    z-index: 9999999999999;
+
+    .button {
+      border-radius: 20px;
+      background: $secondary-color;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.164);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $secondary-color;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      color: $primary-color;
+
+      p {
+        text-transform: uppercase;
+        font-weight: 300;
+      }
+
+      .buttonNameActive {
+        animation: fadeIn 5s;
+        z-index: 99999999;
+        color: black;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    }
+
+    .buttonActive {
+      background-color: $primary-color;
+      box-shadow: none;
+    }
   }
 }

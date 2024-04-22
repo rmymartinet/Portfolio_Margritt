@@ -3,11 +3,8 @@ import gsap from "gsap";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import SplitType from "split-type";
-import TransitionHome from "../../components/Animations/PageTransition/TransitionHome.jsx";
-import HomeFloatingGallery from "../../components/Home/HomeFloatingGallery.jsx";
-import Landing from "../../components/Loading/Landing.jsx";
 
-import { TitleTransition } from "../../components/Animations/TextAnimation.jsx";
+import Transition from "../../components/Animations/PageTransition/Transition.jsx";
 import "./Home.scss";
 
 const Home = ({ isLoading }) => {
@@ -42,31 +39,57 @@ const Home = ({ isLoading }) => {
     }
   }, [isLoading, isFirstRender]);
 
+  const oeuvres = [
+    "Bibulle 1",
+    "Bibulle 2",
+    "Bibulle 3",
+    "Bibulle 5",
+    "Bibulle !",
+    "Maxi-Bibulle",
+    "Futurama 1",
+    "Futurama 2",
+    "Futurama 3",
+    "Mécanique des rêves ",
+  ];
+
   return (
     <motion.section className="home-container">
-      {isLoading ? (
-        <div>
-          <Landing />
-        </div>
-      ) : (
-        <TransitionHome isFirstRender={isFirstRender}>
-          <HomeFloatingGallery />
-          <TitleTransition textClassName="title" />
-          <div className="title">margritt</div>
-          <div className="nav-container"></div>
-          <div className="content-right">
-            <div className="text-1">
+      <Transition>
+        <div className="wrapper">
+          <div className="home-content">
+            <div className="content-right">
               <p>{t("home.text1")}</p>
+              <p>{t("home.text2")}</p>
             </div>
+            <div className="content-left">
+              <p>Margritt</p>
+              <div className="based">
+                <span> {t("home.based")}</span>
+              </div>
+            </div>
+            <div className="infos-oeuvres">
+              {oeuvres.map((oeuvres, index) => {
+                return (
+                  <div key={index} className="oeuvres">
+                    <p>
+                      {index + 1}. {oeuvres}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* <div className="image-container">
+              <img src={background} alt="" />
+            </div> */}
+            {/* <TitleTransition textClassName="content-left title" /> */}
+
+            {/* <div className="image-container">
+              <img src={mamar} alt="" />
+            </div> */}
           </div>
-          <div className="made-by">
-            <p> {t("home.madeBy")}</p>
-          </div>
-          <div className="based">
-            <p> {t("home.based")}</p>
-          </div>
-        </TransitionHome>
-      )}
+        </div>
+      </Transition>
     </motion.section>
   );
 };

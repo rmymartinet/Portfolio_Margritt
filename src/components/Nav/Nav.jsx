@@ -1,51 +1,25 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./Nav.scss";
-import { menuSlide, slide, slideNav, slideText } from "./NavAnimation";
-
-const TextBlock = ({ text }) => {
-  const [letters, setLetters] = useState([]);
-
-  useEffect(() => {
-    setLetters(text.split(""));
-  }, [text]);
-
-  return (
-    <div className="block">
-      {letters.map((letter, index) => (
-        <span key={index} className="letter">
-          {letter.trim() === "" ? "\xa0" : letter}
-        </span>
-      ))}
-    </div>
-  );
-};
 
 const Nav = () => {
   const { t } = useTranslation();
 
-  const navItems = [
-    t("nav.home"),
-    t("nav.galleries"),
-    t("nav.projects"),
-    t("nav.about"),
-    t("nav.contact"),
-  ];
+  const [isClicked, setIsClicked] = useState(0);
+  const location = useLocation();
   const navigate = useNavigate();
 
-  const links = [
-    { name: "Tiktok", url: "https://www.tiktok.com/@margrittus?lang=fr" },
-    {
-      name: "Instagram",
-      url: "https://www.instagram.com/maargriitt/",
-    },
-    {
-      name: "LinkedIn",
-      url: "https://www.linkedin.com/in/margritt-martinet-95b885222/",
-    },
-  ];
+  const navItems = useMemo(
+    () => [
+      t("nav.galleries"),
+      t("nav.projects"),
+      t("nav.about"),
+      t("nav.contact"),
+    ],
+    [t]
+  );
 
   const handleNavigate = async (path) => {
     try {
@@ -55,68 +29,45 @@ const Nav = () => {
     }
   };
 
+  const handleClick = (index) => {
+    setIsClicked(index);
+  };
+
+  useEffect(() => {
+    const currentPath = location.pathname;
+    const currentIndex = navItems.findIndex(
+      (item) => `/${item.toLowerCase().replace(/ /g, "-")}` === currentPath
+    );
+
+    setIsClicked(currentIndex !== -1 ? currentIndex : 0);
+  }, [location.pathname, navItems]);
+
   return (
-    <motion.div
-      variants={menuSlide}
-      initial="initial"
-      animate="enter"
-      exit="exit"
-      className="menu"
-    >
+    <motion.div initial="initial" animate="enter" exit="exit" className="menu">
       <div className="nav-container">
         <div className="nav">
-          <motion.div
-            className="nav-header"
-            variants={slideNav}
-            initial="initial"
-            animate="enter"
-            exit="exit"
-          >
-            <p>Navigation</p>
-          </motion.div>
-
           <div className="links-container">
             {navItems.map((item, index) => {
-              const path =
-                item === t("nav.home") ? "/" : `/${item.toLowerCase()}`;
+              const path = `/${item.toLowerCase().replace(/ /g, "-")}`;
               return (
-                <motion.div
-                  key={index}
-                  variants={slide}
-                  initial="initial"
-                  animate="enter"
-                  exit="exit"
-                  custom={index}
-                  onClick={() => {
-                    handleNavigate(path);
-                  }}
-                  className="text"
-                >
-                  <Link to={path}>
-                    <TextBlock text={item} />
-                    <TextBlock text={item} />
-                  </Link>
-                </motion.div>
+                <>
+                  <motion.div
+                    key={index}
+                    onClick={() => {
+                      handleNavigate(path);
+                      handleClick(index);
+                    }}
+                    className={`nav-item${
+                      isClicked === index ? " background" : ""
+                    }`}
+                  >
+                    <p className="nav-text">{item}</p>
+                  </motion.div>
+                </>
               );
             })}
           </div>
         </div>
-        <motion.div className="footer">
-          {links.map((link, index) => (
-            <motion.a
-              key={index}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              variants={slideText}
-              initial="initial"
-              animate="enter"
-              exit="exit"
-            >
-              {link.name}
-            </motion.a>
-          ))}
-        </motion.div>
       </div>
     </motion.div>
   );

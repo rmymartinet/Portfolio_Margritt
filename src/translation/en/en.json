@@ -1,13 +1,13 @@
 {
   "nav": {
     "home": "Home",
-    "galleries": "Gallerie",
+    "galleries": "Galerie",
     "project": "Projets",
     "about": "About",
     "contact": "Contact"
   },
   "home": {
-    "text1": "You will find here the entirety of my collection, each piece being a unique expression, If something catches your attention, let me know",
+    "text1": "You will find here the entirety of my collection, each piece being a unique expression, if something catches your attention, let me know.",
     "madeBy": "© 2024",
     "based": "Based in France"
   },

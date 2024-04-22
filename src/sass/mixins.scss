@@ -2,6 +2,7 @@
 
 @mixin parent-styles {
   background-color: $primary-color;
+  padding: 20vh 4vw;
   z-index: 100;
   position: relative;
   display: flex;

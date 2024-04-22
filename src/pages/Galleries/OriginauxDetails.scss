@@ -2,20 +2,12 @@
 @import "../../sass/mixins.scss";
 
 .originaux-details-container {
-  display: flex;
-  flex-direction: column;
-  background-color: $primary-color;
-  z-index: 999;
-  box-sizing: border-box;
-  position: relative;
-  margin-top: 30vh;
-  padding: 0 5vw;
-
+  @include parent-styles;
   .infos-container {
     .title {
       text-align: center;
       font-size: $fs-xxxl;
-      font-family: $font-title;
+      // font-family: $font-title;
       overflow: hidden;
       text-transform: uppercase;
       margin-bottom: 20vh;
@@ -35,7 +27,7 @@
         text-align: center;
         margin-top: 3em;
         font-size: $fs-base;
-        font-family: $font-text;
+        // font-family: $font-text;
         letter-spacing: -0.02em;
       }
 
@@ -60,7 +52,7 @@
         align-self: flex-end;
         text-align: center;
         font-size: $fs-md;
-        font-family: $font-subtitle;
+        // font-family: $font-subtitle;
         margin-bottom: 5vh;
       }
 
@@ -106,7 +98,7 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
         font-size: $fs-very-base--mobile;
-        font-family: $font-text;
+        // font-family: $font-text;
         margin-bottom: 30vh;
 
         .title-description {
@@ -115,7 +107,7 @@
 
         .buying-text {
           font-size: $fs-md;
-          font-family: $font-subtitle;
+          // font-family: $font-subtitle;
           width: 70%;
         }
 
@@ -144,7 +136,7 @@
         font-size: $fs-very-base--mobile;
 
         .livraison-title {
-          font-family: $font-text;
+          // font-family: $font-text;
           justify-self: center;
         }
 
@@ -162,9 +154,9 @@
         .europe,
         .international {
           font-size: $fs-base;
-          font-family: $font-subtitle;
+          // font-family: $font-subtitle;
           p {
-            font-family: $font-text;
+            // font-family: $font-text;
 
             margin-top: 2em;
           }
@@ -176,7 +168,7 @@
         display: grid;
         grid-template-columns: 1fr 2fr;
         font-size: $fs-very-base--mobile;
-        font-family: $font-text;
+        // font-family: $font-text;
         align-items: center;
 
         .navigate-title {
@@ -188,7 +180,7 @@
           position: relative;
           p {
             font-size: $fs-xxxl;
-            font-family: $font-title;
+            // font-family: $font-title;
             width: max-content;
             cursor: pointer;
           }
@@ -261,7 +253,7 @@
           .france,
           .europe,
           .international {
-            font-family: $font-text;
+            // font-family: $font-text;
 
             display: flex;
             flex-direction: column;

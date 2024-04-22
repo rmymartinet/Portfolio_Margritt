@@ -254,7 +254,7 @@ export const originauxData = [
   {
     id: 9,
     category: "originaux",
-    title: "Mécanique des Rêve",
+    title: "Mécanique des Rêves",
     subtitle:
       "Chaque tirage en édition limitée est numéroté, signé par l'artiste, et accompagné d'un certificat d'authenticité.",
     serie: "Mécanique des Rêve",

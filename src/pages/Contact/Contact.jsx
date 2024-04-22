@@ -5,6 +5,7 @@ import Transition from "../../components/Animations/PageTransition/Transition.js
 import { TitleTransition } from "../../components/Animations/TextAnimation.jsx";
 import Divider from "../../components/Common/Divider.jsx";
 import InfoItem from "../../components/Common/InfoItem.jsx";
+import Logo from "../../components/Common/Logo.jsx";
 import SvgName from "../../components/SvgName/SvgName.jsx";
 import "../Contact/Contact.scss";
 
@@ -33,6 +34,7 @@ const Contact = () => {
 
   return (
     <Transition>
+      <Logo />
       <motion.section className="contact-container">
         <TitleTransition textClassName="title p" />
 

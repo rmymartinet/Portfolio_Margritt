@@ -8,6 +8,7 @@ import Transition from "../../components/Animations/PageTransition/Transition.js
 import { TitleTransition } from "../../components/Animations/TextAnimation.jsx";
 import Circle from "../../components/Common/Circle.jsx";
 import InfoItem from "../../components/Common/InfoItem.jsx";
+import Logo from "../../components/Common/Logo.jsx";
 import Form from "../../components/Form/Form.jsx";
 import { tirageData } from "../../data.js";
 import "./OriginauxDetails.scss";
@@ -68,6 +69,7 @@ const TirageDetails = () => {
 
   return (
     <Transition>
+      <Logo />
       <motion.div className="originaux-details-container">
         <motion.div className="infos-container">
           <TitleTransition textClassName="title h1" />

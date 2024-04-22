@@ -1,29 +1,29 @@
-@font-face {
-  font-family: "FKGroteskNeueTrial-Medium";
-  src: url("./assets/Police/FKGroteskNeueTrial-Medium.otf") format("opentype");
-  font-weight: normal; /* Poids de la police */
-  font-style: normal; /* Style de la police */
-}
-@font-face {
-  font-family: "FKGroteskNeueTrial-Regular";
-  src: url("./assets/Police/FKGroteskNeueTrial-Regular.otf") format("opentype");
-  font-weight: normal; /* Poids de la police */
-  font-style: normal; /* Style de la police */
-}
+// @font-face {
+//   font-family: "FKGroteskNeueTrial-Medium";
+//   src: url("./assets/Police/FKGroteskNeueTrial-Medium.otf") format("opentype");
+//   font-weight: normal; /* Poids de la police */
+//   font-style: normal; /* Style de la police */
+// }
+// @font-face {
+//   font-family: "FKGroteskNeueTrial-Regular";
+//   src: url("./assets/Police/FKGroteskNeueTrial-Regular.otf") format("opentype");
+//   font-weight: normal; /* Poids de la police */
+//   font-style: normal; /* Style de la police */
+// }
 
-@font-face {
-  font-family: "FKGroteskNeueTrial-Thin";
-  src: url("./assets/Police/FKGroteskNeueTrial-Thin.otf") format("opentype");
-  font-weight: normal; /* Poids de la police */
-  font-style: normal; /* Style de la police */
-}
-@font-face {
-  font-family: "FKGroteskNeueTrial-Thin";
-  src: url("./assets/Police/FKGroteskNeueTrial-ThinItalic.otf")
-    format("opentype");
-  font-weight: normal; /* Poids de la police */
-  font-style: normal; /* Style de la police */
-}
+// @font-face {
+//   font-family: "FKGroteskNeueTrial-Thin";
+//   src: url("./assets/Police/FKGroteskNeueTrial-Thin.otf") format("opentype");
+//   font-weight: normal; /* Poids de la police */
+//   font-style: normal; /* Style de la police */
+// }
+// @font-face {
+//   font-family: "FKGroteskNeueTrial-Thin";
+//   src: url("./assets/Police/FKGroteskNeueTrial-ThinItalic.otf")
+//     format("opentype");
+//   font-weight: normal; /* Poids de la police */
+//   font-style: normal; /* Style de la police */
+// }
 
 //font-weight
 $main-title: "700";
@@ -31,15 +31,15 @@ $text: "100";
 
 //color
 
-$primary-color: #eaeef4;
-$secondary-color: #000000;
+$primary-color: #eeede5;
+$secondary-color: #1b1a19;
 
 //margin
 $navbar-margin: 20vh;
 
 // Font-size
 $fs-very-sm--mobile: clamp(0.4rem, 0.43vw + 0.47rem, 0.5rem);
-$fs-very-base--mobile: clamp(0.65rem, 0.8vw + 0.55rem, 1rem);
+$fs-very-base--mobile: clamp(0.65rem, 0.8vw + 0.55rem, 0.75rem);
 $fs-sm: clamp(0.65rem, 0.44vw + 0.54rem, 0.89rem);
 $fs-base: clamp(0.81rem, 0.68vw + 0.64rem, 1.19rem);
 $fs-md: clamp(1.02rem, 1.03vw + 0.76rem, 1.58rem);
@@ -50,7 +50,9 @@ $fs-xxxl: clamp(2.48rem, 4.58vw + 1.33rem, 5rem);
 $fs-bigger: clamp(2.29rem, 10.19vw + -0.26rem, 7.89rem);
 
 // font-family
-$font-title: "FKGroteskNeueTrial-Medium", sans-serif;
-$font-subtitle: "FKGroteskNeueTrial-Regular", serif;
-$font-text: "FKGroteskNeueTrial-Thin", sans-serif;
-$font-text-italic: "FKGroteskNeueTrial-ThinItalic", sans-serif;
+// $font-title: "FKGroteskNeueTrial-Medium", sans-serif;
+// $font-subtitle: "FKGroteskNeueTrial-Regular", serif;
+// $font-text: "FKGroteskNeueTrial-Thin", sans-serif;
+// $font-text-italic: "FKGroteskNeueTrial-ThinItalic", sans-serif;
+
+// font-family

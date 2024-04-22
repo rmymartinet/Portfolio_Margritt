@@ -1,13 +1,14 @@
 {
   "nav": {
     "home": "Accueil",
-    "galleries": "Galeries",
+    "galleries": "Galerie",
     "projects": "Projets",
-    "about": "A propos",
+    "about": "Infos",
     "contact": "Contact"
   },
   "home": {
-    "text1": "Vous trouverez ici l'intégralité de ma collection, chaque pièce étant unique, Si l'une d'elles retient votre attention, faites-le moi savoir",
+    "text1": "Vous trouverez ici l'intégralité de ma collection, chaque pièce étant unique.",
+    "text2": "Si l'une d'elles retient votre attention, faites-le moi savoir.",
     "madeBy": "V - ©2024",
     "based": "Basée en France"
   },

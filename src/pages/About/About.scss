@@ -6,12 +6,7 @@
   --img-height-size: calc(200px - 1.5vw);
 }
 .about-container {
-  padding: 0 4vw;
-  padding-top: 20vh;
-  background-color: $primary-color;
-  z-index: 100;
-  position: relative;
-  box-sizing: border-box;
+  @include parent-styles;
 
   .about-content {
     display: grid;
@@ -21,15 +16,16 @@
       grid-column: 1 / span 12;
       padding: 0 5vw;
       font-size: $fs-xl;
-      font-family: $font-subtitle;
+      // font-family: $font-subtitle;
       margin-bottom: 20vh;
       position: relative;
       display: grid;
       place-content: center;
+      font-weight: 300;
 
       span {
         font-style: italic;
-        font-weight: 600;
+        font-weight: 500;
       }
     }
 
@@ -47,12 +43,12 @@
     }
 
     .left-content {
-      font-weight: 100;
+      font-weight: 300;
       grid-column: 2 / span 4;
       grid-row: 2;
 
       .left-text {
-        font-family: $font-text;
+        // font-family: $font-text;
         letter-spacing: -0.02em;
         font-size: $fs-md;
         line-height: 1.5em;
@@ -95,13 +91,14 @@
 
     .quote-title {
       grid-column: 1 / span 2;
-      font-family: $font-subtitle;
-      font-weight: 700;
+      // font-family: $font-subtitle;
+      font-weight: 500;
       font-size: $fs-xxl;
       margin-bottom: 10vh;
     }
     .quote-text {
-      font-family: $font-text;
+      // font-family: $font-text;
+      font-weight: 300;
       grid-column: 1 / span 2;
       text-align: justify;
     }
@@ -132,7 +129,8 @@
 
     .gallery-title {
       h1 {
-        font-family: $font-title;
+        // font-family: $font-title;
+        font-weight: 900;
         font-size: clamp(1.2rem, 15vw, 15rem);
       }
       .more-content {

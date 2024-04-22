@@ -8,11 +8,11 @@ export const TitleTransition = ({ textClassName }) => {
     const split = new SplitType(element);
 
     gsap.from(split.chars, {
-      y: 400,
+      y: 200,
       skewX: 50,
       rotation: 20,
       duration: 1.2,
-      stagger: 0.08,
+      stagger: 0.07,
       ease: "power3.inOut",
     });
   }, [textClassName]);

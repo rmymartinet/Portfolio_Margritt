@@ -6,6 +6,7 @@ import Form from "../../components/Form/Form.jsx";
 import gsap from "gsap";
 import Transition from "../../components/Animations/PageTransition/Transition.jsx";
 import Hero from "../../components/Common/Hero.jsx";
+import Logo from "../../components/Common/Logo.jsx";
 import LatestProject from "../../components/Project/LatestProject.jsx";
 import {
   Activity,
@@ -53,6 +54,7 @@ const Projects = () => {
 
   return (
     <Transition>
+      <Logo />
       <motion.section className="project-container" ref={containerRef}>
         <Hero title="projects" />
         <LatestProject />
