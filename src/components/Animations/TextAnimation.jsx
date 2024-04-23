@@ -2,20 +2,22 @@ import gsap from "gsap";
 import { useEffect } from "react";
 import SplitType from "split-type";
 
-export const TitleTransition = ({ textClassName }) => {
+export const TitleTransition = ({ textClassName, isClciked }) => {
   useEffect(() => {
-    const element = document.querySelector(`.${textClassName}`);
-    const split = new SplitType(element);
+    if (!isClciked) {
+      const element = document.querySelector(`.${textClassName}`);
+      const split = new SplitType(element);
 
-    gsap.from(split.chars, {
-      y: 200,
-      skewX: 50,
-      rotation: 20,
-      duration: 1.2,
-      stagger: 0.07,
-      ease: "power3.inOut",
-    });
-  }, [textClassName]);
+      gsap.from(split.chars, {
+        y: 200,
+        skewX: 50,
+        rotation: 20,
+        duration: 1.2,
+        stagger: 0.07,
+        ease: "power3.inOut",
+      });
+    }
+  }, [textClassName, isClciked]);
 };
 
 export const TextTransition = ({ textClassName }) => {

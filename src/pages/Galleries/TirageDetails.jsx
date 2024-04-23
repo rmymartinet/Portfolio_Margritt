@@ -1,12 +1,13 @@
-import { motion } from "framer-motion";
 import gsap from "gsap";
+import { Flip } from "gsap/Flip";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
 import Transition from "../../components/Animations/PageTransition/Transition.jsx";
 import { TitleTransition } from "../../components/Animations/TextAnimation.jsx";
 import Circle from "../../components/Common/Circle.jsx";
+import Divider from "../../components/Common/Divider.jsx";
 import InfoItem from "../../components/Common/InfoItem.jsx";
 import Logo from "../../components/Common/Logo.jsx";
 import Form from "../../components/Form/Form.jsx";
@@ -16,29 +17,50 @@ gsap.registerPlugin(ScrollTrigger);
 
 const TirageDetails = () => {
   const { index } = useParams();
+  const { index: currentIndex } = useParams();
   const selectedImage = tirageData[index];
-  const saleProduct = selectedImage.available;
   const slideNumber = countImages(selectedImage);
+
+  const { t } = useTranslation();
+  const navigate = useNavigate();
+  const imageRef = useRef(null);
+  const titleRef = useRef(null);
+  const btnRef = useRef(null);
+  const saleRef = useRef(null);
+  const totalSlideRef = useRef(null);
+  const wrapperRef = useRef(null);
+
   const [isClicked, setIsClicked] = useState(false);
 
   function countImages(data) {
     return Object.keys(data).filter((key) => key.startsWith("img")).length;
   }
 
-  const { t } = useTranslation();
-  const { index: currentIndex } = useParams();
+  useLayoutEffect(() => {
+    gsap.fromTo(
+      ".buying p",
+      { opacity: 0 },
+      {
+        opacity: 1,
+        duration: 2,
+        ease: "power3.inOut",
+        delay: 1.5,
+      }
+    );
+  }, []);
 
-  const navigate = useNavigate();
+  const handleNavigateTirages = (id) => {
+    let index = tirageData.findIndex((item) => item.id === id);
+    index = index < tirageData.length ? index : 0;
+
+    navigate(`/tirages/${tirageData[index].id}`);
+  };
 
   let nextIndex = parseInt(currentIndex) + 1;
   if (nextIndex >= tirageData.length) {
-    nextIndex = 0;
+    nextIndex = 0; // Si on est à la fin du tableau, on revient au début
   }
   const nextItem = tirageData[nextIndex];
-
-  const handleNavigateTirages = (index) => {
-    navigate(`/tirages/${index}`);
-  };
 
   useEffect(() => {
     const item = document.querySelector(".navigate-works-item p");
@@ -64,38 +86,81 @@ const TirageDetails = () => {
 
   const handleClick = () => {
     setIsClicked(true);
-    navigate(`/tirages-images/${index}`);
   };
 
+  useEffect(() => {
+    if (isClicked) {
+      const flipContainer = document.querySelector(".flip-container");
+      const image = document.querySelector(".details-image img");
+      let state = Flip.getState(".details-image img");
+
+      flipContainer.append(image);
+
+      Flip.from(state, {
+        absolute: true,
+        duration: 2,
+        ease: "power3.inOut",
+
+        onComplete: () => {
+          navigate(`/tirages-images/${index}`);
+        },
+      });
+
+      gsap.to(
+        [
+          titleRef.current,
+          btnRef.current,
+          wrapperRef.current,
+          saleRef.current,
+          totalSlideRef.current,
+        ],
+        {
+          opacity: 0,
+          duration: 1,
+          ease: "power3.inOut",
+        }
+      );
+    }
+  }, [isClicked]);
+
+  /**
+   * !TODO: Modifier la traduction available ou notAvailable
+   * !TODO: Ajouter Animation Flip lors du clique sur le bouton pour afficher plus d'images
+   */
+
+  const saleProduct = selectedImage.available || selectedImage.notAvailable;
+
   return (
-    <Transition>
+    <Transition isClicked={isClicked}>
       <Logo />
-      <motion.div className="originaux-details-container">
-        <motion.div className="infos-container">
-          <TitleTransition textClassName="title h1" />
-          <div className="title">
+      <div className="originaux-details-container">
+        <div ref={imageRef} className="flip-container"></div>
+        <div className="infos-container">
+          <TitleTransition isClciked={isClicked} textClassName="title h1" />
+          <div ref={titleRef} className="title">
             <h1>{selectedImage.title}</h1>
           </div>
           <div className="product-info">
-            <motion.div className="details-image">
+            <div className="details-image">
               <img loading="lazy" src={selectedImage.img} alt={""} />
-            </motion.div>
+            </div>
             {countImages(selectedImage) > 1 && (
-              <div onClick={() => handleClick()} className="btn">
+              <div ref={btnRef} onClick={() => handleClick()} className="btn">
                 <p>+</p>
               </div>
             )}
-            <div className="sale">
+            <div ref={saleRef} className="sale">
               <p>{saleProduct}</p>
             </div>
-            <div className="total-slide">
+            <div ref={totalSlideRef} className="total-slide">
               <p>{`01 / 0${slideNumber}`}</p>
             </div>
           </div>
 
-          <div className="divider" />
-          <div className="wrapper">
-            <motion.div className="description">
+          <Divider className="originaux-divider" />
+
+          <div ref={wrapperRef} className="wrapper">
+            <div className="description">
               <div className="title-description">
                 <p>Description</p>
               </div>
@@ -128,8 +193,36 @@ const TirageDetails = () => {
                   value={selectedImage.papier}
                   className="paper"
                 />
+                {selectedImage.marqueur && (
+                  <InfoItem
+                    label={t("originauxDetails.marker")}
+                    value={selectedImage.marqueur}
+                    className="paper"
+                  />
+                )}
+                {selectedImage.stylo && (
+                  <InfoItem
+                    label={t("originauxDetails.pen")}
+                    value={selectedImage.stylo}
+                    className="paper"
+                  />
+                )}
+                {selectedImage.feutre && (
+                  <InfoItem
+                    label={t("originauxDetails.felt-tip pen")}
+                    value={selectedImage.feutre}
+                    className="paper"
+                  />
+                )}
+                {selectedImage.peinture && (
+                  <InfoItem
+                    label={t("originauxDetails.paint")}
+                    value={selectedImage.peinture}
+                    className="paper"
+                  />
+                )}
               </div>
-            </motion.div>
+            </div>
             <div className="livraison">
               <div className="background"></div>
               <div className="livraison-title">
@@ -151,7 +244,6 @@ const TirageDetails = () => {
                 className="international"
               />
             </div>
-            <div className="divider" />
             <div className="navigate">
               <div className="navigate-title">
                 <p>Next project:</p>
@@ -175,8 +267,8 @@ const TirageDetails = () => {
               </div>
             </div>
           </div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
       <footer className="hello">
         <Circle target={"originaux-details-container"} />
         <Form />

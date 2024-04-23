@@ -1,19 +1,22 @@
-import { motion } from "framer-motion";
 import gsap from "gsap";
+import { Flip } from "gsap/Flip";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
 import Transition from "../../components/Animations/PageTransition/Transition.jsx";
 import { TitleTransition } from "../../components/Animations/TextAnimation.jsx";
 import Circle from "../../components/Common/Circle.jsx";
+import Divider from "../../components/Common/Divider.jsx";
 import InfoItem from "../../components/Common/InfoItem.jsx";
 import Logo from "../../components/Common/Logo.jsx";
 import Form from "../../components/Form/Form.jsx";
 import { originauxData } from "../../data.js";
+
 import "./OriginauxDetails.scss";
 
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(Flip);
 
 const OriginauxDetails = () => {
   const { index } = useParams();
@@ -22,6 +25,12 @@ const OriginauxDetails = () => {
   const slideNumber = countImages(selectedImage);
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const imageRef = useRef(null);
+  const titleRef = useRef(null);
+  const btnRef = useRef(null);
+  const saleRef = useRef(null);
+  const totalSlideRef = useRef(null);
+  const wrapperRef = useRef(null);
 
   const [isClicked, setIsClicked] = useState(false);
 
@@ -79,40 +88,81 @@ const OriginauxDetails = () => {
 
   const handleClick = () => {
     setIsClicked(true);
-    navigate(`/originaux-images/${index}`);
   };
+
+  useEffect(() => {
+    if (isClicked) {
+      const flipContainer = document.querySelector(".flip-container");
+      const image = document.querySelector(".details-image img");
+      let state = Flip.getState(".details-image img");
+
+      flipContainer.append(image);
+
+      Flip.from(state, {
+        absolute: true,
+        duration: 2,
+        ease: "power3.inOut",
+
+        onComplete: () => {
+          navigate(`/originaux-images/${index}`);
+        },
+      });
+
+      gsap.to(
+        [
+          titleRef.current,
+          btnRef.current,
+          wrapperRef.current,
+          saleRef.current,
+          totalSlideRef.current,
+        ],
+        {
+          opacity: 0,
+          duration: 1,
+          ease: "power3.inOut",
+        }
+      );
+    }
+  }, [isClicked]);
+
+  /**
+   * !TODO: Modifier la traduction available ou notAvailable
+   * !TODO: Ajouter Animation Flip lors du clique sur le bouton pour afficher plus d'images
+   */
+
   const saleProduct = selectedImage.available || selectedImage.notAvailable;
 
   return (
-    <Transition>
+    <Transition isClicked={isClicked}>
       <Logo />
-      <motion.div className="originaux-details-container">
-        <motion.div className="infos-container">
-          <TitleTransition textClassName="title h1" />
-          <div className="title">
+      <div className="originaux-details-container">
+        <div ref={imageRef} className="flip-container"></div>
+        <div className="infos-container">
+          <TitleTransition isClciked={isClicked} textClassName="title h1" />
+          <div ref={titleRef} className="title">
             <h1>{selectedImage.title}</h1>
           </div>
           <div className="product-info">
-            <motion.div className="details-image">
+            <div className="details-image">
               <img loading="lazy" src={selectedImage.img} alt={""} />
-            </motion.div>
+            </div>
             {countImages(selectedImage) > 1 && (
-              <div onClick={() => handleClick()} className="btn">
+              <div ref={btnRef} onClick={() => handleClick()} className="btn">
                 <p>+</p>
               </div>
             )}
-            <div className="sale">
+            <div ref={saleRef} className="sale">
               <p>{saleProduct}</p>
             </div>
-            <div className="total-slide">
+            <div ref={totalSlideRef} className="total-slide">
               <p>{`01 / 0${slideNumber}`}</p>
             </div>
           </div>
 
-          <div className="divider" />
+          <Divider className="originaux-divider" />
 
-          <div className="wrapper">
-            <motion.div className="description">
+          <div ref={wrapperRef} className="wrapper">
+            <div className="description">
               <div className="title-description">
                 <p>Description</p>
               </div>
@@ -174,7 +224,7 @@ const OriginauxDetails = () => {
                   />
                 )}
               </div>
-            </motion.div>
+            </div>
             <div className="navigate">
               <div className="navigate-title">
                 <p>Next project:</p>
@@ -198,8 +248,8 @@ const OriginauxDetails = () => {
               </div>
             </div>
           </div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
       <footer className="hello">
         <Circle target={"originaux-details-container"} />
         <Form />

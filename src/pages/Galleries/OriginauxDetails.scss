@@ -3,6 +3,21 @@
 
 .originaux-details-container {
   @include parent-styles;
+
+  .flip-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60vw;
+    height: 60vh;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
   .infos-container {
     .title {
       text-align: center;
@@ -21,6 +36,7 @@
 
       .sale {
         padding: 0.5em;
+        font-weight: 500;
         grid-row: 1;
         grid-column: 1/2;
         align-self: flex-start;
@@ -38,6 +54,7 @@
         position: relative;
         width: 100%;
         height: 60vh;
+
         img {
           position: absolute;
           width: 100%;
@@ -78,9 +95,7 @@
       }
     }
 
-    .divider {
-      grid-column: 1/4;
-      width: 100%;
+    .originaux-divider {
       height: 1px;
       background-color: $secondary-color;
       margin: 10vh 0;
@@ -97,7 +112,7 @@
         grid-column: 1/4;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        font-size: $fs-sm;
+        font-size: $fs-base;
         // font-family: $font-text;
         margin-bottom: 30vh;
 
@@ -133,7 +148,7 @@
         display: grid;
         grid-template-columns: 1.5fr 1fr 1fr 1fr;
         justify-items: center;
-        font-size: $fs-sm;
+        font-size: $fs-base;
 
         .livraison-title {
           // font-family: $font-text;
@@ -167,7 +182,7 @@
         grid-column: 1/4;
         display: grid;
         grid-template-columns: 1fr 2fr;
-        font-size: $fs-sm;
+        font-size: $fs-base;
         // font-family: $font-text;
         align-items: center;
 
@@ -305,8 +320,21 @@
   }
 }
 
+/**
+
+!TODO: CENTRER LE FLIP CONTAINER
+
+**/
+
 @media (max-width: 498px) {
   .originaux-details-container {
+    .flip-container {
+      position: fixed;
+      top: 47.5%;
+      left: 47.5%;
+      width: 90vw;
+      height: 90vh;
+    }
     .infos-container {
       .title {
         text-align: center;
