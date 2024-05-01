@@ -7,6 +7,11 @@ import { useNavigate } from "react-router-dom";
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(Flip);
 
+/**
+ *
+ * !TODO: Nettoyer le FLIP
+ */
+
 const ImagesContainer = ({
   //eslint-disable-next-line
   item,

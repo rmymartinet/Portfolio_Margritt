@@ -43,7 +43,6 @@
       right: 0;
       font-size: $fs-base;
       font-weight: 300;
-      // font-family: $font-text-italic;
     }
   }
 
@@ -63,18 +62,15 @@
       font-size: $fs-md;
       font-weight: 600;
       overflow: hidden;
-      // font-family: $font-subtitle;
 
       p {
         font-size: $fs-base;
         font-weight: 300;
-        // font-family: $font-text;
       }
     }
   }
 
   .button-container {
-    // font-family: $font-subtitle;
     display: flex;
     flex-direction: row-reverse;
     margin-bottom: 20vh;
@@ -103,8 +99,6 @@
         height: 50px;
         padding: 10px;
         border: solid rgba(128, 128, 128, 0.486) 0.5px;
-
-        // font-family: $font-subtitle;
 
         .first,
         .second,
@@ -172,7 +166,8 @@
       flex-direction: column;
       align-items: center;
 
-      .grid-img8 {
+      .grid-img8,
+      .grid-img13 {
         .images-container {
           img {
             width: 100%;
@@ -201,11 +196,10 @@
 
           .images-container {
             width: 100%;
-            height: 50%;
+            height: 70%;
           }
 
           .image-content {
-            // font-family: $font-subtitle;
             width: 95%;
             padding: 60px 0px;
             display: flex;
@@ -213,6 +207,8 @@
             .content-left {
               flex: 2;
               font-size: $fs-base;
+              text-transform: uppercase;
+              font-weight: 500;
             }
 
             .content-right {
@@ -228,7 +224,6 @@
               .image-format {
                 opacity: 0.5;
                 font-size: $fs-sm;
-                // font-family: $font-text;
               }
             }
           }

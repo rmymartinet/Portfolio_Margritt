@@ -1,133 +1,188 @@
 @import "../../sass/variables.scss";
 @import "../../sass/mixins.scss";
 
-.originaux-details-container {
-  @include parent-styles;
+.panel {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
 
-  .flip-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60vw;
-    height: 60vh;
+.scroll-zoom {
+  height: 370vh;
+  position: relative;
 
-    img {
+  .product-info {
+    position: sticky;
+    overflow: hidden;
+    top: 0;
+    height: 100vh;
+
+    .details-image {
       width: 100%;
       height: 100%;
-      object-fit: contain;
-    }
-  }
-  .infos-container {
-    .title {
-      text-align: center;
-      font-size: $fs-xxxl;
-      // font-family: $font-title;
-      overflow: hidden;
-      text-transform: uppercase;
-      margin-bottom: 20vh;
-    }
-
-    .product-info {
-      margin-bottom: 20vh;
+      top: 0;
+      position: absolute;
+      display: flex;
       align-items: center;
-      display: grid;
-      grid-template-columns: 1fr 2fr;
+      justify-content: center;
 
-      .sale {
-        padding: 0.5em;
-        font-weight: 500;
-        grid-row: 1;
-        grid-column: 1/2;
-        align-self: flex-start;
-        text-align: center;
-        margin-top: 3em;
-        font-size: $fs-base;
-        // font-family: $font-text;
-        letter-spacing: -0.02em;
-      }
-
-      .details-image {
-        grid-row: 1;
-        grid-column: 2/3;
-        display: flex;
+      .image-container {
         position: relative;
-        width: 100%;
-        height: 60vh;
+        width: 25vw;
+        height: 25vh;
 
         img {
-          position: absolute;
-          width: 100%;
-          height: 100%;
           object-fit: contain;
         }
       }
 
-      .total-slide {
-        grid-column: 1/2;
-        grid-row: 1;
-        align-self: flex-end;
-        text-align: center;
-        font-size: $fs-md;
-        // font-family: $font-subtitle;
-        margin-bottom: 5vh;
+      .futurama3-container {
+        position: relative;
+        width: 30vw;
+        height: 30vh;
+
+        img {
+          object-fit: contain;
+        }
       }
 
-      .btn {
-        justify-self: center;
-        grid-row: 1;
-        grid-column: 1/2;
-        display: grid;
-        place-content: center;
-        border-radius: 100%;
-        box-sizing: border-box;
-        height: 55px;
-        width: 55px;
-        border: solid black 2px;
-        color: black;
-        transform: scale(1);
-        transition: transform 0.3s ease-in-out;
+      &:nth-of-type(1) {
+        .image-container {
+          top: 0vh;
+          left: 0vw;
+          width: 30vw;
+          height: 30vh;
+        }
       }
 
-      .btn:hover {
-        transition: transform 0.3s ease-in-out;
-        transform: scale(1.1);
+      &:nth-of-type(1) {
+        .futurama3-container {
+          top: 0vh;
+          left: 0vw;
+          width: 50vw;
+          height: 50vh;
+        }
+      }
+      &:nth-of-type(2) {
+        .image-container {
+          top: -15vh;
+          left: 25vw;
+          width: 15vw;
+          height: 5vh;
+        }
+      }
+      &:nth-of-type(2) {
+        .futurama3-container {
+          top: -15vh;
+          left: 25vw;
+          width: 35vw;
+          height: 35vh;
+        }
+      }
+
+      &:nth-of-type(3) {
+        .image-container,
+        .futurama3-container {
+          top: -4vh;
+          left: -27vw;
+          width: 20vw;
+          height: 45vh;
+        }
+      }
+
+      &:nth-of-type(3) {
+        .futurama3-container {
+          top: -4vh;
+          left: -27vw;
+          width: 30vw;
+          height: 35vh;
+        }
+      }
+
+      &:nth-of-type(4) {
+        .image-container,
+        .futurama3-container {
+          rotate: 90deg;
+          top: 33vh;
+          left: -20vw;
+          width: 15vw;
+          height: 15vh;
+        }
+      }
+
+      &:nth-of-type(4) {
+        .futurama3-container {
+          rotate: 90deg;
+          top: 33vh;
+          left: -20vw;
+          width: 25vw;
+          height: 25vh;
+        }
+      }
+      &:nth-of-type(5) {
+        .image-container,
+        .futurama3-container {
+          top: 30vh;
+          left: 20vw;
+          width: 15vw;
+          height: 15vh;
+        }
       }
     }
 
-    .originaux-divider {
-      height: 1px;
-      background-color: $secondary-color;
-      margin: 10vh 0;
+    .title {
+      position: absolute;
+      bottom: 5%;
+      right: 0%;
+      transform: translateX(-50%);
+      font-size: $fs-lg;
+      font-weight: 400;
+      text-transform: uppercase;
     }
+  }
+}
 
-    .wrapper {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      padding: 0 calc(5vw);
-      margin-bottom: 20vh;
+.scroll-container {
+  display: flex;
+  width: max-content;
+
+  .info-panel {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    .infos-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100vw;
+
+      .originaux-divider {
+        height: 1px;
+        background-color: $secondary-color;
+        margin: 10vh 0;
+      }
 
       .description {
+        height: 50vh;
         column-gap: 2em;
-        grid-column: 1/4;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        justify-items: start;
+        column-gap: 20vw;
+        padding: 0 10vw;
         font-size: $fs-base;
-        // font-family: $font-text;
-        margin-bottom: 30vh;
-
-        .title-description {
-          justify-self: center;
-        }
 
         .buying-text {
+          display: flex;
+          align-self: flex-end;
+          gap: 1em;
+          grid-row: 2;
           font-size: $fs-md;
-          // font-family: $font-subtitle;
-          width: 70%;
         }
 
         .details-infos {
-          justify-self: flex-end;
           display: grid;
           grid-template-rows: repeat(5, max-content);
           line-height: 1.5;
@@ -140,6 +195,14 @@
             grid-template-columns: 1fr 1fr;
           }
         }
+
+        .sale {
+          grid-row: 2;
+          align-self: flex-end;
+          padding: 0.5em;
+          font-weight: 400;
+          font-size: $fs-base;
+        }
       }
       .livraison {
         margin-bottom: 30vh;
@@ -151,7 +214,6 @@
         font-size: $fs-base;
 
         .livraison-title {
-          // font-family: $font-text;
           justify-self: center;
         }
 
@@ -169,50 +231,69 @@
         .europe,
         .international {
           font-size: $fs-base;
-          // font-family: $font-subtitle;
           p {
-            // font-family: $font-text;
-
             margin-top: 2em;
           }
         }
       }
+    }
+  }
 
-      .navigate {
-        grid-column: 1/4;
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        font-size: $fs-base;
-        // font-family: $font-text;
+  .last-panel {
+    // background-color: rgba(255, 255, 255, 0.265);
+    background-color: rgba(255, 255, 255, 0.699);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70vw;
+
+    .navigate {
+      font-size: $fs-base;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .navigate-title {
+        font-size: $fs-xl;
+        margin-bottom: 5vh;
+        text-transform: uppercase;
+      }
+
+      .navigate-works-item {
+        display: flex;
+        flex-direction: column;
         align-items: center;
+        width: 40vw;
 
-        .navigate-title {
-          align-self: flex-start;
-          justify-self: center;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
         }
+      }
 
-        .navigate-works-originaux {
-          position: relative;
-          p {
-            font-size: $fs-xxxl;
-            // font-family: $font-title;
-            width: max-content;
-            cursor: pointer;
-          }
+      .navigate-works-item-futurama2 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 30vw;
 
-          img {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            object-fit: contain;
-            transform: translateX(-50%) translateY(-50%);
-            top: 50%;
-            left: 50%;
-            z-index: -10;
-            opacity: 0;
-            pointer-events: none;
-          }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
         }
+      }
+
+      .navigate-icon {
+        margin-top: 5vh;
+        background: black;
+        color: white;
+        display: grid;
+        place-content: center;
+        padding: 20px;
+        border-radius: 50%;
+        cursor: pointer;
       }
     }
   }
@@ -268,8 +349,6 @@
           .france,
           .europe,
           .international {
-            // font-family: $font-text;
-
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -280,21 +359,15 @@
           }
         }
 
-        //chose à changer
         .navigate {
           grid-column: 1/4;
           display: grid;
           grid-template-columns: 1fr 2fr;
           font-size: $fs-sm;
-          align-items: center;
-
-          .navigate-title {
-            align-self: flex-start;
-            justify-self: center;
-          }
 
           .navigate-works-originaux {
             position: relative;
+
             p {
               font-size: $fs-xxxl;
               width: max-content;
@@ -330,15 +403,16 @@
   .originaux-details-container {
     .flip-container {
       position: fixed;
-      top: 47.5%;
-      left: 47.5%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       width: 90vw;
       height: 90vh;
     }
     .infos-container {
       .title {
-        text-align: center;
         font-size: $fs-xxl;
+        font-weight: 600;
       }
       .description {
         gap: 1em 0;
@@ -350,27 +424,9 @@
       }
 
       .product-info {
-        align-items: center;
-        display: grid;
-        grid-template-columns: 1fr;
-
-        .sale {
-          grid-column: 1/2;
-        }
-        .btn {
-          grid-column: 1/2;
-          align-self: flex-start;
-          margin-top: 10vh;
-          height: 25px;
-          width: 25px;
-          border: solid black 2px;
-          color: black;
-          transform: scale(1);
-          transition: transform 0.3s ease-in-out;
-        }
-
         .details-image {
-          grid-column: 1/2;
+          grid-column: 1 / span 3;
+          margin-bottom: 5vh;
         }
       }
     }

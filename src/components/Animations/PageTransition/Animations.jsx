@@ -2,8 +2,8 @@ import { Power1, Power2 } from "gsap";
 
 export const childrenAnimation = {
   initial: {
-    opacity: 1,
-    y: 100,
+    opacity: 0,
+    top: 100,
   },
   animate: {
     opacity: 1,
@@ -13,7 +13,7 @@ export const childrenAnimation = {
     },
   },
   exit: {
-    y: -2500,
+    y: -1000,
     opacity: 0,
     transition: {
       ease: Power1.easeIn,
