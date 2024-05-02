@@ -7,17 +7,31 @@
 }
 
 .home-container {
-  overflow: hidden;
   @include parent-styles;
-  padding: 0 4vw;
-  height: 100vh;
-  display: grid;
-  background-color: #f1f0ea;
-  color: #2d2d2b;
+  .flip-container {
+    width: 70vw;
+    height: 50vh;
+    overflow: hidden;
+    font-size: 20em;
+  }
+  /***  !TODO HOW TO CENTER THE TEXT ? ***/
+
+  .flip-container .oeuvres-grid {
+    text-align: center;
+    width: 3000px;
+    text-transform: uppercase;
+  }
+
+  .scrollDist {
+    top: 0;
+    width: 100%;
+    height: 300vh;
+  }
 
   .wrapper {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 
     .home-content {
@@ -28,6 +42,8 @@
       flex-direction: column;
 
       .content-left {
+        mix-blend-mode: difference;
+        color: white;
         font-weight: 900;
         margin-bottom: 10px;
         display: flex;
