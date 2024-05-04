@@ -15,7 +15,6 @@ import TirageDetails from "./pages/Galleries/TirageDetails.jsx";
 import Home from "./pages/Home/Home.jsx";
 import ImagesOriginaux from "./pages/Images/ImagesOriginaux.jsx";
 import ImagesTirages from "./pages/Images/ImagesTirages.jsx";
-import Projects from "./pages/Projects/Projects.jsx";
 
 function App() {
   const { t } = useTranslation();
@@ -37,12 +36,14 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (isLoading) {
+    const loadData = async () => {
       setTimeout(() => {
         setIsLoading(false);
-      }, 4500);
-    }
-  });
+      }, 4000);
+    };
+
+    loadData();
+  }, []);
 
   useEffect(() => {
     document.title = "Margritt.com";
@@ -55,7 +56,6 @@ function App() {
         <Routes location={location} key={location.pathname}>
           <Route path="/" index element={<Home isLoading={isLoading} />} />
           <Route path={`/${t("nav.galleries")}`} element={<Gallery />} />
-          <Route path={`/${t("nav.projects")}`} element={<Projects />} />
           <Route path={`/${t("nav.about")}`} element={<About />} />
           <Route path={`/${t("nav.contact")}`} element={<Contact />} />
           <Route path="/tirages/:index" element={<TirageDetails />} />

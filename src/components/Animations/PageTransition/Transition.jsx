@@ -6,8 +6,8 @@ import {
 } from "./Animations";
 import "./Transition.scss";
 
-export default function Transition({ children, isClicked }) {
-  return !isClicked ? (
+export function Transition({ children }) {
+  return (
     <>
       <motion.div
         variants={slideInAnimation}
@@ -32,7 +32,18 @@ export default function Transition({ children, isClicked }) {
         {children}
       </motion.div>
     </>
-  ) : (
-    <>{children}</>
+  );
+}
+
+export function TransitionHome({ children }) {
+  return (
+    <motion.div
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      variants={childrenAnimation}
+    >
+      {children}
+    </motion.div>
   );
 }

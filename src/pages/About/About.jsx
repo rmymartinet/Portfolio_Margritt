@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import AboutContent from "../../components/About/AboutContent";
 import Gallery from "../../components/About/Gallery";
 import Quote from "../../components/About/Quote";
-import Transition from "../../components/Animations/PageTransition/Transition.jsx";
+import { Transition } from "../../components/Animations/PageTransition/Transition.jsx";
 import Circle from "../../components/Common/Circle.jsx";
 import Hero from "../../components/Common/Hero.jsx";
 import Logo from "../../components/Common/Logo.jsx";

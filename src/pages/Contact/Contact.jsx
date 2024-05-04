@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import Transition from "../../components/Animations/PageTransition/Transition.jsx";
+import { Transition } from "../../components/Animations/PageTransition/Transition.jsx";
 import { TitleTransition } from "../../components/Animations/TextAnimation.jsx";
 import Divider from "../../components/Common/Divider.jsx";
 import InfoItem from "../../components/Common/InfoItem.jsx";

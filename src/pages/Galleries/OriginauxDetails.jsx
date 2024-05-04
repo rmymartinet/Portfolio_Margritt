@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 import { FaCircle } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa6";
 import { useNavigate, useParams } from "react-router-dom";
-import Transition from "../../components/Animations/PageTransition/Transition.jsx";
+import { Transition } from "../../components/Animations/PageTransition/Transition.jsx";
 import Divider from "../../components/Common/Divider.jsx";
 import InfoItem from "../../components/Common/InfoItem.jsx";
 import Logo from "../../components/Common/Logo.jsx";
@@ -223,7 +223,7 @@ const OriginauxDetails = () => {
                   value={selectedImage.papier}
                   className="paper"
                 />
-                {selectedImage.marqueur && (
+                {/* {selectedImage.marqueur && (
                   <InfoItem
                     label={t("originauxDetails.marker")}
                     value={selectedImage.marqueur}
@@ -250,7 +250,7 @@ const OriginauxDetails = () => {
                     value={selectedImage.peinture}
                     className="paper"
                   />
-                )}
+                )} */}
               </div>
               <div className="buying-text">
                 <FaCircle size={30} />

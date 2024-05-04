@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import Transition from "../../components/Animations/PageTransition/Transition.jsx";
+import { Transition } from "../../components/Animations/PageTransition/Transition.jsx";
 import { TextTransition } from "../../components/Animations/TextAnimation.jsx";
 import Circle from "../../components/Common/Circle.jsx";
 import Hero from "../../components/Common/Hero.jsx";

@@ -4,7 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
-import Transition from "../../components/Animations/PageTransition/Transition.jsx";
+import { Transition } from "../../components/Animations/PageTransition/Transition.jsx";
 import { TitleTransition } from "../../components/Animations/TextAnimation.jsx";
 import Circle from "../../components/Common/Circle.jsx";
 import Divider from "../../components/Common/Divider.jsx";

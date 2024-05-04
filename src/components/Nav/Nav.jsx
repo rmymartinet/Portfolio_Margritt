@@ -12,12 +12,7 @@ const Nav = () => {
   const navigate = useNavigate();
 
   const navItems = useMemo(
-    () => [
-      t("nav.galleries"),
-      t("nav.projects"),
-      t("nav.about"),
-      t("nav.contact"),
-    ],
+    () => [t("nav.galleries"), t("nav.about"), t("nav.contact")],
     [t]
   );
 

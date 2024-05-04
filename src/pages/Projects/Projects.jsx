@@ -1,13 +1,8 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
-import Circle from "../../components/Common/Circle.jsx";
-import Form from "../../components/Form/Form.jsx";
 
 import gsap from "gsap";
-import Transition from "../../components/Animations/PageTransition/Transition.jsx";
-import Hero from "../../components/Common/Hero.jsx";
 import Logo from "../../components/Common/Logo.jsx";
-import LatestProject from "../../components/Project/LatestProject.jsx";
 import {
   Activity,
   Exposition,
@@ -53,19 +48,19 @@ const Projects = () => {
   }, [expositionRef, ActivityRef]);
 
   return (
-    <Transition>
+    <>
       <Logo />
       <motion.section className="project-container" ref={containerRef}>
-        <Hero title="projects" />
-        <LatestProject />
+        {/* <Hero title="projects" /> */}
+        {/* <LatestProject /> */}
         <Exposition ref={expositionRef} />
         <Activity ref={ActivityRef} />
       </motion.section>
-      <footer>
+      {/* <footer>
         <Circle target={"project-container"} />
         <Form />
-      </footer>
-    </Transition>
+      </footer> */}
+    </>
   );
 };
 

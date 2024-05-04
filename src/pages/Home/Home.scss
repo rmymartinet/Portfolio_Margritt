@@ -8,13 +8,14 @@
 
 .home-container {
   @include parent-styles;
+  padding: 0 4vw;
   .flip-container {
-    width: 70vw;
+    width: 100vw;
     height: 50vh;
     overflow: hidden;
-    font-size: 20em;
+    font-size: 30em;
+    font-weight: 400;
   }
-  /***  !TODO HOW TO CENTER THE TEXT ? ***/
 
   .flip-container .oeuvres-grid {
     text-align: center;
@@ -22,8 +23,11 @@
     text-transform: uppercase;
   }
 
+  .flip-container .oeuvres-grid {
+    cursor: pointer;
+  }
+
   .scrollDist {
-    top: 0;
     width: 100%;
     height: 300vh;
   }
@@ -35,24 +39,41 @@
     align-items: center;
 
     .home-content {
-      width: 70%;
+      overflow: hidden;
+      height: 100vh;
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
+      position: relative;
 
-      .content-left {
-        mix-blend-mode: difference;
-        color: white;
+      .scroll-images-container {
+        position: absolute;
+        perspective: 200px;
+        .scroll-infinite {
+          width: 20vh;
+          height: 20vh;
+          video,
+          img {
+            border-radius: 20%;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+      .title-content {
+        overflow: hidden;
         font-weight: 900;
-        margin-bottom: 10px;
         display: flex;
         flex-direction: column;
         align-items: center;
+        color: rgb(255, 255, 255);
 
         p {
           text-transform: uppercase;
-          font-size: $fs-xxxl;
+          font-size: $fs-bigger;
         }
 
         span {
@@ -60,11 +81,17 @@
           font-size: $fs-base;
         }
       }
-      .content-right {
-        font-size: $fs-sm;
+      .subtitle {
+        font-size: $fs-base;
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin: 1vh 0;
+      }
+
+      .based {
+        font-size: $fs-base;
+        font-weight: 400;
       }
 
       .infos-oeuvres {
@@ -78,51 +105,108 @@
         justify-content: center;
         align-items: center;
       }
+    }
+  }
 
-      // .image-container {
-      //   position: absolute;
-      //   top: 30%;
+  .projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
-      //   width: 10vw;
-      //   height: 10vh;
+    .latest-infos {
+      display: flex;
+      align-items: center;
 
-      //   img {
-      //     width: 100%;
-      //     height: 100%;
-      //     object-fit: cover;
-      //   }
-      // }
+      .projects-infos {
+        padding: 5em;
+        gap: 5vh;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        .title {
+          font-size: $fs-xxxl;
+        }
+
+        p {
+          font-size: $fs-base;
+        }
+      }
+
+      .video-content {
+        flex: 1;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        background-color: white;
+        height: max-content;
+
+        video {
+          width: 100%;
+          height: 100%;
+        }
+      }
     }
   }
 }
 
 @media (max-width: 498px) {
   .home-container {
+    .flip-container {
+      font-size: 20em;
+    }
     .wrapper {
       .home-content {
         width: 100%;
+      }
+    }
 
-        .content-right {
-          position: absolute;
-          bottom: 20%;
-          padding: 20px;
-          font-size: $fs-sm;
-          text-align: center;
-          font-weight: 300;
+    .projects {
+      .latest-infos {
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+@media (max-width: 350px) {
+  .home-container {
+    .flip-container {
+      font-size: 9em;
+      height: 40vh;
+    }
+    .projects {
+      .latest-infos {
+        gap: 5em;
+
+        .projects-infos {
+          align-items: center;
+          padding: 2em;
+          .title {
+            font-size: $fs-xl;
+          }
         }
 
-        .infos-oeuvres {
-          font-weight: 700;
-          font-size: $fs-sm;
+        .video-content {
+          flex: 1;
+          padding: 10px;
           display: flex;
-          flex-wrap: wrap;
-          gap: 0 5px;
-          text-transform: uppercase;
-          display: flex;
-          justify-content: center;
           align-items: center;
+          background-color: white;
+          height: max-content;
+
+          video {
+            width: 100%;
+            height: 100%;
+          }
         }
       }
+    }
+
+    .scrollDist {
+      width: 100%;
+      height: 120vh;
     }
   }
 }
