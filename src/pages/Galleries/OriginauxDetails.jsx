@@ -20,6 +20,7 @@ gsap.registerPlugin(Flip);
 /**
  * !TODO: Modifier la traduction available ou notAvailable
  * !TODO: Ajouter Animation Flip lors du clique sur le bouton pour afficher plus d'images
+ * !TODO: Ajout des détials sur feutres....
  */
 
 const OriginauxDetails = () => {
@@ -31,10 +32,10 @@ const OriginauxDetails = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [isClicked, setIsClicked] = useState(false);
+
   const handleNavigateOriginaux = (id) => {
     let index = originauxData.findIndex((item) => item.id === id);
-    index = index < originauxData.length ? index : 0;
-
+    index = index % originauxData.length;
     navigate(`/originaux/${originauxData[index].id}`);
   };
 
@@ -46,16 +47,10 @@ const OriginauxDetails = () => {
     : "navigate-works-item";
 
   let nextIndex = parseInt(index) + 1;
-  const nextItem = originauxData[nextIndex];
-  if (nextIndex >= originauxData.length - 1) {
+  if (nextIndex >= originauxData.length) {
     nextIndex = 0;
   }
-
-  console.log(
-    originauxData[nextIndex],
-    originauxData.length,
-    originauxData[index]
-  );
+  const nextItem = originauxData[nextIndex];
 
   const saleProduct = selectedImage.available || selectedImage.notAvailable;
 

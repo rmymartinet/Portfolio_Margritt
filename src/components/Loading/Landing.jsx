@@ -1,5 +1,5 @@
 import { gsap } from "gsap";
-import { useLayoutEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import { useCount } from "../Common/Counter";
 
 import "./Landing.scss";
@@ -7,6 +7,19 @@ import "./Landing.scss";
 const Landing = () => {
   const countValue = useCount();
 
+  useEffect(() => {
+    gsap.fromTo(
+      ".landing-square",
+      {
+        width: 0,
+      },
+      {
+        duration: 3.5,
+        width: "30vw",
+        ease: "power4.inOut",
+      }
+    );
+  }, []);
   useLayoutEffect(() => {
     if (countValue === 100) {
       let ctx = gsap.context(() => {
@@ -26,9 +39,11 @@ const Landing = () => {
 
   return (
     <div className="landing-container">
-      <div className="landing-square"></div>
+      <div className="landing-square">
+        <div className="landing-square__inner"></div>
+      </div>
       <div className="landing-content">
-        <p>art</p>
+        <p>2024</p>
         <p>loading {countValue}%</p>
       </div>
     </div>

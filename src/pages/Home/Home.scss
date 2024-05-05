@@ -27,6 +27,17 @@
     cursor: pointer;
   }
 
+  .flip-container .image-container {
+    position: fixed;
+    width: 50vw;
+    height: 30vh;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
   .scrollDist {
     width: 100%;
     height: 300vh;

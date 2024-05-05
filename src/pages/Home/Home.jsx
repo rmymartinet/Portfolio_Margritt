@@ -2,9 +2,8 @@ import { motion } from "framer-motion";
 import gsap from "gsap";
 import { Flip } from "gsap/Flip";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import SplitType from "split-type";
 import img1 from "../../assets/images/home/img1.jpeg";
 import img2 from "../../assets/images/home/img2.jpeg";
 import img3 from "../../assets/images/home/img3.jpeg";
@@ -26,11 +25,13 @@ import {
   TextTransition,
   TitleTransition,
 } from "../../components/Animations/TextAnimation.jsx";
+import Circle from "../../components/Common/Circle.jsx";
 import { useCount } from "../../components/Common/Counter.jsx";
 import Form from "../../components/Form/Form.jsx";
-import Landing from "../../components/Loading/Landing.jsx";
 import Projects from "../Projects/Projects.jsx";
 import "./Home.scss";
+
+import { useNavigate } from "react-router-dom";
 
 gsap.registerPlugin(Flip);
 gsap.registerPlugin(ScrollTrigger);
@@ -41,7 +42,7 @@ gsap.registerPlugin(ScrollTrigger);
  * !TODO : revoir le code pour les animations des textes en le flip container en scrolltrigger
  */
 
-const Home = () => {
+const Home = ({ isVisited }) => {
   const [isLoading, setIsLoading] = useState(true);
   const countValue = useCount();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth > 350);
@@ -59,21 +60,6 @@ const Home = () => {
   ];
   const scrollImg = [img1, img2, img3, img4, img5, img6];
   const { t } = useTranslation();
-  const [isFirstRender, setIsFirstRender] = useState(true);
-  const SplitLines = (textClassName, delay) => {
-    const element = document.querySelector(`.${textClassName}`);
-    const split = new SplitType(element);
-
-    gsap.from(split.lines, {
-      y: 200,
-      skewX: 20,
-      rotation: 15,
-      duration: 2,
-      stagger: 0.1,
-      ease: "power3.inOut",
-      delay: delay,
-    });
-  };
 
   const generateRandomPositiion = (numPosition, minWidth, maxWidth) => {
     const position = [];
@@ -93,6 +79,10 @@ const Home = () => {
   };
 
   const position = generateRandomPositiion(19, -800, 800);
+  let navigate = useNavigate();
+  const handleNavigate = (id) => {
+    navigate(`/originaux/${id}`);
+  };
 
   useEffect(() => {
     if (countValue === 100) {
@@ -102,23 +92,17 @@ const Home = () => {
     }
   }, [countValue]);
 
-  useEffect(() => {
-    if (isFirstRender && !isLoading) {
-      setIsFirstRender(false);
-    }
-  }, [isLoading, isFirstRender]);
-
   const oeuvres = [
-    "Bibulle 1",
-    "Bibulle 2",
-    "Bibulle 3",
-    "Bibulle 5",
-    "Bibulle !",
-    "Maxi-Bibulle",
-    "Futurama 1",
-    "Futurama 2",
-    "Futurama 3",
-    "Mécanique des rêves ",
+    { title: "Bibulle 1", img: img1 },
+    { title: "Bibulle 2", img: img2 },
+    { title: "Bibulle 3", img: img3 },
+    { title: "Bibulle 5", img: img4 },
+    { title: "Bibulle !", img: img5 },
+    { title: "Maxi-Bibulle", img: img6 },
+    { title: "Futurama 1", img: img1 },
+    { title: "Futurama 2", img: img2 },
+    { title: "Futurama 3", img: img3 },
+    { title: "Mécanique des rêves ", img: img4 },
   ];
 
   useEffect(() => {
@@ -174,12 +158,6 @@ const Home = () => {
             overwrite: "auto",
           });
         });
-        b.addEventListener("click", (e) => {
-          window.open(
-            e.currentTarget.style.backgroundImage.slice(5, -2),
-            "_blank"
-          );
-        });
       }
 
       ScrollTrigger.create({
@@ -192,7 +170,6 @@ const Home = () => {
           });
         },
         onUpdate: (self) => {
-          console.log(self.progress);
           infosOeuvres.forEach((b, i) => {
             gsap.to(b.tl, { progress: self.progress });
           });
@@ -265,12 +242,6 @@ const Home = () => {
             overwrite: "auto",
           });
         });
-        b.addEventListener("click", (e) => {
-          window.open(
-            e.currentTarget.style.backgroundImage.slice(5, -2),
-            "_blank"
-          );
-        });
       }
 
       ScrollTrigger.create({
@@ -283,7 +254,6 @@ const Home = () => {
           });
         },
         onUpdate: (self) => {
-          console.log(self.progress);
           infosOeuvres.forEach((b, i) => {
             gsap.to(b.tl, { progress: self.progress });
           });
@@ -308,7 +278,7 @@ const Home = () => {
     }
   }, [isLoading]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     let ctx = gsap.context(() => {
       const scrollInfinites = document.querySelectorAll(".scroll-infinite");
 
@@ -335,10 +305,12 @@ const Home = () => {
     return () => ctx.revert();
   }, [isLoading]);
 
-  return isLoading ? (
-    <Landing />
-  ) : (
-    <TransitionHome>
+  useEffect(() => {
+    console.log(isVisited);
+  }, [isVisited]);
+
+  return (
+    <TransitionHome isVisited={isVisited}>
       <motion.section className="home-container">
         <div className="wrapper">
           <div className="home-content">
@@ -378,8 +350,11 @@ const Home = () => {
             {oeuvres.map((oeuvres, index) => {
               return (
                 <div key={index} className="oeuvres-grid">
-                  <div className="oeuvres">
-                    <p>{oeuvres}</p>
+                  <div
+                    className="oeuvres"
+                    onClick={() => handleNavigate(index)}
+                  >
+                    <p>{oeuvres.title}</p>
                   </div>
                 </div>
               );
@@ -412,6 +387,7 @@ const Home = () => {
         </section>
       </motion.section>
       <footer>
+        <Circle target={"project-container"} />
         <Form />
       </footer>
     </TransitionHome>
