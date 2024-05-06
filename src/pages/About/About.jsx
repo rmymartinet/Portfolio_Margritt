@@ -9,7 +9,6 @@ import Quote from "../../components/About/Quote";
 import { Transition } from "../../components/Animations/PageTransition/Transition.jsx";
 import Circle from "../../components/Common/Circle.jsx";
 import Hero from "../../components/Common/Hero.jsx";
-import Logo from "../../components/Common/Logo.jsx";
 import Form from "../../components/Form/Form";
 import "../About/About.scss";
 gsap.registerPlugin(ScrollTrigger);
@@ -22,7 +21,6 @@ const About = () => {
 
   return (
     <Transition>
-      <Logo />
       <motion.section className="about-container" ref={containerRef}>
         <Hero title={t("nav.about")} />
         <AboutContent ref={containerRef} />

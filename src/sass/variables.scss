@@ -31,8 +31,15 @@ $text: "100";
 
 //color
 
-$primary-color: #efefef;
-$secondary-color: #1b1a19;
+// $secondary-color: #1b1a19;
+$primary-color: #fcfcfc;
+$matching-color1: #d8dbe0;
+$matching-color2: #b0bbc4;
+$matching-color3: #879ea4;
+$matching-color4: #618181;
+$matching-color5: #43655a;
+
+$secondary-color: #030303;
 
 //margin
 $navbar-margin: 20vh;
@@ -47,7 +54,7 @@ $fs-lg: clamp(1.27rem, 1.53vw + 0.89rem, 2.11rem);
 $fs-xl: clamp(1.59rem, 2.23vw + 1.03rem, 2.81rem);
 $fs-xxl: clamp(1.98rem, 3.21vw + 1.18rem, 3.75rem);
 $fs-xxxl: clamp(2.48rem, 4.58vw + 1.33rem, 5rem);
-$fs-bigger: clamp(2.29rem, 10.19vw + -0.26rem, 7.89rem);
+$fs-bigger: clamp(2.29rem, 10.19vw + -0.26rem, 5.5rem);
 
 // font-family
 // $font-title: "FKGroteskNeueTrial-Medium", sans-serif;

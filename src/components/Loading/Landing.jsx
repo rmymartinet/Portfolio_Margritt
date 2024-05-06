@@ -15,7 +15,7 @@ const Landing = () => {
       },
       {
         duration: 3.5,
-        width: "30vw",
+        width: "100vw",
         ease: "power4.inOut",
       }
     );

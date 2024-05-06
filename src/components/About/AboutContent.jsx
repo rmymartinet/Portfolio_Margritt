@@ -5,6 +5,7 @@ import { forwardRef, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import about1 from "../../assets/images/about/about1.jpg";
 import about2 from "../../assets/images/about/about2.jpg";
+import { TextTransition } from "../Animations/TextAnimation";
 
 const AboutContent = forwardRef((_, ref) => {
   const { t } = useTranslation();
@@ -110,9 +111,12 @@ const AboutContent = forwardRef((_, ref) => {
 
   return (
     <div className="about-content" ref={ref}>
-      <p className="about-title">
-        <span>Margritt Martinet</span> {t("about.subtitle")}
-      </p>
+      <TextTransition textClassName="about-title" />
+      <div className="about-title">
+        <p>
+          <span>Margritt Martinet</span> {t("about.subtitle")}
+        </p>
+      </div>
       <div ref={rightImg} className="right-img">
         <img src={about1} alt="" />
       </div>

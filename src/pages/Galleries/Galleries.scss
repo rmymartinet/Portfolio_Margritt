@@ -78,6 +78,8 @@
     align-self: flex-start;
     width: 100%;
     justify-content: space-between;
+    background-color: $matching-color2;
+    padding: 30px;
 
     .grid-button-container {
       align-self: flex-start;
@@ -98,7 +100,8 @@
         width: 50px;
         height: 50px;
         padding: 10px;
-        border: solid rgba(128, 128, 128, 0.486) 0.5px;
+        border: solid $primary-color 1px;
+        opacity: 0.7;
 
         .first,
         .second,
@@ -106,12 +109,14 @@
         .fourth {
           width: 5px;
           height: 5px;
-          background-color: $secondary-color;
+          background-color: $primary-color;
+          opacity: 0.7;
         }
       }
 
       .grid-button:hover {
-        border: solid rgba(128, 128, 128, 0.813) 0.5px;
+        border: solid $primary-color 1px;
+        opacity: 0.7;
       }
 
       .text-view {
@@ -120,6 +125,7 @@
         display: grid;
         place-content: center;
         overflow: hidden;
+        color: $primary-color;
       }
 
       .grid-button.insert {
@@ -138,19 +144,20 @@
       flex-direction: column;
       justify-content: space-between;
       gap: 1em;
-      color: black;
+      color: $secondary-color;
+
       font-size: $fs-base;
       cursor: pointer;
       text-transform: uppercase;
       font-weight: 500;
 
       .filter-button {
+        color: $primary-color;
         font-weight: 400;
         display: flex;
         gap: 2em;
         cursor: pointer;
         font-size: $fs-sm;
-        // font-family: $font-subtitle;
       }
     }
   }
@@ -374,14 +381,13 @@
     }
 
     .button-container {
-      padding: 0 calc(1vw + 0.5rem);
-
+      padding: 20px;
       .grid-button-container {
         .grid-button {
           display: grid;
           grid-template-rows: repeat(4, 7px);
-          width: 40px;
-          height: 40px;
+          width: 20px;
+          height: 20px;
         }
       }
 
@@ -441,7 +447,7 @@
       .grid-button-container {
         .grid-button {
           display: grid;
-          grid-template-rows: repeat(4, 8px);
+          grid-template-rows: repeat(4, 7px);
           width: 35px;
           height: 35px;
         }

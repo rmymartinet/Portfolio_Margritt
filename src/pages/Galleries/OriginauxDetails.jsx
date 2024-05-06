@@ -10,7 +10,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Transition } from "../../components/Animations/PageTransition/Transition.jsx";
 import Divider from "../../components/Common/Divider.jsx";
 import InfoItem from "../../components/Common/InfoItem.jsx";
-import Logo from "../../components/Common/Logo.jsx";
 import { originauxData } from "../../data";
 import "./OriginauxDetails.scss";
 
@@ -88,6 +87,8 @@ const OriginauxDetails = () => {
     },
   ];
 
+  const windowWidth = window.innerWidth < 498;
+
   /**
    *
    *  Scroll horizontal
@@ -97,34 +98,36 @@ const OriginauxDetails = () => {
     const nav = document.querySelector("nav");
     const navHeight = nav ? nav.getBoundingClientRect().height : 0;
 
-    let ctx = gsap.context(() => {
-      const scrollContainer = document.querySelector(".scroll-container");
+    if (!windowWidth) {
+      let ctx = gsap.context(() => {
+        const scrollContainer = document.querySelector(".scroll-container");
 
-      function getScrollAmount() {
-        let containerWidth = scrollContainer.scrollWidth;
-        return -(containerWidth - window.innerWidth);
-      }
+        function getScrollAmount() {
+          let containerWidth = scrollContainer.scrollWidth;
+          return -(containerWidth - window.innerWidth);
+        }
 
-      const tween = gsap.to(scrollContainer, {
-        x: getScrollAmount,
-        duration: 3,
-        ease: "none",
+        const tween = gsap.to(scrollContainer, {
+          x: getScrollAmount,
+          duration: 3,
+          ease: "none",
+        });
+
+        ScrollTrigger.create({
+          trigger: ".scroll-container",
+          y: -navHeight,
+          start: "top top",
+          end: () => `+=${getScrollAmount() * -1}`,
+          pin: true,
+          animation: tween,
+          scrub: 1,
+          invalidateOnRefresh: true,
+        });
       });
 
-      ScrollTrigger.create({
-        trigger: ".scroll-container",
-        y: -navHeight,
-        start: "top top",
-        end: () => `+=${getScrollAmount() * -1}`,
-        pin: true,
-        animation: tween,
-        scrub: 1,
-        invalidateOnRefresh: true,
-      });
-    });
-
-    return () => ctx.revert();
-  }, []);
+      return () => ctx.revert();
+    }
+  }, [windowWidth]);
 
   /**
    *
@@ -149,7 +152,6 @@ const OriginauxDetails = () => {
 
   return (
     <Transition isClicked={isClicked}>
-      <Logo />
       <div className="scroll-zoom">
         <div className="product-info">
           {allImages.length > 2
@@ -247,6 +249,7 @@ const OriginauxDetails = () => {
                   />
                 )} */}
               </div>
+              <Divider className="description-divider" />
               <div className="buying-text">
                 <FaCircle size={30} />
                 <p>{t("originauxDetails.textOeuvre")}</p>
@@ -259,21 +262,23 @@ const OriginauxDetails = () => {
         </div>
         <div className="last-panel">
           <div className="navigate">
-            <div className="navigate-title">
-              <p>{nextItem.title}</p>
-            </div>
             {nextItem && (
               <div className={validateNextImg}>
                 <img loading="lazy" src={nextItem.img} alt={nextItem.title} />
               </div>
             )}
-            <div
-              className="navigate-icon"
-              onClick={() => {
-                handleNavigateOriginaux(nextItem.id);
-              }}
-            >
-              <FaArrowRight />
+            <div className="navigate-content">
+              <div className="navigate-title">
+                <p>{nextItem.title}</p>
+              </div>
+              <div
+                className="navigate-icon"
+                onClick={() => {
+                  handleNavigateOriginaux(nextItem.id);
+                }}
+              >
+                <FaArrowRight />
+              </div>
             </div>
           </div>
         </div>

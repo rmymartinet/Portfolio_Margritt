@@ -5,7 +5,6 @@ import { Transition } from "../../components/Animations/PageTransition/Transitio
 import { TextTransition } from "../../components/Animations/TextAnimation.jsx";
 import Circle from "../../components/Common/Circle.jsx";
 import Hero from "../../components/Common/Hero.jsx";
-import Logo from "../../components/Common/Logo.jsx";
 import Form from "../../components/Form/Form.jsx";
 import FilterButton from "../../components/Galleries/FilterButton.jsx";
 import GridButton from "../../components/Galleries/GridButton.jsx";
@@ -47,13 +46,8 @@ const Gallery = () => {
 
   return (
     <Transition>
-      <Logo />
       <motion.section ref={refContainer} className="tirage-container">
-        <Hero
-          title="Galerie"
-          className="hero-subtitle"
-          subtitle="Limited editions ©"
-        />
+        <Hero title="Galerie" className="hero-subtitle" />
         <div className="description-grid">
           <TextTransition textClassName="text-originaux" />
           <Description

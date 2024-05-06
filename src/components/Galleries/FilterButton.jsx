@@ -20,7 +20,7 @@ const FilterButton = ({
       <div className="filter-button">
         <div
           className=""
-          style={{ opacity: isButtonFilterIsClicked === "all" ? 1 : 0.4 }}
+          style={{ opacity: isButtonFilterIsClicked === "all" ? 1 : 0.6 }}
           onClick={() => {
             setIsButtonFilterIsClicked("all");
             setItem([...originaux]);
@@ -31,7 +31,7 @@ const FilterButton = ({
         <div
           className=""
           style={{
-            opacity: isButtonFilterIsClicked === "originaux large" ? 1 : 0.4,
+            opacity: isButtonFilterIsClicked === "originaux large" ? 1 : 0.6,
           }}
           onClick={() => {
             setIsButtonFilterIsClicked("originaux large");
@@ -43,7 +43,7 @@ const FilterButton = ({
         <div
           className=""
           style={{
-            opacity: isButtonFilterIsClicked === "originaux medium" ? 1 : 0.4,
+            opacity: isButtonFilterIsClicked === "originaux medium" ? 1 : 0.6,
           }}
           onClick={() => {
             setIsButtonFilterIsClicked("originaux medium");
@@ -56,7 +56,7 @@ const FilterButton = ({
           className=""
           style={{
             opacity:
-              isButtonFilterIsClicked === "tirages disponibles" ? 1 : 0.4,
+              isButtonFilterIsClicked === "tirages disponibles" ? 1 : 0.6,
           }}
           onClick={() => {
             setIsButtonFilterIsClicked("tirages disponibles");

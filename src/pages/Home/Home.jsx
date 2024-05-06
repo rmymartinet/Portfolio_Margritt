@@ -2,14 +2,14 @@ import { motion } from "framer-motion";
 import gsap from "gsap";
 import { Flip } from "gsap/Flip";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import img1 from "../../assets/images/home/img1.jpeg";
 import img2 from "../../assets/images/home/img2.jpeg";
-import img3 from "../../assets/images/home/img3.jpeg";
-import img4 from "../../assets/images/home/img4.jpeg";
-import img5 from "../../assets/images/home/img5.jpeg";
-import img6 from "../../assets/images/home/img6.jpeg";
+// import img3 from "../../assets/images/home/img3.jpeg";
+// import img4 from "../../assets/images/home/img4.jpeg";
+// import img5 from "../../assets/images/home/img5.jpeg";
+// import img6 from "../../assets/images/home/img6.jpeg";
 import bicVideo from "../../assets/videos/bicVideo.mp4";
 import video1 from "../../assets/videos/video1.mp4";
 import video2 from "../../assets/videos/video2.mp4";
@@ -20,7 +20,7 @@ import video6 from "../../assets/videos/video6.mp4";
 import video7 from "../../assets/videos/video7.mp4";
 import video8 from "../../assets/videos/video8.mp4";
 import video9 from "../../assets/videos/video9.mp4";
-import { TransitionHome } from "../../components/Animations/PageTransition/Transition.jsx";
+import { Transition } from "../../components/Animations/PageTransition/Transition.jsx";
 import {
   TextTransition,
   TitleTransition,
@@ -42,7 +42,7 @@ gsap.registerPlugin(ScrollTrigger);
  * !TODO : revoir le code pour les animations des textes en le flip container en scrolltrigger
  */
 
-const Home = ({ isVisited }) => {
+const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const countValue = useCount();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth > 350);
@@ -57,28 +57,57 @@ const Home = ({ isVisited }) => {
     video7,
     video8,
     video9,
+    video1,
+    video2,
+    video3,
+    video4,
+    video5,
+    video6,
+    video7,
+    video8,
+    video9,
   ];
-  const scrollImg = [img1, img2, img3, img4, img5, img6];
+  const scrollImg = [img1, img2];
   const { t } = useTranslation();
+  const oeuvres = [
+    { title: "Bibulle 1" },
+    { title: "Bibulle 2" },
+    { title: "Bibulle 3" },
+    { title: "Bibulle 5" },
+    { title: "Bibulle !" },
+    { title: "Maxi-Bibulle" },
+    { title: "Futurama 1" },
+    { title: "Futurama 2" },
+    { title: "Futurama 3" },
+    { title: "Mécanique des rêves " },
+  ];
 
-  const generateRandomPositiion = (numPosition, minWidth, maxWidth) => {
+  const generateRandomPosition = (numPosition, minWidth, maxWidth) => {
     const position = [];
     const generatedPositions = new Set();
+    const windowWidthMobile = window.innerWidth < 498;
 
     while (generatedPositions.size < numPosition) {
       const x = Math.floor(Math.random() * (maxWidth - minWidth) + minWidth);
-      const scale = Math.random() * (1.2 - 0.5) + 0.5;
+      const y = Math.floor(Math.random() * (maxWidth - minWidth) + minWidth);
+      const scale = windowWidthMobile
+        ? Math.random() * (0.5 - 0.3) + 0.5
+        : Math.random() * (1.2 - 0.5) + 0.5;
 
       if (!generatedPositions.has(x)) {
-        position.push({ x, scale });
-        generatedPositions.add(x);
+        position.push({ x, y, scale });
+        generatedPositions.add(x, y, scale);
       }
     }
 
     return position;
   };
 
-  const position = generateRandomPositiion(19, -800, 800);
+  const position = generateRandomPosition(20, -800, 800);
+
+  const mobilePosition =
+    window.innerWidth < 498 && generateRandomPosition(20, -200, 200);
+
   let navigate = useNavigate();
   const handleNavigate = (id) => {
     navigate(`/originaux/${id}`);
@@ -88,24 +117,11 @@ const Home = ({ isVisited }) => {
     if (countValue === 100) {
       setTimeout(() => {
         setIsLoading(false);
-      }, 1700);
+      }, 1600);
     }
   }, [countValue]);
 
-  const oeuvres = [
-    { title: "Bibulle 1", img: img1 },
-    { title: "Bibulle 2", img: img2 },
-    { title: "Bibulle 3", img: img3 },
-    { title: "Bibulle 5", img: img4 },
-    { title: "Bibulle !", img: img5 },
-    { title: "Maxi-Bibulle", img: img6 },
-    { title: "Futurama 1", img: img1 },
-    { title: "Futurama 2", img: img2 },
-    { title: "Futurama 3", img: img3 },
-    { title: "Mécanique des rêves ", img: img4 },
-  ];
-
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (windowWidth) {
       var c = document.querySelector(".flip-container");
       const infosOeuvres = document.querySelectorAll(".oeuvres-grid");
@@ -276,58 +292,66 @@ const Home = ({ isVisited }) => {
 
       return () => ctx.revert();
     }
-  }, [isLoading]);
+  }, [windowWidth]);
 
-  useEffect(() => {
-    let ctx = gsap.context(() => {
-      const scrollInfinites = document.querySelectorAll(".scroll-infinite");
+  useLayoutEffect(() => {
+    const scrollInfinites = document.querySelectorAll(".scroll-infinite");
 
-      scrollInfinites.forEach((item, i) => {
-        gsap.fromTo(
-          item,
-          {
-            y: 1000,
-            x: position[i].x,
-            scale: position[i].scale,
+    scrollInfinites.forEach((item, i) => {
+      if (!mobilePosition) {
+        gsap.set(item, {
+          opacity: 0,
+          x: position[i].x,
+          y: position[i].y,
+          scale: position[i].scale,
+        });
+      } else {
+        gsap.set(item, {
+          opacity: 0,
+          x: mobilePosition[i].x,
+          scale: mobilePosition[i].scale,
+        });
+      }
+      if (!isLoading) {
+        gsap.to(item, {
+          opacity: 1,
+          duration: 1,
+          delay: 0.3 * i,
+
+          onComplete: () => {
+            gsap.to(item, {
+              onRepeat: () => {
+                const newPosition = generateRandomPosition(20, -800, 800)[i].x;
+                gsap.set(item, { x: newPosition });
+              },
+              y: i % 2 === 0 ? 800 : -800,
+              duration: 5,
+              ease: "power2.inOut",
+              repeat: -1,
+              repeatDelay: 7,
+            });
           },
-          {
-            y: -1000,
-            duration: 10,
-            ease: "none",
-            repeat: -1,
-            repeatRefresh: true,
-            delay: i * 1,
-          }
-        );
-      });
+        });
+      }
+
+      // Ajouter l'animation de déplacement à la timeline de déplacement
     });
-
-    return () => ctx.revert();
-  }, [isLoading]);
-
-  useEffect(() => {
-    console.log(isVisited);
-  }, [isVisited]);
+  }, [isLoading, position, mobilePosition]);
 
   return (
-    <TransitionHome isVisited={isVisited}>
+    <Transition>
       <motion.section className="home-container">
         <div className="wrapper">
           <div className="home-content">
             <TitleTransition textClassName="title-content p" />
             <div className="title-content">
-              <p>Margritt</p>
+              <p>Margritt Martinet</p>
             </div>
 
             <TextTransition textClassName="subtitle" />
             <div className="subtitle">
-              <p>{t("home.text1")}</p>
+              <p>{t("home.text1")} </p>
               <p>{t("home.text2")}</p>
-            </div>
-            <TextTransition textClassName="based" />
-
-            <div className="based">
-              <span> {t("home.based")}</span>
             </div>
             <div className="scroll-images-container">
               {scrollVideo.map((video, i) => {
@@ -390,7 +414,7 @@ const Home = ({ isVisited }) => {
         <Circle target={"project-container"} />
         <Form />
       </footer>
-    </TransitionHome>
+    </Transition>
   );
 };
 

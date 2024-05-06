@@ -6,7 +6,7 @@
   top: 0;
   left: 0;
   z-index: 9999999999999;
-  border-bottom: solid 1px rgba(0, 0, 0, 0.09);
+  border-bottom: solid 1px $matching-color1;
 
   .button {
     display: none;
@@ -18,7 +18,14 @@
 }
 
 @media (max-width: 498px) {
-  .header {
+  .logo-mobile {
+    z-index: 9999999999999;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    padding: 30px 20px;
+  }
+  .header-mobile {
     width: 70px;
     height: 30px;
     position: absolute;

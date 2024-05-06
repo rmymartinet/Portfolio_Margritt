@@ -5,6 +5,7 @@
   --img-width-size: calc(400px - 1.5vw);
   --img-height-size: calc(200px - 1.5vw);
 }
+
 .about-container {
   @include parent-styles;
 
@@ -16,7 +17,6 @@
       grid-column: 1 / span 12;
       padding: 0 5vw;
       font-size: $fs-xl;
-      // font-family: $font-subtitle;
       margin-bottom: 20vh;
       position: relative;
       display: grid;
@@ -354,11 +354,12 @@
   }
 }
 
-@media (max-width: 300px) {
+@media (max-width: 350px) {
   .about-container {
     .about-content {
       .about-title {
         font-size: $fs-lg;
+        justify-items: center;
       }
     }
     .quote-container {

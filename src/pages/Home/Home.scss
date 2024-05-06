@@ -76,23 +76,23 @@
       }
       .title-content {
         overflow: hidden;
-        font-weight: 900;
+        font-weight: 300;
         display: flex;
         flex-direction: column;
         align-items: center;
-        color: rgb(255, 255, 255);
+        color: white;
+        z-index: 9999999999999999;
+        mix-blend-mode: difference;
 
         p {
           text-transform: uppercase;
           font-size: $fs-bigger;
         }
-
-        span {
-          text-transform: uppercase;
-          font-size: $fs-base;
-        }
       }
       .subtitle {
+        color: white;
+        z-index: 9999999999999999;
+        mix-blend-mode: difference;
         font-size: $fs-base;
         display: flex;
         flex-direction: column;
@@ -126,6 +126,7 @@
     justify-content: center;
 
     .latest-infos {
+      margin: 10vh 0;
       display: flex;
       align-items: center;
 
@@ -147,10 +148,8 @@
 
       .video-content {
         flex: 1;
-        padding: 10px;
         display: flex;
         align-items: center;
-        background-color: white;
         height: max-content;
 
         video {
@@ -170,6 +169,10 @@
     .wrapper {
       .home-content {
         width: 100%;
+
+        .subtitle {
+          padding: 0px 0px;
+        }
       }
     }
 
@@ -187,15 +190,29 @@
       font-size: 9em;
       height: 40vh;
     }
+
+    .wrapper {
+      .home-content {
+        .subtitle {
+          padding: 0px 10px;
+        }
+
+        .title-content {
+          p {
+            font-size: $fs-xl;
+          }
+        }
+      }
+    }
     .projects {
       .latest-infos {
-        gap: 5em;
+        gap: 2em;
 
         .projects-infos {
           align-items: center;
-          padding: 2em;
+          padding: 1em;
           .title {
-            font-size: $fs-xl;
+            font-size: $fs-xxl;
           }
         }
 

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./Navbar.scss";
 
+import Logo from "../Common/Logo.jsx";
 import MobileNav from "./MobileNav.jsx";
 import Nav from "./Nav.jsx";
 
@@ -27,17 +28,24 @@ const NavBar = () => {
   return (
     <nav>
       {isMobile && (
-        <div className="header">
-          <div
-            onClick={handleActive}
-            className={`button ${isActive ? "buttonActive" : ""}`}
-          >
-            <div className={`buttonName ${isActive ? "buttonNameActive" : ""}`}>
-              {isActive ? <p>Close</p> : <p>Menu</p>}
-            </div>
-            {isActive && <MobileNav isActive={isActive} />}
+        <>
+          <div className="logo-mobile">
+            <Logo />
           </div>
-        </div>
+          <div className="header-mobile">
+            <div
+              onClick={handleActive}
+              className={`button ${isActive ? "buttonActive" : ""}`}
+            >
+              <div
+                className={`buttonName ${isActive ? "buttonNameActive" : ""}`}
+              >
+                {isActive ? <p>Close</p> : <p>Menu</p>}
+              </div>
+              {isActive && <MobileNav isActive={isActive} />}
+            </div>
+          </div>
+        </>
       )}
 
       {!isMobile && (

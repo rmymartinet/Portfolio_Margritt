@@ -17,7 +17,7 @@ export const menuSlide = {
     height: "0%",
     position: "fixed",
     transition: {
-      duration: 0.8,
+      duration: 1,
       ease: [0.76, 0, 0.24, 1],
     },
   },

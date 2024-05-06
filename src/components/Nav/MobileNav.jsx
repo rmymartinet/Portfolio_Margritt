@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import "./MobileNav.scss";
@@ -25,16 +25,11 @@ const TextBlock = ({ text }) => {
 
 const MobileNav = () => {
   const { t } = useTranslation();
-
-  const navItems = [
-    t("nav.galleries"),
-    t("nav.projects"),
-    t("nav.about"),
-    t("nav.contact"),
-  ];
-
+  const navItems = useMemo(
+    () => [t("nav.galleries"), t("nav.about"), t("nav.contact")],
+    [t]
+  );
   const navigate = useNavigate();
-
   const links = [
     { name: "Tiktok", url: "https://www.tiktok.com/@margrittus?lang=fr" },
     {
@@ -47,12 +42,17 @@ const MobileNav = () => {
     },
   ];
 
+  const [isExiting, setIsExiting] = useState(false);
+
   const handleNavigate = async (path) => {
-    try {
-      await navigate(`${path}`);
-    } catch (error) {
-      console.error(`Failed to navigate to ${path}:`, error);
-    }
+    setIsExiting(true);
+    setTimeout(async () => {
+      try {
+        await navigate(`${path}`);
+      } catch (error) {
+        console.error(`Failed to navigate to ${path}:`, error);
+      }
+    }, 1000); // Assurez-vous que ce délai correspond à la durée de votre animation de sortie
   };
 
   return (

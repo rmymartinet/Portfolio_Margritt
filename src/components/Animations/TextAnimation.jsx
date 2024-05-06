@@ -1,9 +1,9 @@
 import gsap from "gsap";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import SplitType from "split-type";
 
 export const TitleTransition = ({ textClassName, isClciked }) => {
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!isClciked) {
       const element = document.querySelector(`.${textClassName}`);
       const split = new SplitType(element);
@@ -21,7 +21,7 @@ export const TitleTransition = ({ textClassName, isClciked }) => {
 };
 
 export const TextTransition = ({ textClassName }) => {
-  useEffect(() => {
+  useLayoutEffect(() => {
     const element = document.querySelector(`.${textClassName}`);
     const split = new SplitType(element);
 

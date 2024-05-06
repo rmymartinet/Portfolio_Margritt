@@ -3,12 +3,13 @@
 
 .contact-container {
   @include parent-styles;
+  padding: 0 4vw;
+  padding-top: 20vh;
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   color: $secondary-color;
 
   .title {
-    // font-family: $font-title;
     align-self: center;
     grid-column: 1 / span 12;
     width: fit-content;
@@ -27,7 +28,6 @@
     gap: 20vw;
 
     .mail {
-      // font-family: $font-subtitle;
       font-size: $fs-xxl;
       position: relative;
       transform: scaleX(1);
@@ -104,14 +104,11 @@
     margin-bottom: calc(10vh + 2rem);
 
     span {
-      // font-family: $font-subtitle;
-      opacity: 0.47;
+      color: $matching-color1;
       font-size: $fs-md;
     }
 
     p {
-      // font-family: $font-text;
-
       font-size: $fs-base;
       color: $secondary-color;
     }
@@ -209,7 +206,7 @@
   }
 }
 
-@media (max-width: 300px) {
+@media (max-width: 350px) {
   .contact-container {
     .title {
       margin-bottom: 15vh;

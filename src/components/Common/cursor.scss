@@ -1,0 +1,11 @@
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 100%;
+  z-index: 9999999999999999999999999999;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

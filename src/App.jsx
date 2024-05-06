@@ -25,6 +25,9 @@ function App() {
   );
 
   const [isVisited, setIsVisited] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const isRender = useCount();
+  const location = useLocation();
 
   useLayoutEffect(() => {
     (async () => {
@@ -32,8 +35,6 @@ function App() {
       const locomotiveScroll = new LocomotiveScroll();
     })();
   }, []);
-
-  const location = useLocation();
   useEffect(() => {
     setTimeout(() => {
       window.scrollTo(0, 0);
@@ -44,46 +45,37 @@ function App() {
     document.title = "Margritt.com";
   }, []);
 
-  const isRender = useCount();
-
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    if (isRender === 100) {
-      setTimeout(() => {
-        setIsLoading(false);
-        setShowLanding(false);
-        localStorage.setItem("visited", true);
-      }, 1700);
-    }
-  }, [isRender]);
-
-  useEffect(() => {
-    setIsLoading(true);
-    setShowLanding(true);
-    const handleLoad = () => {
-      setIsLoading(false);
-      setShowLanding(true);
-    };
-
-    window.addEventListener("load", handleLoad);
-
-    return () => {
-      window.removeEventListener("load", handleLoad);
-    };
-  }, []);
-
   useEffect(() => {
     if (localStorage.getItem("visited")) {
       setIsVisited(true);
     }
   }, [isVisited]);
 
+  // Supprimez 'visited' du localStorage lorsque la page est sur le point d'être déchargée
   useEffect(() => {
-    window.addEventListener("beforeunload", () => {
+    const handleBeforeUnload = () => {
       localStorage.removeItem("visited");
-    });
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
   }, []);
+
+  useEffect(() => {
+    if (isRender === 100) {
+      setTimeout(() => {
+        setIsLoading(false);
+        if (!localStorage.getItem("visited")) {
+          setShowLanding(true);
+        }
+        localStorage.setItem("visited", true);
+        setShowLanding(false);
+        document.body.style.cursor = "default";
+      }, 1600);
+    }
+  }, [isRender]);
 
   return (
     <>

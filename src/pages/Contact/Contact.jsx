@@ -2,10 +2,12 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Transition } from "../../components/Animations/PageTransition/Transition.jsx";
-import { TitleTransition } from "../../components/Animations/TextAnimation.jsx";
+import {
+  TextTransition,
+  TitleTransition,
+} from "../../components/Animations/TextAnimation.jsx";
 import Divider from "../../components/Common/Divider.jsx";
 import InfoItem from "../../components/Common/InfoItem.jsx";
-import Logo from "../../components/Common/Logo.jsx";
 import SvgName from "../../components/SvgName/SvgName.jsx";
 import "../Contact/Contact.scss";
 
@@ -34,7 +36,6 @@ const Contact = () => {
 
   return (
     <Transition>
-      <Logo />
       <motion.section className="contact-container">
         <TitleTransition textClassName="title p" />
 
@@ -42,7 +43,7 @@ const Contact = () => {
           <p>{t("contact.title")}</p>
         </div>
 
-        {/* <TextTransition textClassName="contact-subtitle" /> */}
+        <TextTransition textClassName="contact-subtitle" />
         <div className="contact-subtitle">
           <div className="text">{t("contact.text1")}</div>
           <div

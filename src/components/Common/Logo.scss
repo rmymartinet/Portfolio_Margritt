@@ -2,11 +2,8 @@
 @import "../../sass/mixins.scss";
 
 .logo {
-  font-size: $fs-lg;
+  font-size: $fs-md;
   z-index: 99999999999999999;
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 20px;
   cursor: pointer;
+  text-transform: uppercase;
 }

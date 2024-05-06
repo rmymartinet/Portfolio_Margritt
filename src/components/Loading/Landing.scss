@@ -6,18 +6,17 @@
 }
 
 .landing-container {
-  // font-family: $font-title;
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: black;
-  color: white;
+  color: $primary-color;
 
   .landing-square {
     height: 0.1vh;
-    background-color: #ffffff;
+    background-color: $primary-color;
   }
 
   .landing-content {
@@ -28,7 +27,8 @@
     transform: translate(-50%, -50%);
     display: flex;
     justify-content: space-around;
-    color: white;
+    color: $primary-color;
     text-transform: uppercase;
+    font-size: $fs-base;
   }
 }

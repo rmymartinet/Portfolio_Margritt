@@ -4,6 +4,7 @@ import { Flip } from "gsap/Flip";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(Flip);
 
@@ -115,6 +116,29 @@ const ImagesContainer = ({
     }
   }, [isCategoryIsClicked]);
 
+  useEffect(() => {
+    const images = document.querySelectorAll(".img");
+    images.forEach((image) => {
+      image.addEventListener("mouseenter", () => {
+        image.classList.add("hover");
+      });
+      image.addEventListener("mouseleave", () => {
+        image.classList.remove("hover");
+      });
+    });
+  }, []);
+
+  // ...
+
+  const [cursorSize, setCursorSize] = useState(0);
+  const handleMouseEnter = () => {
+    setCursorSize(60);
+  };
+
+  const handleMouseLeave = () => {
+    setCursorSize(0);
+  };
+
   return (
     <motion.div className="grid-images-content" exit="exit">
       <div className="flip-container"></div>
@@ -146,6 +170,12 @@ const ImagesContainer = ({
                 className="images-container"
               >
                 <img
+                  onMouseEnter={() => {
+                    handleMouseEnter();
+                  }}
+                  onMouseLeave={() => {
+                    handleMouseLeave();
+                  }}
                   className={`img-${id}`}
                   alt={imgData.alt}
                   src={imgData.img}

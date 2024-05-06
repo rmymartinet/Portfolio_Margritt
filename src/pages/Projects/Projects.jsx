@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
 
 import gsap from "gsap";
-import Logo from "../../components/Common/Logo.jsx";
 import {
   Activity,
   Exposition,
@@ -49,7 +48,6 @@ const Projects = () => {
 
   return (
     <>
-      <Logo />
       <motion.section className="project-container" ref={containerRef}>
         {/* <Hero title="projects" /> */}
         {/* <LatestProject /> */}
