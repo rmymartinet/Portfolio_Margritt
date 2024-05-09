@@ -1,29 +1,28 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
-// Créez un Contexte pour le count
 const CountContext = createContext();
 
-// Créez un fournisseur de contexte personnalisé
 export const CountProvider = ({ children }) => {
   const [count, setCount] = useState(0);
+  let start = Date.now();
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCount((prev) => (prev < 100 ? prev + 1 : prev));
+    const intervalId = setInterval(() => {
+      const elapsed = Date.now() - start;
+      const newCount = Math.min(Math.floor(elapsed / 30), 100);
+      setCount(newCount);
     }, 30);
 
     return () => {
-      clearInterval(interval);
+      clearInterval(intervalId);
     };
   }, []);
 
-  // Fournissez l'état count à tous les composants enfants
   return (
     <CountContext.Provider value={count}>{children}</CountContext.Provider>
   );
 };
 
-// Créez un hook personnalisé pour utiliser le count
 export const useCount = () => {
   const context = useContext(CountContext);
   if (context === undefined) {

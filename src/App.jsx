@@ -77,6 +77,16 @@ function App() {
     }
   }, [isRender]);
 
+  /**Désactivation du click droit
+   *
+   */
+
+  // useEffect(() => {
+  //   document.addEventListener("contextmenu", (event) => {
+  //     event.preventDefault();
+  //   });
+  // }, []);
+
   return (
     <>
       {showLanding && <Landing />}

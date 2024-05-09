@@ -15,11 +15,11 @@
   width: max-content;
   margin-bottom: calc(30vh + 2rem);
   width: 100%;
-  // font-family: $font-title;
 
   .hero-title {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    font-size: $fs-xxxl;
+    font-size: $fs-bigger;
+    font-weight: 700;
     text-transform: uppercase;
   }
 }

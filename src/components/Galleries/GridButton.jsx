@@ -3,7 +3,7 @@ import { Flip } from "gsap/Flip";
 import { useEffect, useState } from "react";
 gsap.registerPlugin(Flip);
 
-const GridButton = ({ setIsGridClick }) => {
+const GridButton = ({ setIsGridClick, isGridClick }) => {
   const [isHover, setIsHover] = useState(false);
 
   const handleEnterHover = () => {
@@ -15,36 +15,41 @@ const GridButton = ({ setIsGridClick }) => {
 
   const handleClick = () => {
     setIsGridClick((prev) => !prev);
-
-    const gridButton = document.querySelector(".grid-button");
-
-    const items = gsap.utils.toArray(
-      ".grid-button .first, .grid-button .second, .grid-button .third, .grid-button .fourth"
-    );
-
-    const state = Flip.getState(items);
-
-    gridButton.classList.toggle("insert");
-
-    Flip.from(state, {
-      duration: 1,
-      stagger: 0.02,
-      ease: "power3.inOut",
-    });
-
-    gsap.fromTo(
-      ".image-content",
-      {
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-        delay: 1,
-        duration: 1,
-        ease: "power3.inOut",
-      }
-    );
   };
+
+  useEffect(() => {
+    if (isGridClick) {
+      handleClick();
+      const gridButton = document.querySelector(".grid-button");
+
+      const items = gsap.utils.toArray(
+        ".grid-button .first, .grid-button .second, .grid-button .third, .grid-button .fourth"
+      );
+
+      const state = Flip.getState(items);
+
+      gridButton.classList.toggle("insert");
+
+      Flip.from(state, {
+        duration: 1,
+        stagger: 0.02,
+        ease: "power3.inOut",
+      });
+
+      gsap.fromTo(
+        ".image-content",
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+          delay: 1,
+          duration: 1,
+          ease: "power3.inOut",
+        }
+      );
+    }
+  }, [isGridClick, setIsGridClick, handleClick]);
 
   /* Animation pour hover du GridButton
    * Au survol du GridButton (div.grid-button), le texte "Change the view" (div.text-view p) apparaît avec un effet de transition.
@@ -90,7 +95,7 @@ const GridButton = ({ setIsGridClick }) => {
         className="grid-button"
         onMouseEnter={() => handleEnterHover()}
         onMouseLeave={() => handleLeaveHover()}
-        onClick={handleClick}
+        onClick={() => handleClick()}
       >
         <div className="first"></div>
         <div className="second"></div>

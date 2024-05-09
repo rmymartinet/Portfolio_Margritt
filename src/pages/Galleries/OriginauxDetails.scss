@@ -166,12 +166,12 @@
 
       .description {
         height: 70vh;
-        column-gap: 2em;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
         grid-template-rows: 1fr max-content 1fr 1fr 1fr;
         justify-items: start;
         column-gap: 20vw;
+        width: 100vw;
         padding: 0 10vw;
         font-size: $fs-md;
 
@@ -202,7 +202,7 @@
           grid-row: 2;
           height: 1px;
           background-color: $matching-color1;
-          margin: 0vh 0;
+          margin: 10vh 0;
         }
 
         .sale {
@@ -211,6 +211,7 @@
           padding: 0.5em;
           font-weight: 400;
           font-size: $fs-md;
+          margin-top: 10vh;
         }
       }
       .livraison {
@@ -220,8 +221,7 @@
         position: relative;
         display: grid;
         grid-template-columns: repeat(4, max-content);
-        column-gap: 4em;
-
+        column-gap: 2em;
         justify-items: center;
         font-size: $fs-base;
 

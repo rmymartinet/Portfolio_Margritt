@@ -80,24 +80,14 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        color: white;
+        color: $primary-color;
         z-index: 9999999999999999;
         mix-blend-mode: difference;
 
         p {
           text-transform: uppercase;
-          font-size: $fs-bigger;
+          font-size: 17vw;
         }
-      }
-      .subtitle {
-        color: white;
-        z-index: 9999999999999999;
-        mix-blend-mode: difference;
-        font-size: $fs-base;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 1vh 0;
       }
 
       .based {
@@ -118,47 +108,6 @@
       }
     }
   }
-
-  .projects {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    .latest-infos {
-      margin: 10vh 0;
-      display: flex;
-      align-items: center;
-
-      .projects-infos {
-        padding: 5em;
-        gap: 5vh;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-
-        .title {
-          font-size: $fs-xxxl;
-        }
-
-        p {
-          font-size: $fs-base;
-        }
-      }
-
-      .video-content {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        height: max-content;
-
-        video {
-          width: 100%;
-          height: 100%;
-        }
-      }
-    }
-  }
 }
 
 @media (max-width: 498px) {
@@ -169,10 +118,6 @@
     .wrapper {
       .home-content {
         width: 100%;
-
-        .subtitle {
-          padding: 0px 0px;
-        }
       }
     }
 
@@ -191,19 +136,6 @@
       height: 40vh;
     }
 
-    .wrapper {
-      .home-content {
-        .subtitle {
-          padding: 0px 10px;
-        }
-
-        .title-content {
-          p {
-            font-size: $fs-xl;
-          }
-        }
-      }
-    }
     .projects {
       .latest-infos {
         gap: 2em;

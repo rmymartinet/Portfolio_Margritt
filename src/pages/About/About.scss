@@ -8,6 +8,8 @@
 
 .about-container {
   @include parent-styles;
+  padding: 20vh 4vw;
+  padding-bottom: 0;
 
   .about-content {
     display: grid;
@@ -203,6 +205,68 @@
       object-fit: cover;
     }
   }
+
+  .instagram {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+
+    .instagram-top-banner {
+      position: absolute;
+      width: 100%;
+      top: 5%;
+      left: 5%;
+      font-size: $fs-xxxl;
+      color: $primary-color;
+      // text-transform: uppercase;
+      z-index: 9999999999;
+
+      .instagram-link {
+        color: $primary-color;
+        text-decoration: none;
+        &:hover {
+          color: $matching-color5;
+        }
+      }
+    }
+
+    .circle {
+      width: 200px;
+      height: 200px;
+      background-color: $matching-color2;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: "translate(-50%, -50%)";
+    }
+
+    .instagram-content {
+      z-index: 99999999999;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 50vh;
+      display: flex;
+
+      .slider {
+        display: flex;
+        width: 100vw;
+        gap: 40px;
+      }
+      .cards,
+      .cards1 {
+        gap: 40px;
+        width: max-content;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+      }
+    }
+  }
 }
 
 @media (max-width: 1024px) {
@@ -349,6 +413,67 @@
       .gallery-items {
         width: 100%;
         margin-bottom: 20px;
+      }
+    }
+
+    .instagram {
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+      position: relative;
+
+      .instagram-top-banner {
+        position: absolute;
+        width: 100%;
+        top: 5%;
+        left: 5%;
+        font-size: $fs-xxxl;
+        color: $primary-color;
+        z-index: 9999999999;
+
+        .instagram-link {
+          color: $primary-color;
+          text-decoration: none;
+          &:hover {
+            color: $matching-color5;
+          }
+        }
+      }
+
+      .circle {
+        width: 200px;
+        height: 200px;
+        background-color: $matching-color2;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: "translate(-50%, -50%)";
+      }
+
+      .instagram-content {
+        z-index: 99999999999;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 50vh;
+        display: flex;
+
+        .slider {
+          display: flex;
+          width: 100vw;
+          gap: 0px;
+        }
+        .cards,
+        .cards1 {
+          gap: 10px;
+          width: 250vw;
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+        }
       }
     }
   }

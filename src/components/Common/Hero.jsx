@@ -1,18 +1,14 @@
-import { TextTransition, TitleTransition } from "../Animations/TextAnimation";
+import { TitleTransition } from "../Animations/TextAnimation";
 import Divider from "./Divider";
 import "./Hero.scss";
 
-const Hero = ({ className, title, subtitle }) => {
+const Hero = ({ className, title }) => {
   return (
     <>
-      <TitleTransition textClassName="hero-title h1" />
-      <TextTransition textClassName="hero-subtitle" />
+      <TitleTransition textClassName="hero-title p" />
       <div className="hero">
         <div className="hero-title">
-          <h1>{title}</h1>
-        </div>
-        <div className={className}>
-          <span>{subtitle}</span>
+          <p>{title}</p>
         </div>
         <Divider className="divider" />
       </div>

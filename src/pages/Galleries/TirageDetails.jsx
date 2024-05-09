@@ -253,7 +253,7 @@ const TirageDetails = () => {
               <Divider className="description-divider" />
               <div className="buying-text">
                 <FaCircle size={30} />
-                <p>{t("originauxDetails.textOeuvre")}</p>
+                <p>{t("tiragesDetails.subtitle")}</p>
               </div>
               <div className="sale">
                 <p>{saleProduct}</p>

@@ -7,18 +7,16 @@
     "contact": "Contact"
   },
   "home": {
-    "text1": "Vous trouverez ici l'intégralité de ma collection, chaque pièce étant unique.",
-    "text2": "Si l'une d'elles retient votre attention, faites-le moi savoir.",
+    "text1": "Vous trouverez ici l'intégralité de ma collection, chaque pièce étant unique, si l'une d'elles retient votre attention, faites-le moi savoir.",
     "madeBy": "V - ©2024",
     "based": "Basée en France"
   },
   "galleries": {
     "titleOriginals": "Originaux",
     "textOriginals1": "Découvrez ma collection d'œuvres originales, des créations uniques.",
-    "textOriginals2": "Chacune de ces pièces est disponible à la vente en deux tailles différentes (Large et Medium).",
-    "textOriginals3": "Certaines sont également disponibles en version tirage.",
+    "textOriginals3": "Chaque oeuvre est signé par l'artiste et accompagné d'un certificat d'authenticité.",
     "titlePrints": "Tirages",
-    "textPrints1": "Les tirages sont des reproductions numériques de haute qualité de certaines de mes œuvres originales.",
+    "textPrints1": "Les tirages sont des reproductions numériques de haute qualité de certaines de mes œuvres originales. Elles sont disponibles en une seule taille, medium. Elles permettent à un public plus large d'apprécier et de posséder une version fidèle de ces œuvres.",
     "textPrints2": "Elles sont disponibles en une seule taille, medium.",
     "textPrints3": "Elles permettent à un public plus large d'apprécier et de posséder une version fidèle de ces œuvres."
   },
@@ -26,7 +24,7 @@
     "notAvailable": "Non disponible à la vente",
     "vailable": "Disponible à la vente",
     "piece": "Pièce",
-    "subtitle": "Chaque tirages en édition limitée est numérotée, signée par l'artiste et accompagnée d'un certificat d'authenticité",
+    "subtitle": "Chaque tirage est en édition limitée, numéroté, signé par l'artiste et accompagné d'un certificat d'authenticité. Les tirages sont en édition limitée et réalisés par Les 'Courts Tirages'. ",
     "courtsTirages": "Tirages en édition limitée et réalisés par ' Les Courts Tirages '",
     "print": "100 exemplaires numérotés et signés par l'artiste",
     "size": "Taille",
@@ -39,10 +37,9 @@
     "contact": "❋ Contactez-moi pour acheter"
   },
   "originauxDetails": {
-    "sale": "Disponible à la vente",
     "piece": "Pièce",
     "subtitle": "Certains originaux sont disponibles en version tirage de manière limitée - Chaque pièce est signée à la main par l'artiste en bas à droite à l'avant et est également accompagnée d'un certificat d'authenticité",
-    "textOeuvre": "Il s'agit d'une œuvre originale, unique et signée par l'artiste, elle peut faire l'objet d'une reproduction en tirage limité, si elle est disponible à la vente",
+    "textOeuvre": "Il s'agit d'une œuvre originale, unique. Cette pièce s'inscrit dans ma série",
     "size": "Taille",
     "paper": "Papier",
     "paint": "Peinture"
@@ -52,7 +49,8 @@
     "textDescription": "Ces projets sont actuellement en cours et seront bientôt disponibles - Vous pouvez retrouver tout le processus de création sur mon Instagram",
     "textProcessInstagram": "Processus complet sur mon Instagram",
     "projectExpositionTitle": "Expositions",
-    "projectActivityTitle": "Activités artistiques"
+    "projectActivityTitle": "Activités artistiques",
+    "projectPriceReviewsTitle": "Prix et revues de presses"
   },
   "about": {
     "subtitle": "est une artiste visuelle originaire de Charente, dédiée à ses créations, offrant un espace à sa créativité pour s'épanouir",

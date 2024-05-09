@@ -54,16 +54,12 @@ const Gallery = () => {
             className="text-originaux"
             title="Originaux"
             text1={TEXT_ORIGINALS_1}
-            text2={TEXT_ORIGINALS_2}
-            text3={TEXT_ORIGINALS_3}
           />
           <TextTransition textClassName="text-tirages" />
           <Description
             className="text-tirages"
             title="Tirages"
             text1={TEXT_PRINTS_1}
-            text2={TEXT_PRINTS_2}
-            text3={TEXT_PRINTS_3}
           />
         </div>
         <div className="button-container">

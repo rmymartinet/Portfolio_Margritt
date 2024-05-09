@@ -10,7 +10,6 @@ import img2 from "../../assets/images/home/img2.jpeg";
 // import img4 from "../../assets/images/home/img4.jpeg";
 // import img5 from "../../assets/images/home/img5.jpeg";
 // import img6 from "../../assets/images/home/img6.jpeg";
-import bicVideo from "../../assets/videos/bicVideo.mp4";
 import video1 from "../../assets/videos/video1.mp4";
 import video2 from "../../assets/videos/video2.mp4";
 import video3 from "../../assets/videos/video3.mp4";
@@ -21,10 +20,7 @@ import video7 from "../../assets/videos/video7.mp4";
 import video8 from "../../assets/videos/video8.mp4";
 import video9 from "../../assets/videos/video9.mp4";
 import { Transition } from "../../components/Animations/PageTransition/Transition.jsx";
-import {
-  TextTransition,
-  TitleTransition,
-} from "../../components/Animations/TextAnimation.jsx";
+import { TitleTransition } from "../../components/Animations/TextAnimation.jsx";
 import Circle from "../../components/Common/Circle.jsx";
 import { useCount } from "../../components/Common/Counter.jsx";
 import Form from "../../components/Form/Form.jsx";
@@ -302,7 +298,6 @@ const Home = () => {
         gsap.set(item, {
           opacity: 0,
           x: position[i].x,
-          y: position[i].y,
           scale: position[i].scale,
         });
       } else {
@@ -315,7 +310,7 @@ const Home = () => {
       if (!isLoading) {
         gsap.to(item, {
           opacity: 1,
-          duration: 1,
+          duration: 3,
           delay: 0.3 * i,
 
           onComplete: () => {
@@ -325,7 +320,7 @@ const Home = () => {
                 gsap.set(item, { x: newPosition });
               },
               y: i % 2 === 0 ? 800 : -800,
-              duration: 5,
+              duration: 7,
               ease: "power2.inOut",
               repeat: -1,
               repeatDelay: 7,
@@ -343,21 +338,22 @@ const Home = () => {
       <motion.section className="home-container">
         <div className="wrapper">
           <div className="home-content">
-            <TitleTransition textClassName="title-content p" />
+            <TitleTransition textClassName="title-content p" yposition="400" />
             <div className="title-content">
-              <p>Margritt Martinet</p>
-            </div>
-
-            <TextTransition textClassName="subtitle" />
-            <div className="subtitle">
-              <p>{t("home.text1")} </p>
-              <p>{t("home.text2")}</p>
+              <p>Margritt</p>
             </div>
             <div className="scroll-images-container">
               {scrollVideo.map((video, i) => {
                 return (
                   <div key={i} className="scroll-infinite">
-                    <video src={video} autoPlay loop muted></video>
+                    <video
+                      type="video/mp4"
+                      muted
+                      playsInline
+                      src={video}
+                      autoPlay
+                      loop
+                    ></video>
                   </div>
                 );
               })}
@@ -387,26 +383,6 @@ const Home = () => {
           <div className="scrollDist"></div>
         </div>
         <section className="projects">
-          <div className="latest-infos">
-            <div className="projects-infos">
-              <p className="title">BIC Collaboration</p>
-              <p>
-                " Nous avons eu le plaisir de collaborer avec sept artistes
-                talentueux du monde entier, qui ont chacun saisi nos stylos BIC
-                pour créer des choses magiques. C'est vraiment un honneur de
-                fournir des outils accessibles qui nourrissent la créativité, et
-                nous nous sentons privilégiés d'avoir pu nous connecter avec ces
-                personnes incroyables. Ils ont généreusement partagé leur
-                parcours artistique - et maintenant, c'est à vous de le
-                découvrir ! Nous sommes impatients que vous plongiez dans leurs
-                univers uniques, et nous espérons qu'ils vous inspireront à
-                créer ! "
-              </p>
-            </div>
-            <div className="video-content">
-              <video src={bicVideo} controls></video>
-            </div>
-          </div>
           <Projects />
         </section>
       </motion.section>

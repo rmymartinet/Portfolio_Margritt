@@ -5,13 +5,15 @@ import gsap from "gsap";
 import {
   Activity,
   Exposition,
+  PriceReviews,
 } from "../../components/Project/ProjectComponents.jsx";
 import "../Projects/Project.scss";
 
 const Projects = () => {
   const containerRef = useRef(null);
-  const ActivityRef = useRef(null);
+  const activityRef = useRef(null);
   const expositionRef = useRef(null);
+  const priceReviewRef = useRef(null);
 
   useEffect(() => {
     gsap.fromTo(
@@ -30,7 +32,7 @@ const Projects = () => {
       }
     );
     gsap.fromTo(
-      ActivityRef.current,
+      activityRef.current,
       { opacity: 0, y: 30 },
       {
         opacity: 1,
@@ -38,26 +40,36 @@ const Projects = () => {
         duration: 1,
         ease: "power3.inOut",
         scrollTrigger: {
-          trigger: ActivityRef.current,
+          trigger: activityRef.current,
           start: "top bottom",
           end: "bottom 60%",
         },
       }
     );
-  }, [expositionRef, ActivityRef]);
+    gsap.fromTo(
+      priceReviewRef.current,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.inOut",
+        scrollTrigger: {
+          trigger: priceReviewRef.current,
+          start: "top bottom",
+          end: "bottom 60%",
+        },
+      }
+    );
+  }, [expositionRef, activityRef, priceReviewRef]);
 
   return (
     <>
       <motion.section className="project-container" ref={containerRef}>
-        {/* <Hero title="projects" /> */}
-        {/* <LatestProject /> */}
         <Exposition ref={expositionRef} />
-        <Activity ref={ActivityRef} />
+        <Activity ref={activityRef} />
+        <PriceReviews ref={priceReviewRef} />
       </motion.section>
-      {/* <footer>
-        <Circle target={"project-container"} />
-        <Form />
-      </footer> */}
     </>
   );
 };

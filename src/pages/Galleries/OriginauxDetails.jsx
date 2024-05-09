@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import gsap from "gsap";
 import { Flip } from "gsap/Flip";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FaCircle } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa6";
@@ -150,31 +150,42 @@ const OriginauxDetails = () => {
     return () => ctx.revert();
   }, []);
 
+  useEffect(() => {
+    const allImagesContainer = document.querySelectorAll(".details-image");
+
+    const scales = [4, 5, 6, 7, 8];
+
+    allImagesContainer.forEach((image, i) => {
+      gsap.to(image, {
+        scale: scales[i],
+        force3D: false,
+        scrollTrigger: {
+          trigger: ".scroll-zoom",
+          start: "top top",
+          end: "bottom 50%",
+          scrub: true,
+        },
+      });
+    });
+  }, []);
+
   return (
     <Transition isClicked={isClicked}>
       <div className="scroll-zoom">
         <div className="product-info">
           {allImages.length > 2
-            ? pictures.map(({ src, scale }, index) => {
+            ? pictures.map(({ src }, index) => {
                 return (
-                  <motion.div
-                    key={index}
-                    style={{ scale }}
-                    className="details-image"
-                  >
+                  <motion.div key={index} className="details-image">
                     <div className={validateIndex}>
                       <img src={src} alt="image" placeholder="blur" />
                     </div>
                   </motion.div>
                 );
               })
-            : pictures.slice(0, 1).map(({ src, scale }, index) => {
+            : pictures.slice(0, 1).map(({ src }, index) => {
                 return (
-                  <motion.div
-                    key={index}
-                    style={{ scale }}
-                    className="details-image"
-                  >
+                  <motion.div key={index} className="details-image">
                     <div className={validateIndex}>
                       <img src={src} alt="image" placeholder="blur" />
                     </div>
@@ -252,7 +263,10 @@ const OriginauxDetails = () => {
               <Divider className="description-divider" />
               <div className="buying-text">
                 <FaCircle size={30} />
-                <p>{t("originauxDetails.textOeuvre")}</p>
+                <p>
+                  {t("originauxDetails.textOeuvre")} {selectedImage.serie} en{" "}
+                  {selectedImage.formatOriginaux}
+                </p>
               </div>
               <div className="sale">
                 <p>{saleProduct}</p>

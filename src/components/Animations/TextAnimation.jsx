@@ -2,14 +2,18 @@ import gsap from "gsap";
 import { useLayoutEffect } from "react";
 import SplitType from "split-type";
 
-export const TitleTransition = ({ textClassName, isClciked }) => {
+export const TitleTransition = ({
+  textClassName,
+  isClciked,
+  yposition = 200,
+}) => {
   useLayoutEffect(() => {
     if (!isClciked) {
       const element = document.querySelector(`.${textClassName}`);
       const split = new SplitType(element);
 
       gsap.from(split.chars, {
-        y: 200,
+        y: yposition,
         skewX: 50,
         rotation: 20,
         duration: 1.2,
@@ -17,7 +21,7 @@ export const TitleTransition = ({ textClassName, isClciked }) => {
         ease: "power3.inOut",
       });
     }
-  }, [textClassName, isClciked]);
+  }, [textClassName, isClciked, yposition]);
 };
 
 export const TextTransition = ({ textClassName }) => {

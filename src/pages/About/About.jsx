@@ -4,7 +4,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import AboutContent from "../../components/About/AboutContent";
-import Gallery from "../../components/About/Gallery";
+import Instagram from "../../components/About/Instagram.jsx";
 import Quote from "../../components/About/Quote";
 import { Transition } from "../../components/Animations/PageTransition/Transition.jsx";
 import Circle from "../../components/Common/Circle.jsx";
@@ -25,7 +25,8 @@ const About = () => {
         <Hero title={t("nav.about")} />
         <AboutContent ref={containerRef} />
         <Quote />
-        <Gallery ref={instaGalleryRef} />
+        {/* <Gallery ref={instaGalleryRef} /> */}
+        <Instagram />
       </motion.section>
       <footer>
         <Circle target={"about-container"} />

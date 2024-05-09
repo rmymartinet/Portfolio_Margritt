@@ -45,8 +45,7 @@ export const originauxData = [
       EU: "2 à 3 semaines",
       international: "3 à 4 semaines",
     },
-    formatOriginaux: "large",
-    notAvailable: "Indisponible à la vente",
+    formatOriginaux: "grand format",
     img: bibulle1,
   },
 
@@ -68,9 +67,8 @@ export const originauxData = [
       international: "3 à 4 semaines",
     },
     note: "Cadre non inclus Me contacter avant achat",
-    formatOriginaux: "large",
-    notAvailable: "Indisponible à la vente",
-    available: "Disponible à la vente",
+    formatOriginaux: "grand format",
+
     img: bibulle2,
   },
   {
@@ -91,9 +89,7 @@ export const originauxData = [
       international: "3 à 4 semaines",
     },
     note: "Cadre non inclus Me contacter avant achat",
-    formatOriginaux: "large",
-    notAvailable: "Indisponible à la vente",
-    available: "Disponible à la vente",
+    formatOriginaux: "grand format",
 
     img: bibulle3Moyen,
     img1: bibulle3_1,
@@ -119,9 +115,8 @@ export const originauxData = [
       international: "3 à 4 semaines",
     },
     note: "Cadre non inclus Me contacter avant achat",
-    formatOriginaux: "large",
-    notAvailable: "Indisponible à la vente",
-    available: "Disponible à la vente",
+    formatOriginaux: "grand format",
+
     img: bibulle5Moyen,
     img1: bibulle5_1,
     img2: bibulle5_2,
@@ -147,8 +142,8 @@ export const originauxData = [
       international: "3 à 4 semaines",
     },
     note: "Cadre non inclus Me contacter avant achat",
-    formatOriginaux: "large",
-    notAvailable: "Indisponible à la vente",
+    formatOriginaux: "grand format",
+
     img: bibulle,
   },
   {
@@ -169,8 +164,7 @@ export const originauxData = [
       international: "3 à 4 semaines",
     },
     note: "Cadre non inclus Me contacter avant achat",
-    formatOriginaux: "large",
-    available: "Disponible à la vente",
+    formatOriginaux: "grand format",
     img: MaxiBibulle,
   },
   {
@@ -192,9 +186,8 @@ export const originauxData = [
       international: "3 à 4 semaines",
     },
     note: "Cadre non inclus Me contacter avant achat",
-    formatOriginaux: "large",
-    notAvailable: "Indisponible à la vente",
-    available: "Disponible à la vente",
+    formatOriginaux: "grand format",
+
     img: futurama1,
   },
   {
@@ -216,8 +209,6 @@ export const originauxData = [
     },
     note: "Cadre non inclus Me contacter avant achat",
     formatOriginaux: "medium",
-    notAvailable: "Indisponible à la vente",
-    available: "Disponible à la vente",
     img: futurama2Moyen,
     img1: futurama2_1,
     img2: futurama2_2,
@@ -243,8 +234,6 @@ export const originauxData = [
     },
     note: "Cadre non inclus Me contacter avant achat",
     formatOriginaux: "medium",
-    notAvailable: "Indisponible à la vente",
-    available: "Disponible à la vente",
     img: futurama3Moyen,
     img1: futurama3_1,
     img2: futurama3_2,
@@ -269,9 +258,7 @@ export const originauxData = [
       international: "3 à 4 semaines",
     },
     note: "Cadre non inclus Me contacter avant achat",
-    formatOriginaux: "large",
-    notAvailable: "Indisponible à la vente",
-    available: "Disponible à la vente",
+    formatOriginaux: "grand format",
     img: mecaniqueDesReves,
   },
 ];
@@ -392,6 +379,11 @@ export const galleriesData = [originauxData, tirageData];
 export const expositionData = [
   {
     date: "2024",
+    title: "Exposition « Collective MIFAC » - Espace franquin",
+    location: "Angoulême",
+  },
+  {
+    date: "2024",
     title: "Exposition « Instinctual » - Distillerie NAUD",
     location: "Pons",
   },
@@ -441,6 +433,13 @@ export const expositionData = [
 ];
 
 export const activityData = [
+  {
+    date: "2024",
+    title:
+      "Série Portrait - Sélection de 7 artistes dans le monde - BIC CREATOR",
+    location: "Malaville",
+  },
+
   {
     date: "2023",
     title:
@@ -502,5 +501,44 @@ export const activityData = [
     date: "2014",
     title: "Préparation et participation à une Exposition collective",
     location: "Brest",
+  },
+];
+
+export const priceReviewsData = [
+  {
+    date: "2023",
+    title:
+      "Article du 8 décembre - Charente libre - « Jarnac : un parcours et une médiation au Fil de l’Art »",
+    location: "Jarnac",
+  },
+  {
+    date: "2023",
+    title:
+      "Article du 19 Août- Charente libre - « À Bellevigne, une expo dans un cadre intimiste »",
+    location: "Bellevigne",
+  },
+  {
+    date: "2023",
+    title:
+      "Article du 10 Juin – Living in cognac land - « Les dix ans de la Chabram2»",
+    location: "Bellevigne",
+  },
+  {
+    date: "2023",
+    title:
+      "Article du 10 Juin – Charente Libre - « Dix ans d’art en milieu rural»",
+    location: "Jarnac",
+  },
+  {
+    date: "2023",
+    title:
+      "Article du 19 avril - Charente Libre par Gilles Biolley - Grand Cognac Ouest Charente -« L’invasion graphique de Margritt Martinet se prépare à Malaville »",
+    location: "Jarnac",
+  },
+  {
+    date: "2020",
+    title:
+      "Certificat de mérite artistique participation au concours du Luxembourg Art Prize",
+    location: "Luxembourg",
   },
 ];

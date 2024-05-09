@@ -2,7 +2,9 @@
 @import "../../sass/variables.scss";
 
 .projects {
+  padding: 0 4vw;
   margin-bottom: 10vh;
+
   .project-container {
     margin-top: 10vh;
     .latest-project {
@@ -13,13 +15,11 @@
 
       .hero-title {
         font-size: $fs-md;
-        // font-family: $font-subtitle;
         font-weight: 500;
         text-transform: uppercase;
         padding-right: 3em;
 
         p {
-          // font-family: $font-text;
           font-size: $fs-base;
           font-weight: 300;
         }
@@ -128,7 +128,8 @@
       background-color: $secondary-color;
     }
 
-    .exposition-container {
+    .exposition-container,
+    .activity-container {
       margin-bottom: 20vh;
     }
 
@@ -144,7 +145,6 @@
         .infos-title {
           grid-column: 1 / span 12;
           font-size: $fs-md;
-          // font-family: $font-subtitle;
           margin-bottom: 10vh;
           text-transform: uppercase;
         }
@@ -153,10 +153,9 @@
           border-bottom: none !important;
         }
 
-        @for $i from 0 through 10 {
+        @for $i from 0 through 11 {
           .project#{$i} {
             line-height: 1.4em;
-            // font-family: $font-text;
             font-size: $fs-base;
             grid-column: 1 / span 12;
             display: grid;
@@ -173,7 +172,6 @@
 
           .project#{$i} span {
             font-weight: 500;
-            // font-family: $font-subtitle;
           }
         }
       }
@@ -204,7 +202,7 @@
             grid-column: 1 / span 12;
             margin-bottom: calc(5vh + 2rem);
           }
-          @for $i from 0 through 10 {
+          @for $i from 0 through 11 {
             .project#{$i} {
               grid-column: 1 / span 12;
               width: 100%;

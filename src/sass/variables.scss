@@ -46,6 +46,8 @@ $navbar-margin: 20vh;
 
 // Font-size
 $fs-very-sm--mobile: clamp(0.4rem, 0.43vw + 0.47rem, 0.5rem);
+$fs-intermediate--mobile: clamp(0.5rem, 0.615vw + 0.51rem, 0.6rem);
+
 $fs-very-base--mobile: clamp(0.65rem, 0.8vw + 0.55rem, 0.75rem);
 $fs-sm: clamp(0.65rem, 0.44vw + 0.54rem, 0.89rem);
 $fs-base: clamp(0.81rem, 0.68vw + 0.64rem, 1.19rem);

@@ -1,7 +1,7 @@
 import gsap from "gsap";
 import React, { forwardRef, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { activityData, expositionData } from "../../data.js";
+import { activityData, expositionData, priceReviewsData } from "../../data.js";
 
 export const Exposition = forwardRef((_, ref) => {
   const expositionDataRef = useRef(activityData.map(() => React.createRef()));
@@ -87,8 +87,7 @@ export const Activity = forwardRef((_, ref) => {
             return (
               <div
                 ref={activityDataRef.current[index]}
-                className={`project${index} ${
-                  index === activityData.length - 1 ? "last-project" : ""
+                className={`project${index} 
                 }`}
                 key={index}
               >
@@ -105,6 +104,61 @@ export const Activity = forwardRef((_, ref) => {
 });
 
 Activity.displayName = "Activity";
+
+export const PriceReviews = forwardRef((_, ref) => {
+  const priceReviewsDataRef = useRef(
+    priceReviewsData.map(() => React.createRef())
+  );
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    gsap.fromTo(
+      priceReviewsDataRef.current.map((ref) => ref.current),
+      { opacity: 0, y: 15 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        stagger: 0.1,
+        ease: "power3.inOut",
+        scrollTrigger: {
+          trigger: ref.current,
+          start: "top 75%",
+          end: "bottom 60%",
+        },
+      }
+    );
+  }, [priceReviewsDataRef, ref]);
+
+  return (
+    <div ref={ref} className="activity-container">
+      <div className="infos-container">
+        <div className="infos-grid">
+          <div className="infos-title">
+            <h2>{t("project.projectPriceReviewsTitle")}</h2>
+          </div>
+          {priceReviewsData.map((expo, index) => {
+            return (
+              <div
+                ref={priceReviewsDataRef.current[index]}
+                className={`project${index} ${
+                  index === priceReviewsData.length - 1 ? "last-project" : ""
+                }`}
+                key={index}
+              >
+                <span>{expo.date}</span>
+                <p>{expo.title}</p>
+                <p>{expo.location}</p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+});
+
+PriceReviews.displayName = "PriceReviews";
 
 export const ProjectLatest = forwardRef(
   ({ index, title, setModal, href }, ref) => {

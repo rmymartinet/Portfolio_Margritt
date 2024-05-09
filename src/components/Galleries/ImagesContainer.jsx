@@ -48,19 +48,21 @@ const ImagesContainer = ({
    */
 
   useEffect(() => {
-    const gridButton = document.querySelector(
-      ".grid-images-content .img-gallery-container"
-    );
+    if (isGridClick) {
+      const gridButton = document.querySelector(
+        ".grid-images-content .img-gallery-container"
+      );
 
-    const items = gsap.utils.toArray("img");
-    const state = Flip.getState(items);
-    gridButton.classList.toggle("insert");
+      const items = gsap.utils.toArray("img");
+      const state = Flip.getState(items);
+      gridButton.classList.toggle("insert");
 
-    Flip.from(state, {
-      duration: 1,
-      stagger: 0.04,
-      ease: "power3.inOut",
-    });
+      Flip.from(state, {
+        duration: 1,
+        stagger: 0.04,
+        ease: "power3.inOut",
+      });
+    }
   }, [isGridClick]);
 
   /* Animation pour le click sur les images
@@ -110,6 +112,7 @@ const ImagesContainer = ({
       gsap.to("img", {
         clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)",
         scale: 1,
+        forced3D: false,
         duration: 2,
         ease: "power3.inOut",
       });
