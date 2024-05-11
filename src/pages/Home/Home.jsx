@@ -28,6 +28,7 @@ import Projects from "../Projects/Projects.jsx";
 import "./Home.scss";
 
 import { useNavigate } from "react-router-dom";
+import { originauxData } from "../../data.js";
 
 gsap.registerPlugin(Flip);
 gsap.registerPlugin(ScrollTrigger);
@@ -65,18 +66,8 @@ const Home = () => {
   ];
   const scrollImg = [img1, img2];
   const { t } = useTranslation();
-  const oeuvres = [
-    { title: "Bibulle 1" },
-    { title: "Bibulle 2" },
-    { title: "Bibulle 3" },
-    { title: "Bibulle 5" },
-    { title: "Bibulle !" },
-    { title: "Maxi-Bibulle" },
-    { title: "Futurama 1" },
-    { title: "Futurama 2" },
-    { title: "Futurama 3" },
-    { title: "Mécanique des rêves " },
-  ];
+
+  const oeuvresData = originauxData;
 
   const generateRandomPosition = (numPosition, minWidth, maxWidth) => {
     const position = [];
@@ -146,10 +137,10 @@ const Home = () => {
             {
               scale: 0.2,
               rotationX: (i / infosOeuvres.length) * -200,
-              transformOrigin: String("-6% 50% -800%"),
+              transformOrigin: String("-7% 50% -600%"),
             },
             {
-              rotationX: "+=200",
+              rotationX: "+=250",
               ease: "none",
             }
           )
@@ -157,7 +148,7 @@ const Home = () => {
 
         b.addEventListener("mouseover", (e) => {
           gsap.to(e.currentTarget, {
-            opacity: 0.5,
+            // opacity: 0.5,
             duration: 0.4,
             ease: "expo",
           });
@@ -230,10 +221,10 @@ const Home = () => {
             {
               scale: 0.2,
               rotationX: (i / infosOeuvres.length) * -200,
-              transformOrigin: String("-6% 50% -500%"),
+              transformOrigin: String("-7% 50% -250%"),
             },
             {
-              rotationX: "+=200",
+              rotationX: "+=250",
               ease: "none",
             }
           )
@@ -328,46 +319,89 @@ const Home = () => {
           },
         });
       }
-
-      // Ajouter l'animation de déplacement à la timeline de déplacement
     });
   }, [isLoading, position, mobilePosition]);
+
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      gsap.fromTo(
+        ".home-content",
+        { scale: 1 },
+        {
+          scale: 0.6,
+          scrollTrigger: {
+            trigger: ".home-content",
+            start: "top top",
+            end: "+100%",
+            scrub: true,
+            pin: true,
+          },
+        }
+      );
+    });
+
+    return () => ctx.revert();
+  }, [isLoading]);
+
+  useEffect(() => {
+    const item = document.querySelectorAll(".oeuvres-grid");
+
+    item.forEach((item) => {
+      const image = item.querySelector("img");
+      item.addEventListener("mouseenter", (e) => {
+        gsap.to(image, {
+          opacity: 1,
+          ease: "power3.inOut",
+        });
+      });
+
+      item.addEventListener("mouseleave", (e) => {
+        gsap.to(image, {
+          opacity: 0,
+        });
+      });
+
+      item.addEventListener("mousemove", (e) => {
+        gsap.to(image, { x: e.offsetX - 400, y: e.offsetY - 0 });
+      });
+    });
+  }, []);
 
   return (
     <Transition>
       <motion.section className="home-container">
-        <div className="wrapper">
-          <div className="home-content">
-            <TitleTransition textClassName="title-content p" yposition="400" />
-            <div className="title-content">
-              <p>Margritt</p>
-            </div>
-            <div className="scroll-images-container">
-              {scrollVideo.map((video, i) => {
-                return (
-                  <div key={i} className="scroll-infinite">
-                    <video
-                      type="video/mp4"
-                      muted
-                      playsInline
-                      src={video}
-                      autoPlay
-                      loop
-                    ></video>
-                  </div>
-                );
-              })}
-              {scrollImg.map((img, i) => {
-                return (
-                  <div key={i} className="scroll-infinite">
-                    <img src={img}></img>
-                  </div>
-                );
-              })}
-            </div>
+        <div className="home-content">
+          <TitleTransition textClassName="title-content p" yposition="400" />
+          <div className="title-content">
+            <p>Margritt</p>
           </div>
+          <div className="scroll-images-container">
+            {scrollVideo.map((video, i) => {
+              return (
+                <div key={i} className="scroll-infinite">
+                  <video
+                    type="video/mp4"
+                    muted
+                    playsInline
+                    src={video}
+                    autoPlay
+                    loop
+                  ></video>
+                </div>
+              );
+            })}
+            {scrollImg.map((img, i) => {
+              return (
+                <div key={i} className="scroll-infinite">
+                  <img src={img}></img>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+        <div className="wrapper">
           <div className="flip-container">
-            {oeuvres.map((oeuvres, index) => {
+            {oeuvresData.map((oeuvres, index) => {
               return (
                 <div key={index} className="oeuvres-grid">
                   <div
@@ -376,6 +410,7 @@ const Home = () => {
                   >
                     <p>{oeuvres.title}</p>
                   </div>
+                  <img src={oeuvres.img} alt="" />
                 </div>
               );
             })}

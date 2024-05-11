@@ -8,105 +8,98 @@
 
 .home-container {
   @include parent-styles;
-  padding: 0 4vw;
+  padding: 0;
   .flip-container {
     width: 100vw;
     height: 50vh;
     overflow: hidden;
     font-size: 30em;
     font-weight: 400;
+    position: relative;
+
+    img {
+      position: absolute;
+      width: 200vw;
+      height: 200vh;
+      object-fit: contain;
+      transform: translateX(-50%) translateY(-50%);
+      top: 50%;
+      left: 50%;
+      z-index: -10;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.1s;
+    }
   }
 
   .flip-container .oeuvres-grid {
     text-align: center;
-    width: 3000px;
+    width: 3500px;
     text-transform: uppercase;
-  }
-
-  .flip-container .oeuvres-grid {
     cursor: pointer;
-  }
-
-  .flip-container .image-container {
-    position: fixed;
-    width: 50vw;
-    height: 30vh;
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
   }
 
   .scrollDist {
     width: 100%;
-    height: 300vh;
+    height: 250vh;
+  }
+
+  .home-content {
+    overflow: hidden;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: $primary-color;
+
+    .scroll-images-container {
+      position: absolute;
+      perspective: 200px;
+      .scroll-infinite {
+        width: 20vh;
+        height: 20vh;
+        video,
+        img {
+          border-radius: 20%;
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+    .title-content {
+      font-weight: 300;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: white;
+      z-index: 9999999999999999999;
+      mix-blend-mode: difference;
+      overflow: hidden;
+
+      p {
+        text-transform: uppercase;
+        font-size: 17vw;
+      }
+    }
+
+    .based {
+      font-size: $fs-base;
+      font-weight: 400;
+    }
   }
 
   .wrapper {
+    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.09);
+    padding: 0 4vw;
+    background-color: $primary-color;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    .home-content {
-      overflow: hidden;
-      height: 100vh;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      position: relative;
-
-      .scroll-images-container {
-        position: absolute;
-        perspective: 200px;
-        .scroll-infinite {
-          width: 20vh;
-          height: 20vh;
-          video,
-          img {
-            border-radius: 20%;
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
-          }
-        }
-      }
-      .title-content {
-        overflow: hidden;
-        font-weight: 300;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        color: $primary-color;
-        z-index: 9999999999999999;
-        mix-blend-mode: difference;
-
-        p {
-          text-transform: uppercase;
-          font-size: 17vw;
-        }
-      }
-
-      .based {
-        font-size: $fs-base;
-        font-weight: 400;
-      }
-
-      .infos-oeuvres {
-        font-weight: 700;
-        font-size: $fs-sm;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0 5px;
-        text-transform: uppercase;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-    }
+    z-index: 99999999999;
   }
 }
 
@@ -115,10 +108,8 @@
     .flip-container {
       font-size: 20em;
     }
-    .wrapper {
-      .home-content {
-        width: 100%;
-      }
+    .home-content {
+      width: 100%;
     }
 
     .projects {
@@ -166,7 +157,7 @@
 
     .scrollDist {
       width: 100%;
-      height: 120vh;
+      height: 100vh;
     }
   }
 }
