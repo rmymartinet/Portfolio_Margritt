@@ -1,30 +1,12 @@
-import bibulle from "./assets/images/Gallery/Originaux_120/dimension_1500/bibulle!.jpg";
-import bibulle1 from "./assets/images/Gallery/Originaux_120/dimension_1500/bibulle1.jpg";
-import bibulle2 from "./assets/images/Gallery/Originaux_120/dimension_1500/bibulle3bis.jpg";
-import futurama1 from "./assets/images/Gallery/Originaux_120/dimension_1500/futurama1.jpg";
-import MaxiBibulle from "./assets/images/Gallery/Originaux_120/dimension_1500/maxi-bibulle.jpeg";
-import mecaniqueDesReves from "./assets/images/Gallery/Originaux_120/dimension_1500/mecanique.jpeg";
-import bibulle3_1 from "./assets/images/Gallery/Tirage_50/bibulle3_details/bibulle3-1.webp";
-import bibulle3_2 from "./assets/images/Gallery/Tirage_50/bibulle3_details/bibulle3-2.webp";
-import bibulle3_3 from "./assets/images/Gallery/Tirage_50/bibulle3_details/bibulle3-3.webp";
-import bibulle3_4 from "./assets/images/Gallery/Tirage_50/bibulle3_details/bibulle3-4.webp";
-import bibulle5_1 from "./assets/images/Gallery/Tirage_50/bibulle5_details/bibulle5-1.jpg";
-import bibulle5_2 from "./assets/images/Gallery/Tirage_50/bibulle5_details/bibulle5-2.jpg";
-import bibulle5_3 from "./assets/images/Gallery/Tirage_50/bibulle5_details/bibulle5-3.jpg";
-import bibulle5_4 from "./assets/images/Gallery/Tirage_50/bibulle5_details/bibulle5-4.jpg";
-import bibulle3Moyen from "./assets/images/Gallery/Tirage_50/dimension_1500/bibulle3.jpg";
-import bibulle5Moyen from "./assets/images/Gallery/Tirage_50/dimension_1500/bibulle5.jpg";
-import futurama2Moyen from "./assets/images/Gallery/Tirage_50/dimension_1500/futurama2.jpg";
-import futurama3Moyen from "./assets/images/Gallery/Tirage_50/dimension_1500/futurama3.jpeg";
-import futurama2_1 from "./assets/images/Gallery/Tirage_50/futurama2_details/futurama2-1.webp";
-import futurama2_2 from "./assets/images/Gallery/Tirage_50/futurama2_details/futurama2-2.webp";
-import futurama2_3 from "./assets/images/Gallery/Tirage_50/futurama2_details/futurama2-3.webp";
-import futurama2_4 from "./assets/images/Gallery/Tirage_50/futurama2_details/futurama2-4.webp";
-
-import futurama3_1 from "./assets/images/Gallery/Tirage_50/futurama3_details/futurama3-1.webp";
-import futurama3_2 from "./assets/images/Gallery/Tirage_50/futurama3_details/futurama3-2.webp";
-import futurama3_3 from "./assets/images/Gallery/Tirage_50/futurama3_details/futurama3-3.webp";
-import futurama3_4 from "./assets/images/Gallery/Tirage_50/futurama3_details/futurama3-4.webp";
+import {
+  mecaniqueDesRevesOriginal,
+  originalBibulle,
+  originalFuturama,
+  tirageBibulle3,
+  tirageBibulle5,
+  tirageFuturama2,
+  tirageFuturama3,
+} from "./dataImages";
 
 //Oeuvres orignal sans tirage 'la perosnne achete l'oeuvre original'
 export const originauxData = [
@@ -46,7 +28,8 @@ export const originauxData = [
       international: "3 à 4 semaines",
     },
     formatOriginaux: "grand format",
-    img: bibulle1,
+    imgWebp: originalBibulle.webp.bibulle1,
+    imgJpg: originalBibulle.jpg.bibulle1,
   },
 
   {
@@ -69,7 +52,8 @@ export const originauxData = [
     note: "Cadre non inclus Me contacter avant achat",
     formatOriginaux: "grand format",
 
-    img: bibulle2,
+    imgWebp: originalBibulle.webp.bibulle2,
+    imgJpg: originalBibulle.jpg.bibulle2,
   },
   {
     id: 2,
@@ -91,11 +75,12 @@ export const originauxData = [
     note: "Cadre non inclus Me contacter avant achat",
     formatOriginaux: "grand format",
 
-    img: bibulle3Moyen,
-    img1: bibulle3_1,
-    img2: bibulle3_2,
-    img3: bibulle3_3,
-    img4: bibulle3_4,
+    imgWebp: originalBibulle.webp.bibulle3,
+    imgJpg: originalBibulle.jpg.bibulle3,
+    img1: tirageBibulle3.bibulle3_1,
+    img2: tirageBibulle3.bibulle3_2,
+    img3: tirageBibulle3.bibulle3_3,
+    img4: tirageBibulle3.bibulle3_4,
   },
   {
     id: 3,
@@ -117,11 +102,12 @@ export const originauxData = [
     note: "Cadre non inclus Me contacter avant achat",
     formatOriginaux: "grand format",
 
-    img: bibulle5Moyen,
-    img1: bibulle5_1,
-    img2: bibulle5_2,
-    img3: bibulle5_3,
-    img4: bibulle5_4,
+    imgWebp: originalBibulle.webp.bibulle5,
+    imgJpg: originalBibulle.jpg.bibulle5,
+    img1: tirageBibulle5.bibulle5_1,
+    img2: tirageBibulle5.bibulle5_2,
+    img3: tirageBibulle5.bibulle5_3,
+    img4: tirageBibulle5.bibulle5_4,
   },
 
   {
@@ -144,7 +130,8 @@ export const originauxData = [
     note: "Cadre non inclus Me contacter avant achat",
     formatOriginaux: "grand format",
 
-    img: bibulle,
+    imgWebp: originalBibulle.webp.bibulleExclamation,
+    imgJpg: originalBibulle.jpg.bibulleExclamation,
   },
   {
     id: 5,
@@ -165,7 +152,8 @@ export const originauxData = [
     },
     note: "Cadre non inclus Me contacter avant achat",
     formatOriginaux: "grand format",
-    img: MaxiBibulle,
+    imgWebp: originalBibulle.webp.maxiBibulle,
+    imgJpg: originalBibulle.jpg.maxiBibulle,
   },
   {
     id: 6,
@@ -188,7 +176,8 @@ export const originauxData = [
     note: "Cadre non inclus Me contacter avant achat",
     formatOriginaux: "grand format",
 
-    img: futurama1,
+    imgWebp: originalFuturama.webp.futurama1,
+    imgJpg: originalFuturama.jpg.futurama1,
   },
   {
     id: 7,
@@ -209,11 +198,12 @@ export const originauxData = [
     },
     note: "Cadre non inclus Me contacter avant achat",
     formatOriginaux: "medium",
-    img: futurama2Moyen,
-    img1: futurama2_1,
-    img2: futurama2_2,
-    img3: futurama2_3,
-    img4: futurama2_4,
+    imgWebp: originalFuturama.webp.futurama2,
+    imgJpg: originalFuturama.jpg.futurama2,
+    img1: tirageFuturama2.futurama2_1,
+    img2: tirageFuturama2.futurama2_2,
+    img3: tirageFuturama2.futurama2_3,
+    img4: tirageFuturama2.futurama2_4,
   },
   {
     id: 8,
@@ -234,11 +224,12 @@ export const originauxData = [
     },
     note: "Cadre non inclus Me contacter avant achat",
     formatOriginaux: "medium",
-    img: futurama3Moyen,
-    img1: futurama3_1,
-    img2: futurama3_2,
-    img3: futurama3_3,
-    img4: futurama3_4,
+    imgWebp: originalFuturama.webp.futurama3,
+    imgJpg: originalFuturama.jpg.futurama3,
+    img1: tirageFuturama3.futurama3_1,
+    img2: tirageFuturama3.futurama3_2,
+    img3: tirageFuturama3.futurama3_3,
+    img4: tirageFuturama3.futurama3_4,
   },
   {
     id: 9,
@@ -259,7 +250,8 @@ export const originauxData = [
     },
     note: "Cadre non inclus Me contacter avant achat",
     formatOriginaux: "grand format",
-    img: mecaniqueDesReves,
+    imgWebp: mecaniqueDesRevesOriginal.webp.mecaniqueDesReves,
+    imgJpg: mecaniqueDesRevesOriginal.jpg.mecaniqueDesReves,
   },
 ];
 
@@ -286,11 +278,12 @@ export const tirageData = [
     categorieFormat: "medium",
     notAvailable: "Indisponible à la vente",
     available: "Disponible à la vente",
-    img: bibulle3Moyen,
-    img1: bibulle3_1,
-    img2: bibulle3_2,
-    img3: bibulle3_3,
-    img4: bibulle3_4,
+    imgWebp: originalBibulle.webp.bibulle3,
+    imgJpg: originalBibulle.jpg.bibulle3,
+    img1: tirageBibulle3.bibulle3_1,
+    img2: tirageBibulle3.bibulle3_2,
+    img3: tirageBibulle3.bibulle3_3,
+    img4: tirageBibulle3.bibulle3_4,
   },
   {
     id: 1,
@@ -313,11 +306,12 @@ export const tirageData = [
     categorieFormat: "medium",
     notAvailable: "Indisponible à la vente",
     available: "Disponible à la vente",
-    img: bibulle5Moyen,
-    img1: bibulle5_1,
-    img2: bibulle5_2,
-    img3: bibulle5_3,
-    img4: bibulle5_4,
+    imgWebp: originalBibulle.webp.bibulle5,
+    imgJpg: originalBibulle.jpg.bibulle5,
+    img1: tirageBibulle5.bibulle5_1,
+    img2: tirageBibulle5.bibulle5_2,
+    img3: tirageBibulle5.bibulle5_3,
+    img4: tirageBibulle5.bibulle5_4,
   },
   {
     id: 2,
@@ -340,11 +334,12 @@ export const tirageData = [
     categorieFormat: "medium",
     notAvailable: "Indisponible à la vente",
     available: "Disponible à la vente",
-    img: futurama2Moyen,
-    img1: futurama2_1,
-    img2: futurama2_2,
-    img3: futurama2_3,
-    img4: futurama2_4,
+    imgWebp: originalFuturama.webp.futurama2,
+    imgJpg: originalFuturama.jpg.futurama2,
+    img1: tirageFuturama2.futurama2_1,
+    img2: tirageFuturama2.futurama2_2,
+    img3: tirageFuturama2.futurama2_3,
+    img4: tirageFuturama2.futurama2_4,
   },
   {
     id: 3,
@@ -366,11 +361,12 @@ export const tirageData = [
     categorieFormat: "medium",
     notAvailable: "Indisponible à la vente",
     available: "Disponible à la vente",
-    img: futurama3Moyen,
-    img1: futurama3_1,
-    img2: futurama3_2,
-    img3: futurama3_3,
-    img4: futurama3_4,
+    imgWebp: originalFuturama.webp.futurama3,
+    imgJpg: originalFuturama.jpg.futurama3,
+    img1: tirageFuturama3.futurama3_1,
+    img2: tirageFuturama3.futurama3_2,
+    img3: tirageFuturama3.futurama3_3,
+    img4: tirageFuturama3.futurama3_4,
   },
 ];
 

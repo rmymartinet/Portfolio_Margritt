@@ -3,8 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { forwardRef, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import about1 from "../../assets/images/about/about1.jpg";
-import about2 from "../../assets/images/about/about2.jpg";
+import { about } from "../../dataImages";
 import { TextTransition } from "../Animations/TextAnimation";
 
 const AboutContent = forwardRef((_, ref) => {
@@ -118,7 +117,7 @@ const AboutContent = forwardRef((_, ref) => {
         </p>
       </div>
       <div ref={rightImg} className="right-img">
-        <img src={about1} alt="" />
+        <img src={about.webp.about1} alt="" />
       </div>
       <div className="left-content">
         <div className="left-text">
@@ -128,7 +127,7 @@ const AboutContent = forwardRef((_, ref) => {
         </div>
         <div ref={leftImg} className="left-img">
           <div className="left-wrapper">
-            <img src={about2} alt="" />
+            <img src={about.webp.about2} alt="" />
           </div>
         </div>
       </div>

@@ -78,7 +78,19 @@ const Contact = () => {
             }
             className="instagram"
           />
-          <InfoItem label="Made by" value="Martinet Rémy" className="made-by" />
+          <InfoItem
+            label="Made by"
+            value={
+              <a
+                href="https://www.linkedin.com/in/martinetr%C3%A9my/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Martinet Rémy
+              </a>
+            }
+            className="made-by"
+          />
         </div>
         <div className="name">
           <SvgName textColor="black" />

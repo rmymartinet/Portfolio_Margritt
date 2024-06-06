@@ -95,9 +95,6 @@ const OriginauxDetails = () => {
    */
 
   useLayoutEffect(() => {
-    const nav = document.querySelector("nav");
-    const navHeight = nav ? nav.getBoundingClientRect().height : 0;
-
     if (!windowWidth) {
       let ctx = gsap.context(() => {
         const scrollContainer = document.querySelector(".scroll-container");
@@ -115,7 +112,7 @@ const OriginauxDetails = () => {
 
         ScrollTrigger.create({
           trigger: ".scroll-container",
-          y: -navHeight,
+          y: 0,
           start: "top top",
           end: () => `+=${getScrollAmount() * -1}`,
           pin: true,

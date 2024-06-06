@@ -25,7 +25,9 @@ const Card = ({
         </div>
       </div>
       <div className="card-img">
-        <img src={img} alt="" />
+        <picture>
+          <img loading="lazy" src={img} alt="" />
+        </picture>
       </div>
       <div className="card-banner-bottom">
         <div className="logos">

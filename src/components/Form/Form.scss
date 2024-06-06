@@ -143,6 +143,12 @@
     }
     .made-by {
       justify-self: flex-end;
+
+      a {
+        color: $primary-color;
+        font-size: clamp(0.5rem, 4vw, 1.1rem);
+        margin-bottom: 1rem;
+      }
     }
   }
 

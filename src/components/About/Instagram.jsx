@@ -1,14 +1,10 @@
 import gsap from "gsap";
+import { Observer } from "gsap/Observer";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
+import { instagram } from "../../dataImages";
 import Card from "../Card";
 
-import { Observer } from "gsap/Observer";
-import img1 from "../../assets/images/about/instagram/img1.jpeg";
-import img2 from "../../assets/images/about/instagram/img2.jpeg";
-import img3 from "../../assets/images/about/instagram/img3.jpeg";
-import img4 from "../../assets/images/about/instagram/img4.jpeg";
-import img5 from "../../assets/images/about/instagram/img5.jpeg";
 gsap.registerPlugin(Observer);
 gsap.registerPlugin(ScrollTrigger);
 
@@ -121,101 +117,77 @@ const Instagram = () => {
         <div className="slider" ref={sliderRef}>
           <div className="cards" ref={cardsRef}>
             <Card
-              img={img1}
+              img={instagram.webp.instagram1}
               comName="lefochrestaurant"
               comText="Dingue ! 🔥"
               comName2="martin_paintings"
               comText2="❤️ 👏"
             />
             <Card
-              img={img2}
+              img={instagram.webp.instagram2}
               comName="kellymiti"
               comText="Bravo 🔥 tu le mérites, tes dessins sont ouf 😮‍💨"
               comName2="bic.create"
               comText2="👏👏👏"
             />
             <Card
-              img={img3}
+              img={instagram.webp.instagram3}
               comName="chukadinho"
               comText="I love your works absolutely 💝 🔥🔥🔥"
               comName2="pachita-paez"
               comText2="AMO TU TRABAJO!!!! KISSES FROM ARGENTINA"
             />
             <Card
-              img={img4}
+              img={instagram.webp.instagram4}
               comName="galeriemaumu"
               comText="👏👏👏"
               comName2="agathepitie"
               comText2="Superbe❤️"
             />
             <Card
-              img={img5}
+              img={instagram.webp.instagram5}
               comName="_millum_"
               comText="That’s just amazing, I’m so at awe by how beautiful it is 😍"
               comName2="barlaupart"
               comText2="Wow!! Fantastic!"
             />
-            {/* <Card
-              img={img6}
-              comName="lefochrestaurant"
-              comText="Dingue ! 🔥"
-              comName2="martin_paintings"
-              comText2="❤️ 👏"
-            />
-            <Card
-              img={img7}
-              comName="lefochrestaurant"
-              comText="Dingue ! 🔥"
-              comName2="martin_paintings"
-              comText2="❤️ 👏"
-            />
-            <Card
-              img={img8}
-              comName="lefochrestaurant"
-              comText="Dingue ! 🔥"
-              comName2="martin_paintings"
-              comText2="❤️ 👏"
-            /> */}
           </div>
           <div className="cards1" ref={card1Ref}>
             <Card
-              img={img1}
+              img={instagram.webp.instagram1}
               comName="lefochrestaurant"
               comText="Dingue ! 🔥"
               comName2="martin_paintings"
               comText2="❤️ 👏"
             />
             <Card
-              img={img2}
+              img={instagram.webp.instagram2}
               comName="kellymiti"
               comText="Bravo 🔥 tu le mérites, tes dessins sont ouf 😮‍💨"
               comName2="bic.create"
               comText2="👏👏👏"
             />
             <Card
-              img={img3}
+              img={instagram.webp.instagram3}
               comName="chukadinho"
               comText="I love your works absolutely 💝 🔥🔥🔥"
               comName2="pachita-paez"
               comText2="AMO TU TRABAJO!!!! KISSES FROM ARGENTINA"
             />
             <Card
-              img={img4}
+              img={instagram.webp.instagram4}
               comName="galeriemaumu"
               comText="👏👏👏"
               comName2="agathepitie"
               comText2="Superbe❤️"
             />
             <Card
-              img={img5}
+              img={instagram.webp.instagram5}
               comName="_millum_"
               comText="That’s just amazing, I’m so at awe by how beautiful it is 😍"
               comName2="barlaupart"
               comText2="Wow!! Fantastic!"
             />
-            {/* <Card img={img6} />
-            <Card img={img7} />
-            <Card img={img8} /> */}
           </div>
         </div>
       </div>

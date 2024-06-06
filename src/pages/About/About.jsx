@@ -15,7 +15,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
   const containerRef = useRef(null);
-  const instaGalleryRef = useRef(null);
 
   const { t } = useTranslation();
 
@@ -25,7 +24,6 @@ const About = () => {
         <Hero title={t("nav.about")} />
         <AboutContent ref={containerRef} />
         <Quote />
-        {/* <Gallery ref={instaGalleryRef} /> */}
         <Instagram />
       </motion.section>
       <footer>

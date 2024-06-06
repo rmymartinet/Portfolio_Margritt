@@ -25,7 +25,6 @@ const ImagesContainer = ({
 }) => {
   let navigate = useNavigate();
   const [isClicked, setIsClicked] = useState(false);
-
   const imgContainerRef = useRef(null);
 
   /* Navagation lors du click sur images
@@ -172,17 +171,21 @@ const ImagesContainer = ({
                 }}
                 className="images-container"
               >
-                <img
-                  onMouseEnter={() => {
-                    handleMouseEnter();
-                  }}
-                  onMouseLeave={() => {
-                    handleMouseLeave();
-                  }}
-                  className={`img-${id}`}
-                  alt={imgData.alt}
-                  src={imgData.img}
-                />
+                <picture>
+                  <source type="image/webp" srcSet={imgData.imgWebp} />
+                  <img
+                    loading="lazy"
+                    onMouseEnter={() => {
+                      handleMouseEnter();
+                    }}
+                    onMouseLeave={() => {
+                      handleMouseLeave();
+                    }}
+                    className={`img-${id}`}
+                    alt={imgData.alt}
+                    src={imgData.imgJpg}
+                  />
+                </picture>
               </div>
 
               <div className="image-content">
