@@ -2,7 +2,7 @@ import gsap from "gsap";
 import { Observer } from "gsap/Observer";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
-import { instagram } from "../../dataImages";
+import { instagram } from "../../data/dataImages";
 import Card from "../Card";
 
 gsap.registerPlugin(Observer);

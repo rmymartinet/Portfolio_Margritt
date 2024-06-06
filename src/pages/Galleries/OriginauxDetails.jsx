@@ -10,7 +10,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Transition } from "../../components/Animations/PageTransition/Transition.jsx";
 import Divider from "../../components/Common/Divider.jsx";
 import InfoItem from "../../components/Common/InfoItem.jsx";
-import { originauxData } from "../../data";
+import { originauxData } from "../../data/data";
 import "./OriginauxDetails.scss";
 
 gsap.registerPlugin(ScrollTrigger);

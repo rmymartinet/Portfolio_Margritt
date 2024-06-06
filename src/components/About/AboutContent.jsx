@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { forwardRef, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { about } from "../../dataImages";
+import { about } from "../../data/dataImages";
 import { TextTransition } from "../Animations/TextAnimation";
 
 const AboutContent = forwardRef((_, ref) => {

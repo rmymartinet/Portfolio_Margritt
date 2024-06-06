@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
 
 import { useNavigate, useParams } from "react-router-dom";
-import { originauxData } from "../../data";
+import { originauxData } from "../../data/data";
 import "./Images.scss";
 gsap.registerPlugin(Flip);
 

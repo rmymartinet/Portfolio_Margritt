@@ -4,7 +4,7 @@ import { FaLongArrowAltLeft, FaLongArrowAltRight } from "react-icons/fa";
 
 import { motion } from "framer-motion";
 import { useNavigate, useParams } from "react-router-dom";
-import { tirageData } from "../../data";
+import { tirageData } from "../../data/data";
 import "./Images.scss";
 
 const ImagesTirages = () => {

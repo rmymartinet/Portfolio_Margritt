@@ -6,10 +6,6 @@ import { useEffect, useLayoutEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import img1 from "../../assets/images/home/img1.jpeg";
 import img2 from "../../assets/images/home/img2.jpeg";
-// import img3 from "../../assets/images/home/img3.jpeg";
-// import img4 from "../../assets/images/home/img4.jpeg";
-// import img5 from "../../assets/images/home/img5.jpeg";
-// import img6 from "../../assets/images/home/img6.jpeg";
 import video1 from "../../assets/videos/video1.mp4";
 import video2 from "../../assets/videos/video2.mp4";
 import video3 from "../../assets/videos/video3.mp4";
@@ -28,7 +24,7 @@ import Projects from "../Projects/Projects.jsx";
 import "./Home.scss";
 
 import { useNavigate } from "react-router-dom";
-import { originauxData } from "../../data.js";
+import { originauxData } from "../../data/data";
 
 gsap.registerPlugin(Flip);
 gsap.registerPlugin(ScrollTrigger);

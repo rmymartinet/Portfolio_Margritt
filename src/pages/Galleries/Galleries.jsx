@@ -9,7 +9,7 @@ import Form from "../../components/Form/Form.jsx";
 import FilterButton from "../../components/Galleries/FilterButton.jsx";
 import GridButton from "../../components/Galleries/GridButton.jsx";
 import ImagesContainer from "../../components/Galleries/ImagesContainer.jsx";
-import { galleriesData } from "../../data.js";
+import { galleriesData } from "../../data/data";
 import "../Galleries/Galleries.scss";
 
 const Gallery = () => {
@@ -20,11 +20,8 @@ const Gallery = () => {
   const [isButtonFilterIsClicked, setIsButtonFilterIsClicked] = useState("all");
   const [isCategoryIsClicked, setIsCategoryIsClicked] = useState("originaux");
   const TEXT_ORIGINALS_1 = "galleries.textOriginals1";
-  const TEXT_ORIGINALS_2 = "galleries.textOriginals2";
-  const TEXT_ORIGINALS_3 = "galleries.textOriginals3";
+
   const TEXT_PRINTS_1 = "galleries.textPrints1";
-  const TEXT_PRINTS_2 = "galleries.textPrints2";
-  const TEXT_PRINTS_3 = "galleries.textPrints3";
 
   const { t } = useTranslation();
 

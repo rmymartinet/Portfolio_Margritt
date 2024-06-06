@@ -1,7 +1,11 @@
 import gsap from "gsap";
 import React, { forwardRef, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { activityData, expositionData, priceReviewsData } from "../../data.js";
+import {
+  activityData,
+  expositionData,
+  priceReviewsData,
+} from "../../data/data";
 
 export const Exposition = forwardRef((_, ref) => {
   const expositionDataRef = useRef(activityData.map(() => React.createRef()));

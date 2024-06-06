@@ -8,6 +8,8 @@ import {
   tirageFuturama3,
 } from "./dataImages";
 
+import { DELIVERY_TIMES, PAPER_TYPES } from "./dataConstant";
+
 //Oeuvres orignal sans tirage 'la perosnne achete l'oeuvre original'
 export const originauxData = [
   {
@@ -19,7 +21,7 @@ export const originauxData = [
     date: "2019 - 2020",
     format: "120 x 80 cm",
     tirage: "10 exemplaires numérotés / signés par l'artiste",
-    papier: "Lavis Vinci - 300 g",
+    papier: PAPER_TYPES.LAVIS_VINCI,
     subtitle:
       "Tous les originaux sont disponibles en version tirage. Si une œuvre originale n'est actuellement pas proposée en tirage, nous pouvons la reproduire grâce à nos partenaires spécialisés dans les impressions de haute qualité,  'les courts tirages'.  N'hésitez pas à me contacter pour plus d'informations.",
     livraison: {
@@ -41,14 +43,10 @@ export const originauxData = [
     date: "2023 - 2024",
     format: "120 x 80 cm",
     tirage: "10 exemplaires numérotés / signés par l'artiste",
-    papier: "Lavis Vinci - 300 g",
+    papier: PAPER_TYPES.LAVIS_VINCI,
     subtitle:
       "Tous les originaux sont disponibles en version tirage. Si une œuvre originale n'est actuellement pas proposée en tirage, nous pouvons la reproduire grâce à nos partenaires spécialisés dans les impressions de haute qualité,  'les courts tirages'.  N'hésitez pas à me contacter pour plus d'informations.",
-    livraison: {
-      france: "5 à 10 jours",
-      EU: "2 à 3 semaines",
-      international: "3 à 4 semaines",
-    },
+    livraison: DELIVERY_TIMES,
     note: "Cadre non inclus Me contacter avant achat",
     formatOriginaux: "grand format",
 
@@ -66,12 +64,8 @@ export const originauxData = [
     date: "2023",
     format: "50 x 70 cm",
     tirage: "100 exemplaires numérotés et signés par l'artiste",
-    papier: "Fine art cotton smooth bright - 300 g",
-    livraison: {
-      france: "5 à 10 jours",
-      EU: "2 à 3 semaines",
-      international: "3 à 4 semaines",
-    },
+    papier: PAPER_TYPES.FINE_ART_COTTON,
+    livraison: DELIVERY_TIMES,
     note: "Cadre non inclus Me contacter avant achat",
     formatOriginaux: "grand format",
 
@@ -93,12 +87,8 @@ export const originauxData = [
     date: "2024",
     format: "50 x 70 cm",
     tirage: "100 exemplaires numérotés et signés par l'artiste",
-    papier: "Fine art cotton smooth bright - 300 g",
-    livraison: {
-      france: "5 à 10 jours",
-      EU: "2 à 3 semaines",
-      international: "3 à 4 semaines",
-    },
+    papier: PAPER_TYPES.FINE_ART_COTTON,
+    livraison: DELIVERY_TIMES,
     note: "Cadre non inclus Me contacter avant achat",
     formatOriginaux: "grand format",
 
@@ -119,14 +109,10 @@ export const originauxData = [
     date: "2020",
     format: "120 x 80 cm",
     tirage: "10 exemplaires numérotés / signés par l'artiste",
-    papier: "Lavis Vinci - 300 g",
+    papier: PAPER_TYPES.LAVIS_VINCI,
     subtitle:
       "Tous les originaux sont disponibles en version tirage. Si une œuvre originale n'est actuellement pas proposée en tirage, nous pouvons la reproduire grâce à nos partenaires spécialisés dans les impressions de haute qualité,  'les courts tirages'.  N'hésitez pas à me contacter pour plus d'informations.",
-    livraison: {
-      france: "5 à 10 jours",
-      EU: "2 à 3 semaines",
-      international: "3 à 4 semaines",
-    },
+    livraison: DELIVERY_TIMES,
     note: "Cadre non inclus Me contacter avant achat",
     formatOriginaux: "grand format",
 
@@ -142,14 +128,10 @@ export const originauxData = [
     date: "2019",
     format: "2,60 x 3,8 m",
     tirage: "10 exemplaires numérotés / signés par l'artiste",
-    papier: "Papier ClaireFontaine",
+    papier: PAPER_TYPES.CLAIREFONTAINE,
     subtitle:
       "Tous les originaux sont disponibles en version tirage. Si une œuvre originale n'est actuellement pas proposée en tirage, nous pouvons la reproduire grâce à nos partenaires spécialisés dans les impressions de haute qualité,  'les courts tirages'.  N'hésitez pas à me contacter pour plus d'informations.",
-    livraison: {
-      france: "5 à 10 jours",
-      EU: "2 à 3 semaines",
-      international: "3 à 4 semaines",
-    },
+    livraison: DELIVERY_TIMES,
     note: "Cadre non inclus Me contacter avant achat",
     formatOriginaux: "grand format",
     imgWebp: originalBibulle.webp.maxiBibulle,
@@ -164,15 +146,11 @@ export const originauxData = [
     date: "2019 - 2020",
     format: "120 x 80 cm",
     tirage: "10 exemplaires numérotés / signés par l'artiste",
-    papier: "Lavis Vinci - 300 g",
+    papier: PAPER_TYPES.LAVIS_VINCI,
     feutre: "Feutre, alcool",
     subtitle:
       "Tous les originaux sont disponibles en version tirage. Si une œuvre originale n'est actuellement pas proposée en tirage, nous pouvons la reproduire grâce à nos partenaires spécialisés dans les impressions de haute qualité,  'les courts tirages'.  N'hésitez pas à me contacter pour plus d'informations.",
-    livraison: {
-      france: "5 à 10 jours",
-      EU: "2 à 3 semaines",
-      international: "3 à 4 semaines",
-    },
+    livraison: DELIVERY_TIMES,
     note: "Cadre non inclus Me contacter avant achat",
     formatOriginaux: "grand format",
 
@@ -190,12 +168,8 @@ export const originauxData = [
     date: "2023",
     format: "50 x 70 cm",
     tirage: "10 exemplaires numérotés / signés par l'artiste",
-    papier: "Fine art cotton smooth bright - 300 g",
-    livraison: {
-      france: "5 à 10 jours",
-      EU: "2 à 3 semaines",
-      international: "3 à 4 semaines",
-    },
+    papier: PAPER_TYPES.CLAIREFONTAINE,
+    livraison: DELIVERY_TIMES,
     note: "Cadre non inclus Me contacter avant achat",
     formatOriginaux: "medium",
     imgWebp: originalFuturama.webp.futurama2,
@@ -216,12 +190,8 @@ export const originauxData = [
     date: "2023",
     format: "50 x 70 cm",
     tirage: "10 exemplaires numérotés / signés par l'artiste",
-    papier: "Fine art cotton smooth bright - 300 g",
-    livraison: {
-      france: "5 à 10 jours",
-      EU: "2 à 3 semaines",
-      international: "3 à 4 semaines",
-    },
+    papier: PAPER_TYPES.FINE_ART_COTTON,
+    livraison: DELIVERY_TIMES,
     note: "Cadre non inclus Me contacter avant achat",
     formatOriginaux: "medium",
     imgWebp: originalFuturama.webp.futurama3,
@@ -242,12 +212,8 @@ export const originauxData = [
     date: "2016",
     format: "2,60 x 1,57 m",
     tirage: "10 exemplaires numérotés / signés par l'artiste",
-    papier: "Fine art cotton smooth bright - 300 g",
-    livraison: {
-      france: "5 à 10 jours",
-      EU: "2 à 3 semaines",
-      international: "3 à 4 semaines",
-    },
+    papier: PAPER_TYPES.FINE_ART_COTTON,
+    livraison: DELIVERY_TIMES,
     note: "Cadre non inclus Me contacter avant achat",
     formatOriginaux: "grand format",
     imgWebp: mecaniqueDesRevesOriginal.webp.mecaniqueDesReves,
@@ -268,12 +234,8 @@ export const tirageData = [
     date: "2023",
     format: "50 x 70 cm",
     tirage: "100 exemplaires numérotés et signés par l'artiste",
-    papier: "Fine art cotton smooth bright - 300 g",
-    livraison: {
-      france: "5 à 10 jours",
-      EU: "2 à 3 semaines",
-      international: "3 à 4 semaines",
-    },
+    papier: PAPER_TYPES.FINE_ART_COTTON,
+    livraison: DELIVERY_TIMES,
     note: "Cadre non inclus Me contacter avant achat",
     categorieFormat: "medium",
     notAvailable: "Indisponible à la vente",
@@ -296,12 +258,8 @@ export const tirageData = [
     date: "2024",
     format: "50 x 70 cm",
     tirage: "100 exemplaires numérotés et signés par l'artiste",
-    papier: "Fine art cotton smooth bright - 300 g",
-    livraison: {
-      france: "5 à 10 jours",
-      EU: "2 à 3 semaines",
-      international: "3 à 4 semaines",
-    },
+    papier: PAPER_TYPES.FINE_ART_COTTON,
+    livraison: DELIVERY_TIMES,
     note: "Cadre non inclus Me contacter avant achat",
     categorieFormat: "medium",
     notAvailable: "Indisponible à la vente",
@@ -324,12 +282,8 @@ export const tirageData = [
     date: "2023",
     format: "50 x 70 cm",
     tirage: "10 exemplaires numérotés / signés par l'artiste",
-    papier: "Fine art cotton smooth bright - 300 g",
-    livraison: {
-      france: "5 à 10 jours",
-      EU: "2 à 3 semaines",
-      international: "3 à 4 semaines",
-    },
+    papier: PAPER_TYPES.FINE_ART_COTTON,
+    livraison: DELIVERY_TIMES,
     note: "Cadre non inclus Me contacter avant achat",
     categorieFormat: "medium",
     notAvailable: "Indisponible à la vente",
@@ -352,11 +306,8 @@ export const tirageData = [
     date: "2023",
     format: "50 x 70 cm",
     tirage: "10 exemplaires numérotés / signés par l'artiste",
-    livraison: {
-      france: "5 à 10 jours",
-      EU: "2 à 3 semaines",
-      international: "3 à 4 semaines",
-    },
+    papier: PAPER_TYPES.FINE_ART_COTTON,
+    livraison: DELIVERY_TIMES,
     note: "Cadre non inclus Me contacter avant achat",
     categorieFormat: "medium",
     notAvailable: "Indisponible à la vente",

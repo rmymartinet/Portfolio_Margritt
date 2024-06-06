@@ -1,4 +1,4 @@
-import { galleriesData } from "../../data.js";
+import { galleriesData } from "../../data/data";
 
 const FilterButton = ({
   setItem,
