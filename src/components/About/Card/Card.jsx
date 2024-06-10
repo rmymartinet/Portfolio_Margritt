@@ -1,7 +1,7 @@
 import { FaRegComment, FaRegHeart } from "react-icons/fa";
 import { FaRegBookmark } from "react-icons/fa6";
 import { TbSend } from "react-icons/tb";
-import instagramProfile from "../assets/images/about/about2.jpg";
+import instagramProfile from "../../../assets/images/about/about2.jpg";
 
 import "./Card.scss";
 

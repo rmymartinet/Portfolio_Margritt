@@ -2,7 +2,7 @@ import { TitleTransition } from "../Animations/TextAnimation";
 import Divider from "./Divider";
 import "./Hero.scss";
 
-const Hero = ({ className, title }) => {
+const Hero = ({ title }) => {
   return (
     <>
       <TitleTransition textClassName="hero-title p" />
