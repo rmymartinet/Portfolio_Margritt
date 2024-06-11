@@ -1,3 +1,4 @@
+import { useGSAP } from "@gsap/react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { Flip } from "gsap/Flip";
@@ -10,10 +11,11 @@ import { Transition } from "../../components/Animations/PageTransition/Transitio
 import { TitleTransition } from "../../components/Animations/TextAnimation.jsx";
 import Circle from "../../components/Common/Circle.jsx";
 import { useCount } from "../../components/Common/Counter.jsx";
+import useWindow from "../../components/Common/UseWindows.jsx";
 import Form from "../../components/Form/Form.jsx";
 import GeneratePosition from "../../components/Home/GeneratePosition.jsx";
-import initialAnimations from "../../components/Home/InitialAnimation.jsx";
 import useHoverEvents from "../../components/Home/useHoverEvents.jsx";
+import useInitialAnimations from "../../components/Home/useInitialAnimation.jsx";
 import useScrollTriggerAnimation from "../../components/Home/useScrollTriggerAnimations.jsx";
 import { originauxData } from "../../data/data";
 import { dataVideo } from "../../data/dataVideo.js";
@@ -24,15 +26,16 @@ gsap.registerPlugin(Flip);
 gsap.registerPlugin(ScrollTrigger);
 
 /**
- * !TODO : revoir le code pour les animations des oeuvres
- * !TODO : revoir le code pour les animations des textes en le flip container en scrolltrigger
+ * !TODO : revoir le code pour les animations des images en hover
  */
 
 const Home = () => {
+  const { dimension } = useWindow();
   const scrollImg = [img1, img2];
   const oeuvresData = originauxData;
   const [isLoading, setIsLoading] = useState(true);
   const countValue = useCount();
+
   let navigate = useNavigate();
   const handleNavigate = (id) => {
     navigate(`/originaux/${id}`);
@@ -67,7 +70,7 @@ const Home = () => {
     );
   }, [oeuvresData.length]);
 
-  initialAnimations({ flipContainerRef, infosOeuvresRefs }, 200);
+  useInitialAnimations({ flipContainerRef, infosOeuvresRefs }, 200);
   useHoverEvents({ infosOeuvresRefs });
   useScrollTriggerAnimation({ infosOeuvresRefs });
 
@@ -97,32 +100,49 @@ const Home = () => {
   }, [isLoading]);
 
   /*----------
-   Remove Loading page
+   Display images on hover
   -----------*/
 
-  useEffect(() => {
-    const item = document.querySelectorAll(".oeuvres-grid");
+  useGSAP(
+    () => {
+      if (dimension.width > 468) {
+        const items = document.querySelectorAll(".oeuvres-grid");
 
-    item.forEach((item) => {
-      const image = item.querySelector("img");
-      item.addEventListener("mouseenter", (e) => {
-        gsap.to(image, {
-          opacity: 1,
-          ease: "power3.inOut",
+        items.forEach((item) => {
+          const image = item.querySelector("img");
+
+          const handleMouseEnter = () => {
+            gsap.to(image, {
+              opacity: 1,
+              ease: "power3.inOut",
+            });
+          };
+
+          const handleMouseLeave = () => {
+            gsap.to(image, {
+              opacity: 0,
+            });
+          };
+
+          const handleMouseMove = (e) => {
+            gsap.to(image, { x: e.offsetX - 400, y: e.offsetY });
+          };
+
+          item.addEventListener("mouseenter", handleMouseEnter);
+          item.addEventListener("mouseleave", handleMouseLeave);
+          item.addEventListener("mousemove", handleMouseMove);
+
+          // Cleanup event listeners on component unmount
+          return () => {
+            item.removeEventListener("mouseenter", handleMouseEnter);
+            item.removeEventListener("mouseleave", handleMouseLeave);
+            item.removeEventListener("mousemove", handleMouseMove);
+          };
         });
-      });
-
-      item.addEventListener("mouseleave", (e) => {
-        gsap.to(image, {
-          opacity: 0,
-        });
-      });
-
-      item.addEventListener("mousemove", (e) => {
-        gsap.to(image, { x: e.offsetX - 400, y: e.offsetY - 0 });
-      });
-    });
-  }, []);
+      }
+    },
+    { scope: flipContainerRef, dependencies: [dimension.width, oeuvresData] }
+  );
 
   return (
     <Transition>

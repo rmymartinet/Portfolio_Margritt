@@ -1,15 +1,16 @@
+import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
-import { useEffect, useLayoutEffect } from "react";
+import { useRef } from "react";
 import { useCount } from "../Common/Counter";
-
 import "./Landing.scss";
 
 const Landing = () => {
   const countValue = useCount();
+  const landindSquareRef = useRef(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     gsap.fromTo(
-      ".landing-square",
+      landindSquareRef.current,
       {
         width: 0,
       },
@@ -19,27 +20,24 @@ const Landing = () => {
         ease: "power4.inOut",
       }
     );
-  }, []);
-  useLayoutEffect(() => {
-    if (countValue === 100) {
-      let ctx = gsap.context(() => {
-        gsap.to(".landing-square", {
+  });
+  useGSAP(
+    () => {
+      if (countValue === 100) {
+        gsap.to(landindSquareRef.current, {
           duration: 2,
           width: "100vw",
           height: "100vh",
           ease: "power3.inOut",
         });
-      });
-
-      return () => {
-        ctx.kill();
-      };
-    }
-  }, [countValue]);
+      }
+    },
+    { dependencies: [countValue] }
+  );
 
   return (
     <div className="landing-container">
-      <div className="landing-square">
+      <div ref={landindSquareRef} className="landing-square">
         <div className="landing-square__inner"></div>
       </div>
       <div className="landing-content">

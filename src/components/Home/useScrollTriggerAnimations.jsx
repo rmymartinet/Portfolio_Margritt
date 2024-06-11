@@ -1,8 +1,12 @@
-import { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
+
+/**
+ * !TODO utiliser des références
+ */
 
 const useScrollTriggerAnimations = (refs) => {
   useEffect(() => {
