@@ -25,7 +25,6 @@ const CardContainer = () => {
     const cardClone = cardCloneRef.current;
     const slider = sliderRef.current;
 
-    gsap.registerPlugin(ScrollTrigger);
     gsap.to(slider, {
       scrollTrigger: {
         trigger: document.documentElement,

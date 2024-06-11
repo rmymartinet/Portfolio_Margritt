@@ -3,4 +3,5 @@ export const CONTACT_INFO = {
   number: "+33.7.83.40.51.05",
   instagram: "https://www.instagram.com/maargriitt/",
   linkedin: "https://www.linkedin.com/in/martinetr%C3%A9my/",
+  tiktok: "https://www.tiktok.com/@margrittus?lang=fr",
 };

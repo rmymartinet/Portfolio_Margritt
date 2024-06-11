@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
 import Logo from "../Common/Logo/Logo";
@@ -17,17 +17,15 @@ const Nav = () => {
     [t]
   );
 
-  const handleNavigate = async (path) => {
-    try {
-      await navigate(`${path}`);
-    } catch (error) {
-      console.error(`Failed to navigate to ${path}:`, error);
-    }
-  };
-
-  const handleClick = (index) => {
+  const handleNavigate = useCallback(
+    (path) => {
+      navigate(path);
+    },
+    [navigate]
+  );
+  const handleClick = useCallback((index) => {
     setIsClicked(index);
-  };
+  }, []);
 
   useEffect(() => {
     const currentPath = location.pathname;
@@ -54,7 +52,7 @@ const Nav = () => {
               return (
                 <>
                   <motion.div
-                    key={index}
+                    key={item}
                     onClick={() => {
                       handleNavigate(path);
                       handleClick(index);

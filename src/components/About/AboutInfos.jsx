@@ -55,11 +55,14 @@ const AboutContent = forwardRef((_, ref) => {
     });
   };
 
-  useGSAP(() => {
-    if (isImgInView) {
-      imageReveal(".left-wrapper img");
-    }
-  }, [isImgInView]);
+  useGSAP(
+    () => {
+      if (isImgInView) {
+        imageReveal(".left-wrapper img");
+      }
+    },
+    { dependencies: [isImgInView] }
+  );
 
   useGSAP(() => {
     imagesScaleAnimation(".right-img img");

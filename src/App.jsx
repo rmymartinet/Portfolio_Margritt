@@ -8,7 +8,7 @@ import { useEffect, useLayoutEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useCount } from "./components/Common/Counter.jsx";
 import Landing from "./components/Loading/Landing.jsx";
-import NavBar from "./components/Nav/NavBar.jsx";
+import NavBar from "./components/Nav/NavBar/NavBar.jsx";
 import About from "./pages/About/About.jsx";
 import Contact from "./pages/Contact/Contact.jsx";
 import Gallery from "./pages/Galleries/Galleries.jsx";

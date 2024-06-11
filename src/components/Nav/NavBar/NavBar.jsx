@@ -1,29 +1,23 @@
 import { useEffect, useState } from "react";
+import Logo from "../../Common/Logo/Logo.jsx";
+import useWindow from "../../Common/UseWindows.jsx";
+import MobileNav from "../MobileNav/MobileNav.jsx";
+import Nav from "../Nav.jsx";
 import "./Navbar.scss";
 
-import Logo from "../Common/Logo/Logo.jsx";
-import MobileNav from "./MobileNav.jsx";
-import Nav from "./Nav.jsx";
+const MOBILE_WIDTH = 498;
 
 const NavBar = () => {
   const [isActive, setIsActive] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 498);
-
+  const { dimension } = useWindow();
   const handleActive = () => {
     setIsActive(!isActive);
   };
 
   useEffect(() => {
-    const handelRezize = () => {
-      setIsMobile(window.innerWidth < 498);
-    };
-
-    window.addEventListener("resize", handelRezize);
-
-    return () => {
-      window.removeEventListener("resize", handelRezize);
-    };
-  }, []);
+    setIsMobile(dimension.width < MOBILE_WIDTH);
+  }, [dimension.width]);
 
   return (
     <nav>

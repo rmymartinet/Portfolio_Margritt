@@ -1,27 +1,10 @@
 import { motion } from "framer-motion";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
+import { CONTACT_INFO } from "../../../data/dataContactInfos";
+import { menuSlide, slide, slideNav, slideText } from "../NavAnimation";
 import "./MobileNav.scss";
-import { menuSlide, slide, slideNav, slideText } from "./NavAnimation";
-
-const TextBlock = ({ text }) => {
-  const [letters, setLetters] = useState([]);
-
-  useEffect(() => {
-    setLetters(text.split(""));
-  }, [text]);
-
-  return (
-    <div className="block">
-      {letters.map((letter, index) => (
-        <span key={index} className="letter">
-          {letter.trim() === "" ? "\xa0" : letter}
-        </span>
-      ))}
-    </div>
-  );
-};
 
 const MobileNav = () => {
   const { t } = useTranslation();
@@ -30,29 +13,27 @@ const MobileNav = () => {
     [t]
   );
   const navigate = useNavigate();
+
   const links = [
-    { name: "Tiktok", url: "https://www.tiktok.com/@margrittus?lang=fr" },
+    { name: "Tiktok", url: `${CONTACT_INFO.tiktok}` },
     {
       name: "Instagram",
-      url: "https://www.instagram.com/maargriitt/",
+      url: `${CONTACT_INFO.instagram}`,
     },
     {
       name: "LinkedIn",
-      url: "https://www.linkedin.com/in/margritt-martinet-95b885222/",
+      url: `${CONTACT_INFO.linkedin}`,
     },
   ];
 
-  const [isExiting, setIsExiting] = useState(false);
-
-  const handleNavigate = async (path) => {
-    setIsExiting(true);
-    setTimeout(async () => {
-      try {
-        await navigate(`${path}`);
-      } catch (error) {
-        console.error(`Failed to navigate to ${path}:`, error);
-      }
-    }, 1000); // Assurez-vous que ce délai correspond à la durée de votre animation de sortie
+  const handleNavigate = (path) => {
+    try {
+      setTimeout(() => {
+        navigate(path);
+      }, 1000);
+    } catch (error) {
+      console.error(`Failed to navigate to ${path}:`, error);
+    }
   };
 
   return (
@@ -93,8 +74,7 @@ const MobileNav = () => {
                   className="text"
                 >
                   <Link to={path}>
-                    <TextBlock text={item} />
-                    <TextBlock text={item} />
+                    <span>{item}</span>
                   </Link>
                 </motion.div>
               );
