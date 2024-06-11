@@ -22,7 +22,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^14.0.5",
-    "react-icons": "^5.0.1",
     "react-lazy-load-image-component": "^1.6.0",
     "react-router-dom": "^6.21.3",
     "split-type": "^0.3.4"

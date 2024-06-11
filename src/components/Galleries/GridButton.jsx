@@ -1,30 +1,33 @@
+import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Flip } from "gsap/Flip";
-import { useEffect, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 gsap.registerPlugin(Flip);
 
 const GridButton = ({ setIsGridClick, isGridClick }) => {
   const [isHover, setIsHover] = useState(false);
+  const gridButtonRef = useRef(null);
+  const textRef = useRef(null);
 
-  const handleEnterHover = () => {
+  const handleEnterHover = useCallback(() => {
     setIsHover(true);
-  };
-  const handleLeaveHover = () => {
+  }, []);
+
+  const handleLeaveHover = useCallback(() => {
     setIsHover(false);
-  };
+  }, []);
 
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     setIsGridClick((prev) => !prev);
-  };
+  }, []);
 
-  useEffect(() => {
+  const animateGridButton = () => {
     if (isGridClick) {
       handleClick();
-      const gridButton = document.querySelector(".grid-button");
-
-      const items = gsap.utils.toArray(
-        ".grid-button .first, .grid-button .second, .grid-button .third, .grid-button .fourth"
-      );
+      const gridButton = gridButtonRef.current;
+      const items = gsap.utils.toArray(".grid-button > div").map((element) => {
+        return element;
+      });
 
       const state = Flip.getState(items);
 
@@ -49,15 +52,16 @@ const GridButton = ({ setIsGridClick, isGridClick }) => {
         }
       );
     }
-  }, [isGridClick, setIsGridClick, handleClick]);
+  };
 
-  /* Animation pour hover du GridButton
-   * Au survol du GridButton (div.grid-button), le texte "Change the view" (div.text-view p) apparaît avec un effet de transition.
-   */
-  useEffect(() => {
+  useGSAP(animateGridButton, {
+    dependencies: [isGridClick, setIsGridClick, handleClick],
+  });
+
+  const animateTextView = () => {
     if (isHover) {
       gsap.fromTo(
-        ".text-view p",
+        textRef.current,
         {
           y: 10,
           opacity: 0,
@@ -72,7 +76,7 @@ const GridButton = ({ setIsGridClick, isGridClick }) => {
         }
       );
     } else {
-      gsap.to(".text-view p", {
+      gsap.to(textRef.current, {
         opacity: 0,
         transition: {
           duration: 0.5,
@@ -80,22 +84,20 @@ const GridButton = ({ setIsGridClick, isGridClick }) => {
         },
       });
     }
-  }, [isHover]);
-
-  /* Flip Animation lors du click sur grid button
-   * Lorsque je clique sur le gridButton le contenu de la page s'anime avec un effet de transition.
-   */
+  };
+  useGSAP(animateTextView, { dependencies: [isHover] });
 
   return (
     <>
       <div className="text-view">
-        <p>change view</p>
+        <p ref={textRef}>change view</p>
       </div>
       <div
+        ref={gridButtonRef}
         className="grid-button"
-        onMouseEnter={() => handleEnterHover()}
-        onMouseLeave={() => handleLeaveHover()}
-        onClick={() => handleClick()}
+        onMouseEnter={handleEnterHover}
+        onMouseLeave={handleLeaveHover}
+        onClick={handleClick}
       >
         <div className="first"></div>
         <div className="second"></div>
