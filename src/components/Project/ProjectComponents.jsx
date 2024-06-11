@@ -1,3 +1,4 @@
+import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import React, { forwardRef, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
@@ -7,28 +8,36 @@ import {
   priceReviewsData,
 } from "../../data/data";
 
+const useGSAPAnimation = (dataRef, triggerRef) => {
+  useGSAP(
+    () => {
+      gsap.fromTo(
+        dataRef.current.map((ref) => ref.current),
+        { opacity: 0, y: 15 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          stagger: 0.1,
+          ease: "power3.inOut",
+          scrollTrigger: {
+            trigger: triggerRef.current,
+            start: "top 75%",
+            end: "bottom 60%",
+          },
+        }
+      );
+    },
+    { dependencies: [dataRef, triggerRef] }
+  );
+};
+
 export const Exposition = forwardRef((_, ref) => {
   const expositionDataRef = useRef(activityData.map(() => React.createRef()));
   const { t } = useTranslation();
 
-  useEffect(() => {
-    gsap.fromTo(
-      expositionDataRef.current.map((ref) => ref.current),
-      { opacity: 0, y: 15 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        stagger: 0.1,
-        ease: "power3.inOut",
-        scrollTrigger: {
-          trigger: ref.current,
-          start: "top 75%",
-          end: "bottom 60%",
-        },
-      }
-    );
-  }, [expositionDataRef, ref]);
+  useGSAPAnimation(expositionDataRef, ref);
+
   return (
     <div ref={ref} className="exposition-container">
       <div className="infos-container">
@@ -60,26 +69,7 @@ Exposition.displayName = "Exposition";
 export const Activity = forwardRef((_, ref) => {
   const activityDataRef = useRef(activityData.map(() => React.createRef()));
   const { t } = useTranslation();
-
-  useEffect(() => {
-    gsap.fromTo(
-      activityDataRef.current.map((ref) => ref.current),
-      { opacity: 0, y: 15 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.5,
-        stagger: 0.1,
-        ease: "power3.inOut",
-        scrollTrigger: {
-          trigger: ref.current,
-          start: "top 75%",
-          end: "bottom 60%",
-        },
-      }
-    );
-  }, [activityDataRef, ref]);
-
+  useGSAPAnimation(activityDataRef, ref);
   return (
     <div ref={ref} className="activity-container">
       <div className="infos-container">
@@ -93,7 +83,7 @@ export const Activity = forwardRef((_, ref) => {
                 ref={activityDataRef.current[index]}
                 className={`project${index} 
                 }`}
-                key={index}
+                key={expo.id}
               >
                 <span>{expo.date}</span>
                 <p>{expo.title}</p>

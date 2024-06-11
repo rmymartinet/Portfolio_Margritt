@@ -79,7 +79,7 @@ export const slideText = {
 export const slideNav = {
   initial: {
     x: 0,
-    opacity: 0,
+    opacity: 0, // Mettre l'opacité à 1 seulement pour l'élément avec l'index 1
   },
 
   enter: {
