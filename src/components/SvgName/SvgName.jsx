@@ -1,6 +1,7 @@
+import { useGSAP } from "@gsap/react";
 import { useInView } from "framer-motion";
 import gsap from "gsap";
-import { useLayoutEffect, useRef } from "react";
+import { useRef } from "react";
 
 export default function SvgName({ textColor }) {
   const mRef = useRef(null);
@@ -23,28 +24,31 @@ export default function SvgName({ textColor }) {
     });
   };
 
-  useLayoutEffect(() => {
-    animateRef(mRef, 200);
-    animateRef(aRef, 200);
-    animateRef(rRef, 200);
-    animateRef(gRef, 200);
-    animateRef(rRef2, 200);
-    animateRef(iRef, 200);
-    animateRef(tRef, 200);
-    animateRef(t2Ref, 200);
-    animateRef(eRef, 200);
+  useGSAP(
+    () => {
+      animateRef(mRef, 200);
+      animateRef(aRef, 200);
+      animateRef(rRef, 200);
+      animateRef(gRef, 200);
+      animateRef(rRef2, 200);
+      animateRef(iRef, 200);
+      animateRef(tRef, 200);
+      animateRef(t2Ref, 200);
+      animateRef(eRef, 200);
 
-    if (isInView) {
-      animateRef(mRef, 0, 0.98);
-      animateRef(aRef, 0, 0.8);
-      animateRef(rRef, 0, 0.4);
-      animateRef(gRef, 0, 0.2);
-      animateRef(rRef2, 0, 0.2);
-      animateRef(iRef, 0, 0.4);
-      animateRef(tRef, 0, 0.8);
-      animateRef(t2Ref, 0, 0.98);
-    }
-  }, [isInView]);
+      if (isInView) {
+        animateRef(mRef, 0, 0.98);
+        animateRef(aRef, 0, 0.8);
+        animateRef(rRef, 0, 0.4);
+        animateRef(gRef, 0, 0.2);
+        animateRef(rRef2, 0, 0.2);
+        animateRef(iRef, 0, 0.4);
+        animateRef(tRef, 0, 0.8);
+        animateRef(t2Ref, 0, 0.98);
+      }
+    },
+    { dependencies: [isInView] }
+  );
   return (
     <svg
       ref={svgRef}
