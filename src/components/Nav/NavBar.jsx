@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./Navbar.scss";
 
-import Logo from "../Common/Logo.jsx";
+import Logo from "../Common/Logo/Logo.jsx";
 import MobileNav from "./MobileNav.jsx";
 import Nav from "./Nav.jsx";
 

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
-import Logo from "../Common/Logo";
+import Logo from "../Common/Logo/Logo";
 import "./Nav.scss";
 
 const Nav = () => {

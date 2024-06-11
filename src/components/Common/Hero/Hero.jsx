@@ -1,5 +1,5 @@
-import { TitleTransition } from "../Animations/TextAnimation";
-import Divider from "./Divider";
+import { TitleTransition } from "../../Animations/TextAnimation";
+import Divider from "../Divider";
 import "./Hero.scss";
 
 const Hero = ({ title }) => {

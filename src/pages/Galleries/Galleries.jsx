@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Transition } from "../../components/Animations/PageTransition/Transition.jsx";
 import { TextTransition } from "../../components/Animations/TextAnimation.jsx";
 import Circle from "../../components/Common/Circle.jsx";
-import Hero from "../../components/Common/Hero.jsx";
+import Hero from "../../components/Common/Hero/Hero.jsx";
 import Form from "../../components/Form/Form.jsx";
 import FilterButton from "../../components/Galleries/FilterButton.jsx";
 import GridButton from "../../components/Galleries/GridButton.jsx";

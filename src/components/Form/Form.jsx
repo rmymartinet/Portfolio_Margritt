@@ -1,7 +1,9 @@
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
+import { CONTACT_INFO } from "../../data/dataContactInfos";
 import Divider from "../Common/Divider";
 import InfoItem from "../Common/InfoItem";
+import UseLocalTime from "../Common/UseLocalTime";
 import SvgName from "../SvgName/SvgName";
 import "./Form.scss";
 
@@ -12,30 +14,13 @@ const Form = () => {
   });
 
   const formContainerRef = useRef(null);
-
   const y = useTransform(scrollYProgress, [0, 0.5], [-500, 0]);
 
   const dividerInView = useInView(formContainerRef, {
     threshold: 0.5,
   });
 
-  const [time, setTime] = useState(
-    new Date().toLocaleTimeString("fr-FR", {
-      timeZone: "Europe/Paris",
-    })
-  );
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTime(
-        new Date().toLocaleTimeString("fr-FR", { timeZone: "Europe/Paris" })
-      );
-    }, 1000);
-
-    return () => {
-      clearInterval(timer);
-    };
-  }, []);
+  const localTime = UseLocalTime();
 
   return (
     <motion.section
@@ -48,20 +33,22 @@ const Form = () => {
           <p>Let's discuss</p>
         </div>
         <div className="mail">
-          <a href="mailto:margrittmartinet@gmail.com">
-            margrittmartinet@gmail.com
-          </a>
+          <a href={`mailto: ${CONTACT_INFO.email}`}>{CONTACT_INFO.email}</a>
         </div>
       </div>
       {dividerInView && <Divider className="form-divider" />}
       <div className="infos">
-        <InfoItem label="Local Time" value={time} className="local-time" />
-        <InfoItem label="Number" value="+33.7.83.40.51.05" className="number" />
+        <InfoItem label="Local Time" value={localTime} className="local-time" />
+        <InfoItem
+          label="Number"
+          value={CONTACT_INFO.number}
+          className="number"
+        />
         <InfoItem
           label="Instagram"
           value={
             <a
-              href="https://www.instagram.com/maargriitt/"
+              href={CONTACT_INFO.instagram}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -74,7 +61,7 @@ const Form = () => {
           label="Made by"
           value={
             <a
-              href="https://www.linkedin.com/in/martinetr%C3%A9my/"
+              href={CONTACT_INFO.linkedin}
               target="_blank"
               rel="noopener noreferrer"
             >
