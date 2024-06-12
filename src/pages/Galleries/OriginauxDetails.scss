@@ -9,7 +9,7 @@
 }
 
 .scroll-zoom {
-  height: 370vh;
+  height: 300vh;
   position: relative;
 
   .product-info {
@@ -69,8 +69,8 @@
         .image-container {
           top: -15vh;
           left: 25vw;
-          width: 15vw;
-          height: 5vh;
+          width: 29vw;
+          height: 20vh;
         }
       }
       &:nth-of-type(2) {
@@ -86,9 +86,9 @@
         .image-container,
         .futurama3-container {
           top: -4vh;
-          left: -27vw;
-          width: 20vw;
-          height: 45vh;
+          left: -30vw;
+          width: 35vw;
+          height: 35vh;
         }
       }
 
@@ -107,8 +107,8 @@
           rotate: 90deg;
           top: 33vh;
           left: -20vw;
-          width: 15vw;
-          height: 15vh;
+          width: 35vw;
+          height: 35vh;
         }
       }
 
@@ -126,8 +126,8 @@
         .futurama3-container {
           top: 30vh;
           left: 20vw;
-          width: 15vw;
-          height: 15vh;
+          width: 25vw;
+          height: 25vh;
         }
       }
     }

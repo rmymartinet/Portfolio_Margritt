@@ -7,6 +7,7 @@ export const ZoomAnimation = ({ selectedImage, scrollZoom }) => {
   const allImages = useMemo(() => {
     return Object.keys(selectedImage).filter((key) => key.includes("img"));
   }, [selectedImage]);
+
   const { scrollYProgress } = useScroll({
     target: scrollZoom,
     offset: ["start start", "end end"],
@@ -44,43 +45,53 @@ export const ZoomAnimation = ({ selectedImage, scrollZoom }) => {
     },
   ];
 
-  useGSAP(
-    () => {
-      const allImagesContainer = document.querySelectorAll(".details-image");
+  useGSAP(() => {
+    const allImagesContainer = document.querySelectorAll(".details-image");
 
-      const scales = [4, 5, 6, 7, 8];
+    const scales = [4, 5, 6, 7, 8];
 
-      allImagesContainer.forEach((image, i) => {
-        gsap.to(image, {
-          scale: scales[i],
-          force3D: false,
-          scrollTrigger: {
-            trigger: scrollZoom,
-            start: "top top",
-            end: "bottom 50%",
-            scrub: true,
-          },
-        });
+    allImagesContainer.forEach((image) => {
+      gsap.to(image, {
+        scale: scales,
+        force3D: false,
+        scrollTrigger: {
+          trigger: scrollZoom,
+          start: "top top",
+          end: "bottom center",
+          scrub: true,
+        },
       });
-    },
-    { dependencies: [scrollZoom] }
-  );
+    });
+  });
 
   return (
     <>
       {allImages.length > 2
-        ? pictures.map(({ src }, index) => {
+        ? pictures.map(({ src, scale }, index) => {
             return (
-              <motion.div key={index} className="details-image">
+              <motion.div
+                style={{ scale }}
+                key={index}
+                className="details-image"
+              >
                 <div className={validateIndex}>
-                  <img src={src} alt="image" placeholder="blur" />
+                  <img
+                    loading="lazy"
+                    src={src}
+                    alt="image"
+                    placeholder="blur"
+                  />
                 </div>
               </motion.div>
             );
           })
-        : pictures.slice(0, 1).map(({ src }, index) => {
+        : pictures.slice(0, 1).map(({ src, scale }, index) => {
             return (
-              <motion.div key={index} className="details-image">
+              <motion.div
+                style={{ scale }}
+                key={index}
+                className="details-image"
+              >
                 <div className={validateIndex}>
                   <img src={src} alt="image" placeholder="blur" />
                 </div>
