@@ -1,5 +1,5 @@
-import { useEffect } from "react";
 import { gsap } from "gsap";
+import { useEffect } from "react";
 
 const useHoverEvents = (refs) => {
   useEffect(() => {
@@ -29,8 +29,10 @@ const useHoverEvents = (refs) => {
 
     return () => {
       infosOeuvres.forEach((b) => {
-        b.removeEventListener("mouseover", handleMouseOver);
-        b.removeEventListener("mouseout", handleMouseOut);
+        if (b) {
+          b.removeEventListener("mouseover", handleMouseOver);
+          b.removeEventListener("mouseout", handleMouseOut);
+        }
       });
     };
   }, [refs]);

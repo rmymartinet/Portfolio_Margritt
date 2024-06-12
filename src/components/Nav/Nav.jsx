@@ -29,6 +29,7 @@ const Nav = () => {
 
   useEffect(() => {
     const currentPath = location.pathname;
+    console.log(currentPath);
     const currentIndex = navItems.findIndex(
       (item) => `/${item.toLowerCase().replace(/ /g, "-")}` === currentPath
     );
