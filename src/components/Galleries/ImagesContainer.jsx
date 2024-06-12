@@ -16,8 +16,6 @@ const ImagesContainer = ({
   isGridClick,
   //eslint-disable-next-line
   isButtonFilterIsClicked,
-  //eslint-disable-next-line
-  isCategoryIsClicked,
 }) => {
   let navigate = useNavigate();
   const imgContainerRef = useRef(null);
@@ -55,39 +53,9 @@ const ImagesContainer = ({
       });
     }
   };
-  const animateImages = () => {
-    if (isCategoryIsClicked === "tirages") {
-      gsap.from("img", {
-        clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)",
-        opacity: 1,
-        duration: 2,
-        ease: "power2.out",
-      });
-      gsap.to("img", {
-        clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)",
-        opacity: 1,
-        duration: 2,
-        ease: "power2.out",
-      });
-    } else {
-      gsap.from("img", {
-        clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)",
-        duration: 2,
-        ease: "power3.inOut",
-      });
-      gsap.to("img", {
-        clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)",
-        scale: 1,
-        forced3D: false,
-        duration: 2,
-        ease: "power3.inOut",
-      });
-    }
-  };
 
   useGSAP(animateGridButton, { dependencies: [isGridClick] });
   useGSAP(animateButtonFilter, { dependencies: [isButtonFilterIsClicked] });
-  useGSAP(animateImages, { dependencies: [isCategoryIsClicked] });
 
   return (
     <motion.div className="grid-images-content" exit="exit">
