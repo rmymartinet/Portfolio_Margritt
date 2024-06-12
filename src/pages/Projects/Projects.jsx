@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
+import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import {
   Activity,
@@ -15,9 +16,9 @@ const Projects = () => {
   const expositionRef = useRef(null);
   const priceReviewRef = useRef(null);
 
-  useEffect(() => {
+  const animateFromTo = (ref) => {
     gsap.fromTo(
-      expositionRef.current,
+      ref.current,
       { opacity: 0, y: 30 },
       {
         opacity: 1,
@@ -31,37 +32,16 @@ const Projects = () => {
         },
       }
     );
-    gsap.fromTo(
-      activityRef.current,
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "power3.inOut",
-        scrollTrigger: {
-          trigger: activityRef.current,
-          start: "top bottom",
-          end: "bottom 60%",
-        },
-      }
-    );
-    gsap.fromTo(
-      priceReviewRef.current,
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "power3.inOut",
-        scrollTrigger: {
-          trigger: priceReviewRef.current,
-          start: "top bottom",
-          end: "bottom 60%",
-        },
-      }
-    );
-  }, [expositionRef, activityRef, priceReviewRef]);
+  };
+
+  useGSAP(
+    () => {
+      animateFromTo(expositionRef);
+      animateFromTo(activityRef);
+      animateFromTo(priceReviewRef);
+    },
+    { dependencies: [expositionRef, activityRef, priceReviewRef] }
+  );
 
   return (
     <>
