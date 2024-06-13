@@ -55,7 +55,6 @@ const MobileNav = () => {
           >
             <p>Navigation</p>
           </motion.div>
-
           <div className="links-container">
             {navItems.map((item, index) => {
               const path =

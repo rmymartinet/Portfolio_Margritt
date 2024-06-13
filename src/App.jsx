@@ -6,7 +6,6 @@ import "./styles/locomotive.css";
 
 import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useCount } from "./components/Common/Counter.jsx";
 import Landing from "./components/Loading/Landing.jsx";
 import NavBar from "./components/Nav/NavBar/NavBar.jsx";
 import About from "./pages/About/About.jsx";
@@ -15,16 +14,14 @@ import Gallery from "./pages/Galleries/Galleries.jsx";
 import OriginauxDetails from "./pages/Galleries/OriginauxDetails/OriginauxDetails.jsx";
 import TirageDetails from "./pages/Galleries/TiragesDetails/TiragesDetails.jsx";
 import Home from "./pages/Home/Home.jsx";
+import useCountStore from "./store/useCountStore.jsx";
 
 function App() {
   const { t } = useTranslation();
   const [showLanding, setShowLanding] = useState(
     !localStorage.getItem("visited")
   );
-
   const [isVisited, setIsVisited] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-  const isRender = useCount();
   const location = useLocation();
 
   useEffect(() => {
@@ -67,10 +64,16 @@ function App() {
     };
   }, [handleBeforeUnload]);
 
+  const count = useCountStore((state) => state.count);
+  const startCounting = useCountStore((state) => state.startCounting);
+
+  useEffect(() => {
+    startCounting();
+  }, [startCounting]);
+
   const handleRender = useCallback(() => {
-    if (isRender === 100) {
+    if (count === 100) {
       const timer = setTimeout(() => {
-        setIsLoading(false);
         if (!localStorage.getItem("visited")) {
           setShowLanding(true);
         }
@@ -80,14 +83,13 @@ function App() {
       }, 1600);
       return () => clearTimeout(timer);
     }
-  }, [isRender]);
+  }, [count]);
 
   useEffect(handleRender, [handleRender]);
 
   useEffect(() => {
-    if (isRender === 100) {
+    if (count === 100) {
       setTimeout(() => {
-        setIsLoading(false);
         if (!localStorage.getItem("visited")) {
           setShowLanding(true);
         }
@@ -96,12 +98,12 @@ function App() {
         document.body.style.cursor = "default";
       }, 1600);
     }
-  }, [isRender]);
+  }, [count]);
 
   return (
     <>
       {showLanding && <Landing />}
-      {!isLoading && (
+      {!showLanding && (
         <AnimatePresence initial={false} mode="wait">
           <NavBar />
           <Routes location={location} key={location.pathname}>

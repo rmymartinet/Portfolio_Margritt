@@ -1,39 +1,35 @@
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
-import { useRef } from "react";
-import { useCount } from "../Common/Counter";
+import { useEffect, useRef } from "react";
+import useCountStore from "../../store/useCountStore";
 import "./Landing.scss";
 
 const Landing = () => {
-  const countValue = useCount();
+  const count = useCountStore((state) => state.count);
   const landindSquareRef = useRef(null);
 
   useGSAP(() => {
     gsap.fromTo(
       landindSquareRef.current,
-      {
-        width: 0,
-      },
+      { width: 0 },
       {
         duration: 3.5,
-        width: "100vw",
+        width: "100%",
         ease: "power4.inOut",
       }
     );
   });
-  useGSAP(
-    () => {
-      if (countValue === 100) {
-        gsap.to(landindSquareRef.current, {
-          duration: 2,
-          width: "100vw",
-          height: "100vh",
-          ease: "power3.inOut",
-        });
-      }
-    },
-    { dependencies: [countValue] }
-  );
+
+  useEffect(() => {
+    if (count === 100) {
+      gsap.to(landindSquareRef.current, {
+        duration: 2,
+        width: "100%",
+        height: "100%",
+        ease: "power3.inOut",
+      });
+    }
+  }, [count]);
 
   return (
     <div className="landing-container">
@@ -42,7 +38,7 @@ const Landing = () => {
       </div>
       <div className="landing-content">
         <p>2024</p>
-        <p>loading {countValue}%</p>
+        <p>loading {count}%</p>
       </div>
     </div>
   );

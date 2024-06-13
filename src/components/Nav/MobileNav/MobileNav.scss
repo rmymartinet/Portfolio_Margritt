@@ -4,6 +4,7 @@
 .menu-mobile {
   z-index: 9999998;
   overflow: hidden;
+  width: 100vw;
   background-color: $primary-color;
 
   .nav-container {

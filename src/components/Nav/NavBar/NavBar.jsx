@@ -20,7 +20,7 @@ const NavBar = () => {
   }, [dimension.width]);
 
   return (
-    <nav>
+    <>
       {isMobile && (
         <>
           <div className="logo-mobile">
@@ -36,9 +36,9 @@ const NavBar = () => {
               >
                 {isActive ? <p>Close</p> : <p>Menu</p>}
               </div>
-              {isActive && <MobileNav isActive={isActive} />}
             </div>
           </div>
+          {isActive && <MobileNav />}
         </>
       )}
 
@@ -47,7 +47,7 @@ const NavBar = () => {
           <Nav />
         </div>
       )}
-    </nav>
+    </>
   );
 };
 
