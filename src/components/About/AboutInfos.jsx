@@ -1,7 +1,8 @@
+import { useGSAP } from "@gsap/react";
 import { useInView } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { forwardRef, useEffect, useRef } from "react";
+import { forwardRef, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { about } from "../../data/dataImages";
 import { TextTransition } from "../Animations/TextAnimation";
@@ -43,33 +44,31 @@ const AboutContent = forwardRef((_, ref) => {
   const imagesScaleAnimation = (element) => {
     gsap.registerPlugin(ScrollTrigger);
 
-    const context = gsap.context(() => {
-      gsap.to(element, {
-        scale: 1.15,
-        scrollTrigger: {
-          trigger: ".right-img",
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
+    gsap.to(element, {
+      scale: 1.15,
+      scrollTrigger: {
+        trigger: ".right-img",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true,
+      },
     });
-
-    return context;
   };
 
-  useEffect(() => {
+  useGSAP(() => {
     if (isImgInView) {
       imageReveal(".left-wrapper img");
     }
   }, [isImgInView]);
 
-  useEffect(() => {
+  useGSAP(() => {
     imagesScaleAnimation(".right-img img");
-  }, []);
+  });
 
-  //ANIMATION LEFT CONTENT
-  useEffect(() => {
+  /*------------
+  Animation left content
+  -------------*/
+  useGSAP(() => {
     gsap.context(() => {
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -106,7 +105,7 @@ const AboutContent = forwardRef((_, ref) => {
         );
       }
     });
-  }, []);
+  });
 
   return (
     <div className="about-content" ref={ref}>
