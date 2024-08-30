@@ -62,17 +62,13 @@ const AboutContent = forwardRef((_, ref) => {
   }, [isImgInView]);
 
   useGSAP(() => {
-  useGSAP(() => {
     imagesScaleAnimation(".right-img img");
   });
 
   /*------------
   Animation left content
   -------------*/
-  useGSAP(() => {
-  /*------------
-  Animation left content
-  -------------*/
+
   useGSAP(() => {
     gsap.context(() => {
       const tl = gsap.timeline({
@@ -110,7 +106,6 @@ const AboutContent = forwardRef((_, ref) => {
         );
       }
     });
-  });
   });
 
   return (

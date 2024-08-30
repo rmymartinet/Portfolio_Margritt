@@ -11,14 +11,8 @@ import Circle from "../../components/Common/Circle.jsx";
 import useWindow from "../../components/Common/UseWindows.jsx";
 import Form from "../../components/Form/Form.jsx";
 import GeneratePosition from "../../components/Home/GeneratePosition.jsx";
-import initialAnimations from "../../components/Home/InitialAnimation.jsx";
-import useHoverEvents from "../../components/Home/useHoverEvents.jsx";
-import useScrollTriggerAnimation from "../../components/Home/useScrollTriggerAnimations.jsx";
-import { originauxData } from "../../data/data";
-import { dataVideo } from "../../data/dataVideo.js";
-import GeneratePosition from "../../components/Home/GeneratePosition.jsx";
 import ScrollContainer from "../../components/Home/ScrollContainer.jsx";
-import { originauxData } from "../../data/data.js";
+import { originauxData } from "../../data/data";
 import { dataVideo } from "../../data/dataVideo.js";
 import Projects from "../Projects/Projects.jsx";
 import "./Home.scss";
@@ -29,6 +23,7 @@ gsap.registerPlugin(ScrollTrigger);
 const ANIMATION_MINIMUM_WIDTH = 1024;
 
 const Home = () => {
+  const infosOeuvresRefs = useRef([]);
   const { dimension } = useWindow();
   const scrollImg = [img1, img2];
   const oeuvresData = originauxData;

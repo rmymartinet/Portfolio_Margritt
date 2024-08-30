@@ -24,6 +24,8 @@ function App() {
   const [isVisited, setIsVisited] = useState(false);
   const location = useLocation();
 
+  const isRender = useCountStore((state) => state.isRender);
+
   useEffect(() => {
     (async () => {
       const LocomotiveScroll = (await import("locomotive-scroll")).default;

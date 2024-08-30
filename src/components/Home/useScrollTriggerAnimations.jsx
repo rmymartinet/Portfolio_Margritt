@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect } from "react";
-=======
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect } from "react";
->>>>>>> 329aa21596f45a89d44bc4dca458bce38e1a0b16
 
 gsap.registerPlugin(ScrollTrigger);
 
