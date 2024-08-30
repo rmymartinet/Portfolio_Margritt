@@ -1,9 +1,9 @@
+import { useGSAP } from "@gsap/react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
-import { useEffect } from "react";
 
 const Divider = ({ className }) => {
-  useEffect(() => {
+  useGSAP(() => {
     gsap.to(`.${className}`, {
       width: "100%",
       duration: 2,
