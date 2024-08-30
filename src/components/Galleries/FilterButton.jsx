@@ -1,4 +1,6 @@
+import { useMemo } from "react";
 import { galleriesData } from "../../data/data";
+import FilterButtonComponent from "./FilterButtonComponent";
 
 const FilterButton = ({
   setItem,
@@ -8,65 +10,55 @@ const FilterButton = ({
   const [originaux, tirages] = galleriesData;
   const totalWorks = originaux.length;
 
-  const largeFormat = originaux.filter(
-    (item) => item.formatOriginaux === "large"
-  );
-  const mediumFormat = originaux.filter(
-    (item) => item.formatOriginaux === "medium"
+  const largeFormat = useMemo(
+    () => originaux.filter((item) => item.dimension === "large"),
+    [originaux]
   );
 
+  const mediumFormat = useMemo(
+    () => originaux.filter((item) => item.formatOriginaux === "medium"),
+    [originaux]
+  );
   return (
     <>
       <div className="filter-button">
-        <div
-          className=""
-          style={{
-            opacity: isButtonFilterIsClicked === "all" ? 1 : 0.5,
-          }}
+        <FilterButtonComponent
           onClick={() => {
             setIsButtonFilterIsClicked("all");
             setItem([...originaux]);
           }}
+          isActive={isButtonFilterIsClicked === "all"}
         >
           ({totalWorks}) All
-        </div>
-        <div
-          className=""
-          style={{
-            opacity: isButtonFilterIsClicked === "originaux large" ? 1 : 0.5,
-          }}
+        </FilterButtonComponent>
+        <FilterButtonComponent
           onClick={() => {
             setIsButtonFilterIsClicked("originaux large");
             setItem(largeFormat);
           }}
+          isActive={isButtonFilterIsClicked === "originaux large"}
         >
           ({largeFormat.length}) Originaux Large
-        </div>
-        <div
-          className=""
-          style={{
-            opacity: isButtonFilterIsClicked === "originaux medium" ? 1 : 0.5,
-          }}
+        </FilterButtonComponent>
+        <FilterButtonComponent
           onClick={() => {
             setIsButtonFilterIsClicked("originaux medium");
             setItem(mediumFormat);
           }}
+          isActive={isButtonFilterIsClicked === "originaux medium"}
         >
           ({mediumFormat.length}) Originaux Medium
-        </div>
-        <div
-          className=""
-          style={{
-            opacity:
-              isButtonFilterIsClicked === "tirages disponibles" ? 1 : 0.5,
-          }}
+        </FilterButtonComponent>
+
+        <FilterButtonComponent
           onClick={() => {
             setIsButtonFilterIsClicked("tirages disponibles");
             setItem(tirages);
           }}
+          isActive={isButtonFilterIsClicked === "tirages disponibles"}
         >
           ({tirages.length}) Tirages disponibles
-        </div>
+        </FilterButtonComponent>
       </div>
     </>
   );

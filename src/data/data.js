@@ -18,6 +18,7 @@ export const originauxData = [
     title: "Bibulle 1",
     serie: "Bibulle",
     piece: "1re",
+    dimension: "large",
     date: "2019 - 2020",
     format: "120 x 80 cm",
     tirage: "10 exemplaires numérotés / signés par l'artiste",
@@ -41,6 +42,7 @@ export const originauxData = [
     serie: "Bibulle",
     piece: "2ᵉ ",
     date: "2023 - 2024",
+    dimension: "large",
     format: "120 x 80 cm",
     tirage: "10 exemplaires numérotés / signés par l'artiste",
     papier: PAPER_TYPES.LAVIS_VINCI,
@@ -107,6 +109,7 @@ export const originauxData = [
     serie: "Bibulle",
     piece: "5ᵉ",
     date: "2020",
+    dimension: "large",
     format: "120 x 80 cm",
     tirage: "10 exemplaires numérotés / signés par l'artiste",
     papier: PAPER_TYPES.LAVIS_VINCI,
@@ -126,6 +129,7 @@ export const originauxData = [
     serie: "Bibulle",
     piece: "Original",
     date: "2019",
+    dimension: "large",
     format: "2,60 x 3,8 m",
     tirage: "10 exemplaires numérotés / signés par l'artiste",
     papier: PAPER_TYPES.CLAIREFONTAINE,
@@ -144,6 +148,7 @@ export const originauxData = [
     serie: "Futurama",
     piece: "1re",
     date: "2019 - 2020",
+    dimension: "large",
     format: "120 x 80 cm",
     tirage: "10 exemplaires numérotés / signés par l'artiste",
     papier: PAPER_TYPES.LAVIS_VINCI,
@@ -210,6 +215,7 @@ export const originauxData = [
     serie: "Mécanique des Rêve",
     piece: "1ᵉ",
     date: "2016",
+    dimension: "large",
     format: "2,60 x 1,57 m",
     tirage: "10 exemplaires numérotés / signés par l'artiste",
     papier: PAPER_TYPES.FINE_ART_COTTON,
@@ -381,6 +387,7 @@ export const expositionData = [
 
 export const activityData = [
   {
+    id: 0,
     date: "2024",
     title:
       "Série Portrait - Sélection de 7 artistes dans le monde - BIC CREATOR",
@@ -388,63 +395,74 @@ export const activityData = [
   },
 
   {
+    id: 1,
     date: "2023",
     title:
       "Intervention à la Croix Rouge - Atelier avec les apprenantes en puériculture",
     location: "Angoulême",
   },
   {
+    id: 2,
     date: "2023",
     title: "Collaboration avec la marque « BIC »",
     location: "Paris",
   },
   {
+    id: 3,
     date: "2023",
     title:
       "Participation – Portrait d’Artiste- mémoire de fin d’année pour une étudiante en Art-thérapie",
     location: "Bellevigne",
   },
   {
+    id: 4,
     date: "2023",
     title:
       "Artiste intervenante – créations d’ateliers pour les écoles du grand Cognac",
     location: "Cognac",
   },
   {
+    id: 5,
     date: "2020",
     title: "Exposition personnelle – « Instinctual » - la Ruche,",
     location: "Nantes",
   },
   {
+    id: 6,
     date: "2022",
     title:
       "Participation artistique- proposition d’un visuel sur gobelet – la Friche des ponts",
     location: "Limoges",
   },
   {
+    id: 7,
     date: "2021",
     title:
       "Participation artistique – « Bibulle dans le milieu urbain » - la Friche des ponts",
     location: "Limoges",
   },
   {
+    id: 8,
     date: "2017",
     title:
       "Participation Workshops - rencontres régionales - Artistes de Christchurch",
     location: "Nouvelle Zélande",
   },
   {
+    id: 9,
     date: "2017",
     title:
       "Artiste intervenante auprès des personnes âgées atteintes de la maladie d’Alzheimer- Accueil de jour Kerélys",
     location: "Rennes",
   },
   {
+    id: 10,
     date: "2015",
     title: "Assistante stagiaire de galerie – Galerie Colette Clavreul",
     location: "Paris 3e",
   },
   {
+    id: 11,
     date: "2014",
     title: "Préparation et participation à une Exposition collective",
     location: "Brest",

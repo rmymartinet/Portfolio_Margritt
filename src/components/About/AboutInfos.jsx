@@ -62,9 +62,14 @@ const AboutContent = forwardRef((_, ref) => {
   }, [isImgInView]);
 
   useGSAP(() => {
+  useGSAP(() => {
     imagesScaleAnimation(".right-img img");
   });
 
+  /*------------
+  Animation left content
+  -------------*/
+  useGSAP(() => {
   /*------------
   Animation left content
   -------------*/
@@ -105,6 +110,7 @@ const AboutContent = forwardRef((_, ref) => {
         );
       }
     });
+  });
   });
 
   return (

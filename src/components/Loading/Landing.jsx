@@ -1,50 +1,44 @@
+import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
-import { useEffect, useLayoutEffect } from "react";
-import { useCount } from "../Common/Counter";
-
+import { useEffect, useRef } from "react";
+import useCountStore from "../../store/useCountStore";
 import "./Landing.scss";
 
 const Landing = () => {
-  const countValue = useCount();
+  const count = useCountStore((state) => state.count);
+  const landindSquareRef = useRef(null);
 
-  useEffect(() => {
+  useGSAP(() => {
     gsap.fromTo(
-      ".landing-square",
-      {
-        width: 0,
-      },
+      landindSquareRef.current,
+      { width: 0 },
       {
         duration: 3.5,
-        width: "100vw",
+        width: "100%",
         ease: "power4.inOut",
       }
     );
-  }, []);
-  useLayoutEffect(() => {
-    if (countValue === 100) {
-      let ctx = gsap.context(() => {
-        gsap.to(".landing-square", {
-          duration: 2,
-          width: "100vw",
-          height: "100vh",
-          ease: "power3.inOut",
-        });
-      });
+  });
 
-      return () => {
-        ctx.kill();
-      };
+  useEffect(() => {
+    if (count === 100) {
+      gsap.to(landindSquareRef.current, {
+        duration: 2,
+        width: "100%",
+        height: "100%",
+        ease: "power3.inOut",
+      });
     }
-  }, [countValue]);
+  }, [count]);
 
   return (
     <div className="landing-container">
-      <div className="landing-square">
+      <div ref={landindSquareRef} className="landing-square">
         <div className="landing-square__inner"></div>
       </div>
       <div className="landing-content">
         <p>2024</p>
-        <p>loading {countValue}%</p>
+        <p>loading {count}%</p>
       </div>
     </div>
   );
